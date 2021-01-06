@@ -1,0 +1,13 @@
+.header
+  +img('logo.svg').header__logo
+  ul.header__social
+    each val in ['telegram', 'facebook', 'instagram']
+      li
+        a(href="#").circle-ico.circle-ico--gray-border
+          +svg(val)
+  include ../component/lang.pug
+  button(type="button" data-parrent-node-popup).border-btn.header__call.header-nav-text замовити дзвінок
+  a(href="tel:+1234567890").header__tel.header-nav-text 123 456 78 90
+  button(type="button" data-parrent-node-menu data-menu-btn).header__menu.header-menu
+    span.header-menu__text меню
+    span.header-menu__burg
