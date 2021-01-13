@@ -1,5 +1,9 @@
 const proxy = "kiev-project";
+let webPackSetting = true;
+let typeScriptSetting = false;
 
+
+var fs = require('fs');
 const gulp = require('gulp');
 const rename = require('gulp-rename');
 const del = require('del');
@@ -46,19 +50,24 @@ const path = require('path');
 
 
 const paths = {
-		root: './dist',
+    root: './dist',
+    templateStyles: {
+        main: './src/assets/styles/pages',
+    },
 		templates: {
 				pages: './src/pug/pages/*.pug',
 				src: './src/pug/**/*.pug',
 				dest: './dist'
-		},
+    },
 		styles: { 
 				main: './src/assets/styles/main.scss',
+				importsFiles: 'src/assets/styles/assets/templates.scss',
+				stylesPages: 'src/assets/styles/pages',
 				src: './src/**/*.scss',
 				dest: './dist/assets/styles'
 		},
 		scripts: {
-				src: './src/assets/scripts/*.js',
+				src: './src/**/*.js',
 				dest: './dist/assets/scripts/'
 		},
 		ts: {
@@ -93,11 +102,17 @@ const paths = {
 
 // слежка
 function watch() {
+    gulp.watch(paths.templateStyles.main, watchScssTemplates);
 		gulp.watch(paths.styles.src, styles);
-		gulp.watch(paths.templates.src, templates);
-		//gulp.watch(paths.scripts.src, scripts); //for webpack
-		gulp.watch(paths.gulpModules.src, gulpModules);
-		gulp.watch(paths.ts.src, typeScript);
+    gulp.watch(paths.templates.src, templates);
+    if (webPackSetting) {
+      gulp.watch(paths.scripts.src, scripts); //for webpack
+    }
+    gulp.watch(paths.gulpModules.src, gulpModules);
+    if (typeScriptSetting) {
+      gulp.watch(paths.ts.src, typeScript);
+    }
+    
 		gulp.watch(paths.ts.src, testJsLint);
 		gulp.watch(paths.images.src, images);
 		gulp.watch(paths.fonts.src, fonts);
@@ -106,6 +121,26 @@ function watch() {
 		gulp.watch('./src/pug/**/*.html', templates);
 		gulp.watch('./src/assets/svg-sprite/*.*', svgSprite);
 }
+
+// creater templates scss
+
+function watchScssTemplates() {
+    scssTemplateCreater();
+    return gulp.src(paths.templates.pages);
+        // .pipe(gulp.dest(paths.root));
+}
+
+function scssTemplateCreater() {
+  
+  fs.readdir(paths.styles.stylesPages, (err, nameFiles) => {
+    const filesNameWithoutExt =  nameFiles.map(el => el.replace(/\.scss/g, ''));
+    const contentImportsFiles =  filesNameWithoutExt.reduce((acc, el) => acc += `@import './pages/${el}';\n`, ``);
+    
+    fs.writeFile(contentImportsFiles, paths.styles.importsFiles, null, ()=>{});
+  });
+  
+};
+
 
 // следим за build и релоадим браузер
 function server() {
@@ -116,6 +151,8 @@ function server() {
 		});
 		browserSync.watch(paths.root + '/**/*.*', browserSync.reload);
 }
+
+
 
 // очистка
 function clean() {
@@ -262,9 +299,22 @@ function libs() {
 
 exports.templates = templates;
 exports.styles = styles;
-//exports.scripts = scripts;
+
+let additionalTask = [];
+
+
+if (webPackSetting) {
+  exports.scripts = scripts;
+  additionalTask.push(scripts)
+}
+if (typeScriptSetting) {
+  exports.typeScript = typeScript;
+  additionalTask.push(typeScript)
+}
+
+
+
 exports.gulpModules = gulpModules;
-exports.typeScript = typeScript;
 exports.testJsLint = testJsLint;
 exports.images = images;
 exports.clean = clean;
@@ -272,12 +322,16 @@ exports.fonts = fonts;
 exports.svgSprite = svgSprite;
 exports.libs = libs;
 exports.static = static;
+exports.watchScssTemplates = watchScssTemplates;
+
 
 gulp.task('default', gulp.series(
+    watchScssTemplates,
 		svgSprite,
 		clean,
-		libs,
-		gulp.parallel(styles, templates, fonts, gulpModules, typeScript, testJsLint, images, static),
+    libs,
+    ...additionalTask,
+		gulp.parallel(styles, templates, fonts, gulpModules, testJsLint, images, static),
 		gulp.parallel(watch, server)
 ));
 

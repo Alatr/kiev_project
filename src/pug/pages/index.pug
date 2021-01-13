@@ -1,31 +1,84 @@
 
 extends ../layout/main
 block variable
-	-
-		var title_page = 'Квартира 2А'
-		var id_page = 'flat-page'
-		var class_page = 'flat-page'
-		var breadcrumbsBtn = 'filter'
-		var breadcrumbsSubitem = [
-			{
-				label: 'About',
-				link: pagesLink[0].about
-			}
-		]
-	
+  -
+    var title_page = 'Квартира 2А'
+    var id_page = 'flat-page'
+    var class_page = 'flat-page'
+    var breadcrumbsBtn = 'filter'
+    var breadcrumbsSubitem = [
+      {
+        label: 'About',
+        link: pagesLink[0].about
+      }
+    ]
+  
 block meta
-	title= title_page
-	meta(name='description', content='')
+  title= title_page
+  meta(name='description', content='')
 block head
-		link(rel='stylesheet', href="./assets/styles/main.min.css")
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
 block scripts
-	script(defer src='./assets/scripts/index.js')
-	script(defer src='./assets/scripts/home.js')
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/home.js')
 block content
-	.-content
-		//- include ../includes/breadcrumbs.pug
+  //- include ../includes/breadcrumbs.pug
+  section.home-section.home-section-live
+    .title-wrap
+      h2.title Жити
+    ul.info-list
+      each v in [1, 2, 3, 4, 5, 6]
+        li.info-list-item
+            span.info-list-item__ico
+              +svg('iro_0'+v)
+            span.info-list-item__text
+  section.home-section.home-section-works
+    .title-wrap
+      h2.title Працювати
+  section.home-section.home-section-rest
+    .title-wrap
+      h2.title Відпочивати
+  section.home-section.home-section-custom_1
+    h2.title_type_2
+      span все про 
+      span kyїvproekt
+  section.home-section.home-section-values
+    .title-wrap
+      h2.title Цінності
+  section.home-section.home-section-custom_1
+    h2.title_type_2
+      span kyїvproekt city space 
+      span тут народжуються тренди
+  section.home-section.home-section-appartments
+    .title-wrap
+      h2.title Квартири
+  section.home-section.home-section-developers
+    .title-wrap
+      h2.title Забудовники
+  section.home-section.home-section-contact
+    .title-wrap
+      h2.title Контакти
+  .contact-block
+    .contact-block__l.brd
+      123
+
+    .contact-block__r.brd
+      form(data-home-contact autocomplete="off")
+        .form-field.form-field-input(data-field-input data-field-name data-status="field--inactive")
+          input(type='text' name="name").form-field__input
+          .input-message(data-input-message) Ім’я:*
+        .form-field.disabled.form-field-input(data-field-input data-field-phone data-status="field--inactive")
+          input(type='text' name="phone").form-field__input
+          .input-message(data-input-message) Телефон:*
+        button( type="submit" data-btn-submit).home-content__link.link
+          span(data-btn-submit-text).link__text.usn Надіслати
+          span.link-ico.link-ico--margin
+            span.link-ico__stic.bgc--wc
+      .toast-wrapper(data-toast-wrapper)
 block footer
-	include ../includes/footer.pug
+  include ../includes/footer.pug
 
 block header
-	include ../includes/header.pug
+  include ../includes/header.pug

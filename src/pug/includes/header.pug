@@ -1,13 +1,26 @@
-.header
+header.header.brd
   +img('logo.svg').header__logo
   ul.header__social
     each val in ['telegram', 'facebook', 'instagram']
       li
         a(href="#").circle-ico.circle-ico--gray-border
           +svg(val)
-  include ../component/lang.pug
-  button(type="button" data-parrent-node-popup).border-btn.header__call.header-nav-text замовити дзвінок
-  a(href="tel:+1234567890").header__tel.header-nav-text 123 456 78 90
-  button(type="button" data-parrent-node-menu data-menu-btn).header__menu.header-menu
+  include ../components/lang/lang.pug
+  button(type="button" data-parrent-node-popup).btn--res.button-circle.header__call-form
+    <svg width="71" class='button-circle__ico' height="52" viewBox="0 0 71 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="45" cy="26" r="25" stroke="black"/>
+      <path d="M0 25.5L45 25.5M45 25.5L38.3182 18M45 25.5L38.3182 33" stroke="black"/>
+    </svg>
+    span.button-circle__text замовити дзвінок
+  a(href="tel:+1234567890").header__call.call-link
+    <svg width="12" class='circle-ico circle-ico--gray-border call-link__ico' height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M3.54662 4.5256L4.45265 3.47943C4.58731 3.32419 4.59599 3.10307 4.4745 2.93722L3.18441 1.17882C3.07417 1.02809 2.89033 0.965734 2.71098 1.01844C1.42507 1.39545 0.608389 2.51972 1.19173 4.11678C2.25781 7.03641 4.96303 9.74198 7.88327 10.8084C9.48062 11.3914 10.6046 10.5751 10.9816 9.28912C11.0343 9.10978 10.9719 8.92594 10.8212 8.8157L9.0628 7.52558C8.89696 7.40409 8.67584 7.41277 8.5206 7.54744L7.47445 8.45347C5.96933 7.83542 4.165 6.03106 3.54694 4.52592L3.54662 4.5256Z" stroke="black"/>
+    </svg>
+    span.call-link__text 123 456 78 90
+
+  button(type="button" data-parrent-node-menu data-menu-btn).btn--res.header__menu.header-menu
     span.header-menu__text меню
     span.header-menu__burg
+      span.line__1.line
+      span.line__2.line
+      span.line__3.line
