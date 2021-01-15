@@ -12,7 +12,15 @@ block variable
         link: pagesLink[0].about
       }
     ]
-  
+    var liveText = ['Для тих, хто хоче жити у самому серці столиці,<b> але не готовий жертвувати власною приватністю і комфортом.</b> ', '<b>Жити в серці міста,</b> в оточенні найбільш передової та трендової екосистеми.', '<b>Насолоджуватися</b> неперевершеним видом на місто.', 'Усе найбільш надихаюче, модне та актуальне — <b>у твоєму будинку.</b>', '<b>Користуватися найбільш сучасними</b> технологіями для життя.', 'Жити тут – це означає<b> жити у центрі тяжіння.</b>',]
+    var workText = ['Панорама міста, <b>яка надихає.</b>', 'Зручно доставатися у будь-яку точку центру.', '<b>Супер-сучасний коворкінг</b> у будинку.', '<b>Зручно доставатися</b> поблизу.']
+    var restText = ['<b>Десятки магазинів,</b> торгівельних центрів, кафе, ресторанів та нічних клубів поряд.', '<b>KITCHEN LAB у будинку:</b> велика кількість кафе і ресторанів під одним дахом.', '<b>Головна київська променада,</b> вулиця Хрещатик – 2 хвилини пішки.', 'KYЇVPROEKT CITY SPACE у будинку <b>– ідеальне місце для шопінгу.</b>', '<b>Чудові місця для пробіжок поблизу:</b> парк ім. Шевченка, Ботанічний сад ім. Фоміна.']
+    var valuesText = ["<b>Об'єднуємо таланти</b> заради позитивної трансформації Києва", "<b>KYЇVPROEKT – це экосистема,</b> яку усі стейкхолдери створюють разом", "Архітектура, дизайн, мистецтво та технології, доповнюючи один одне, створюють <b>нову життєву філософію</b>"]
+    var customText1 = ['Місце гордості та сили в серці столиці.', 'Поліфункциональний міський простір із комерційною, соціальною та освітньою функціями.', 'Масштабна платформа для найбільш передових брендів та ініціатив – в першу чергу, українських.', 'Більше 100 компаній та організацій резидентів.']
+
+
+
+
 block meta
   title= title_page
   meta(name='description', content='')
@@ -25,58 +33,144 @@ block scripts
   script(defer src='./assets/scripts/home.js')
 block content
   //- include ../includes/breadcrumbs.pug
+  // -----------------------------------
+  // -----------------------------------
   section.home-section.home-section-live
     .title-wrap
       h2.title Жити
     ul.info-list
-      each v in [1, 2, 3, 4, 5, 6]
-        li.info-list-item
-            span.info-list-item__ico
-              +svg('iro_0'+v)
-            span.info-list-item__text
+      each v, i in [1, 2, 3, 4, 5, 6]
+        +infoItem(liveText[i], 'iro_0'+v, 'info-list-item--black')
+  // -----------------------------------
+  // -----------------------------------
   section.home-section.home-section-works
     .title-wrap
       h2.title Працювати
+    ul.info-list
+      each v, i in [1, 2, 3, 4]
+        +infoItem(workText[i], 'home_work_0'+v, 'info-list-item--black')
+  // -----------------------------------
+  // -----------------------------------
   section.home-section.home-section-rest
     .title-wrap
       h2.title Відпочивати
+    ul.info-list
+      each v, i in [1, 2, 3, 4, 5, 6]
+        +infoItem(restText[i], 'home_rest_0'+v, 'info-list-item--black')
+  // -----------------------------------
+  // -----------------------------------
   section.home-section.home-section-custom_1
     h2.title_type_2
       span все про 
       span kyїvproekt
+  // -----------------------------------
+  // -----------------------------------
   section.home-section.home-section-values
-    .title-wrap
-      h2.title Цінності
-  section.home-section.home-section-custom_1
+    .home-section-values-l
+      .title-wrap
+        h2.title Цінності
+    .home-section-values-r
+      ul.home-section-values-list
+        each v, i in ['історія', 'натхнення', 'реновація', 'виміри', 'розташування']
+          li.home-section-values-item
+            a(href="#").home-section-values-link= v
+    .slider-wrapper
+      each v, i in [1, 2, 3, 4]
+        .slider-wrapper-item
+          .slider-wrapper-item__title цінності
+          .slider-wrapper-item__subtitle Синергія
+          .slider-wrapper-item__cnt= '0' + v
+          ul.info-list.slider-wrapper-item__list
+            each v, i in [1, 2, 3]
+              +infoItem(valuesText[i], 'home_values_0'+v, 'info-list-item--black')
+    
+  // -----------------------------------
+  // -----------------------------------
+  section.home-section.home-section-custom-1
     h2.title_type_2
       span kyїvproekt city space 
       span тут народжуються тренди
+    ul.info-list-custom_1
+      each v, i in [1, 2, 3, 4]
+        li !{customText1[i]}
+    a(href="#").tdn.button-circle.button-circle--black.home-section-custom-1__btn
+      <svg width="71" class='button-circle__ico' height="52" viewBox="0 0 71 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="45" cy="26" r="25"/>
+        <path d="M0 25.5L45 25.5M45 25.5L38.3182 18M45 25.5L38.3182 33"/>
+      </svg>
+      span.button-circle__text Дивитися розділ
+  // -----------------------------------
+  // -----------------------------------
   section.home-section.home-section-appartments
     .title-wrap
       h2.title Квартири
+    p.home-section-appartments__subtitle Об'єднуємо таланти заради позитивної трансформації Києва
+    a(href="#").tdn.button-circle.button-circle--black.home-section-appartments__btn
+      <svg width="71" class='button-circle__ico' height="52" viewBox="0 0 71 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="45" cy="26" r="25"/>
+        <path d="M0 25.5L45 25.5M45 25.5L38.3182 18M45 25.5L38.3182 33"/>
+      </svg>
+      span.button-circle__text Дивитися розділ
+  // -----------------------------------
+  // -----------------------------------
   section.home-section.home-section-developers
     .title-wrap
       h2.title Забудовники
+    ul.home-section-developers-list
+      li.home-section-developers-item
+        +img('logo-perfect.svg').home-section-developers-item__img.logo-perfect--size
+        h5.home-section-developers-item__title Perfect Group
+        p.home-section-developers-item__text 30 компаній ринку нерухомості, які об'єднані під цим брендом, забезпечують повний цикл робот – від початку до повного завершення будівництва.
+      li.home-section-developers-item
+        +img('logo-saga.svg').home-section-developers-item__img.logo-saga--size
+        h5.home-section-developers-item__title Saga development
+        p.home-section-developers-item__text Глобальна мета компанії – розвивати міста, спираючись на екосистему партнерства. Втілювати інноваційні та креативні рішення для комфортного життя поколінь.
+    a(href="#").tdn.button-circle.button-circle--black.home-section-appartments__btn
+      <svg width="71" class='button-circle__ico' height="52" viewBox="0 0 71 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="45" cy="26" r="25"/>
+        <path d="M0 25.5L45 25.5M45 25.5L38.3182 18M45 25.5L38.3182 33"/>
+      </svg>
+      span.button-circle__text Дивитися розділ
+        
+  // -----------------------------------
+  // -----------------------------------
   section.home-section.home-section-contact
     .title-wrap
       h2.title Контакти
   .contact-block
     .contact-block__l.brd
-      123
-
-    .contact-block__r.brd
-      form(data-home-contact autocomplete="off")
-        .form-field.form-field-input(data-field-input data-field-name data-status="field--inactive")
-          input(type='text' name="name").form-field__input
-          .input-message(data-input-message) Ім’я:*
-        .form-field.disabled.form-field-input(data-field-input data-field-phone data-status="field--inactive")
-          input(type='text' name="phone").form-field__input
-          .input-message(data-input-message) Телефон:*
-        button( type="submit" data-btn-submit).home-content__link.link
-          span(data-btn-submit-text).link__text.usn Надіслати
-          span.link-ico.link-ico--margin
-            span.link-ico__stic.bgc--wc
-      .toast-wrapper(data-toast-wrapper)
+      address.contact-location
+        span.contact-location__label Розташування:
+        p.contact-location__adress Київ, Шевченківський район, вул. Богдана Хмельницкого, 16-22
+        a(href="https://goo.gl/maps/FzURhcCMKHm3cupV6" rel="nofollow" target="_blank").tdn.button-circle.button-circle--black.home-section-appartments__btn
+          <svg width="71" class='button-circle__ico' height="52" viewBox="0 0 71 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="45" cy="26" r="25"/>
+            <path d="M0 25.5L45 25.5M45 25.5L38.3182 18M45 25.5L38.3182 33"/>
+          </svg>
+          span.button-circle__text Показати на Google Maps
+      .contact-schedule
+        span.contact-schedule__label Відділ продажів:
+        .contact-schedule-l
+          a(href="tel:+1234567890").contact-schedule__phone +1234567890
+          a(href="mailto:info@kyivproekt.ua").contact-schedule__mail info@kyivproekt.ua
+        .contact-schedule-r
+          ul.contact-schedule__time
+            li Пн-пт: 09:00-19:00
+            li СБ: 09:00-17:00
+            li ВС: вихідний
+  .contact-block__r.brd
+    form(data-home-contact autocomplete="off")
+      .form-field.form-field-input(data-field-input data-field-name data-status="field--inactive")
+        input(type='text' name="name").form-field__input
+        .input-message(data-input-message) Ім’я:*
+      .form-field.disabled.form-field-input(data-field-input data-field-phone data-status="field--inactive")
+        input(type='text' name="phone").form-field__input
+        .input-message(data-input-message) Телефон:*
+      button( type="submit" data-btn-submit).home-content__link.link
+        span(data-btn-submit-text).link__text.usn Надіслати
+        span.link-ico.link-ico--margin
+          span.link-ico__stic.bgc--wc
+    .toast-wrapper(data-toast-wrapper)
 block footer
   include ../includes/footer.pug
 

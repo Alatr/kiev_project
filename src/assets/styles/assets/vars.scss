@@ -12,7 +12,28 @@ $wc: #fff;
 $bc: #000;
 $bc2: #000;
 
+$color-design: rgba(0, 101, 251, 1);
+$color-technology: rgba(0, 0, 0, 1);
+$color-living: rgba(2, 153, 109, 1);
+$color-art: rgba(234, 64, 65, 1);
+$color-architecture: rgba(253, 198, 12, 1);
+$color-white: rgba(255, 255, 255, 1);
+$color-gray: rgba(233, 233, 233, 1);
+
+@mixin font-h-2 {
+  font-size: 48px;
+  font-family: "Graphik LCG";
+  font-weight: light;
+  line-height: 100px;
+}
 :root {
   --in: cubic-bezier(0.13, 0.81, 0.23, 0.96);
   --header-h: 80px;
+  --color-design: rgba(0, 101, 251, 1);
+  --color-technology: rgba(0, 0, 0, 1);
+  --color-living: rgba(2, 153, 109, 1);
+  --color-art: rgba(234, 64, 65, 1);
+  --color-architecture: rgba(253, 198, 12, 1);
+  --color-white: rgba(255, 255, 255, 1);
+  --color-gray: rgba(233, 233, 233, 1);
 }
