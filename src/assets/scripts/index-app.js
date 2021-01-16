@@ -1,7 +1,9 @@
 import LocomotiveScroll from 'locomotive-scroll';
 import i18next from 'i18next';
+import gsap from 'gsap';
 import * as yup from 'yup';
 import FormMonster from '../../pug/components/form/form';
+import ShowModal from '../../pug/components/popup/popup';
 import SexyInput from '../../pug/components/input/input';
 
 /** ******************************* */
@@ -61,6 +63,81 @@ const formHome = new FormMonster({
   },
 });
 /*
- * form handlers end
+* form handlers end
+*/
+/** ******************************* */
+/*
+* popup menu start
+*/
+
+/*
+ *  start in
+ */
+function animationPopapIn(settings) {
+  // gsap.set([], {autoAlpha:0});
+  const obj = { ...settings, paused: true };
+  const tl = gsap.timeline(obj);
+  tl.fromTo(this.$popup, 1, { autoAlpha: 0 }, { autoAlpha: 1, immediateRender: false });
+
+  return tl;
+}
+/*
+ *  end in
+ */
+/*
+ *  start Out
+ */
+function animationPopapOut(settings) {
+  // gsap.set([], {autoAlpha:0});
+  const obj = { ...settings, paused: true };
+  const tl = gsap.timeline(obj);
+  tl.fromTo(
+    this.$popup,
+    1,
+    { autoAlpha: 1 },
+    { autoAlpha: 0, clearProps: 'all', immediateRender: false },
+  );
+  /*  */
+
+  return tl;
+}
+/*
+ *  end Out
  */
 /** ******************************* */
+
+/*  */
+/*  */
+
+/*  */
+/*  */
+/*  */
+const popupBlockBtnOpen = document.querySelector('[data-call-popup-btn]');
+const popupBlockBtnClose = document.querySelector('[data-call-popup-close]');
+const popupBlock = document.querySelector('[data-call-popup-block]');
+/*  */
+/* eslint-disable-next-line */
+const callPopap = new ShowModal({
+  $popup: popupBlock,
+  $openBtn: popupBlockBtnOpen,
+  $closeBtn: popupBlockBtnClose,
+  animationIn: animationPopapIn,
+  animationOut: animationPopapOut,
+  attrParrentNode: '[data-parrent-node-popup]',
+});
+/*  */
+/*  */
+/*  */
+const menuBlockBtnOpen = document.querySelector('[data-menu-btn]');
+const menuBlockBtnClose = document.querySelector('[data-menu-popup-close]');
+const menuBlock = document.querySelector('[data-menu-popup-block]');
+/*  */
+/* eslint-disable-next-line */
+const menuPopap = new ShowModal({
+  $popup: menuBlock,
+  $openBtn: menuBlockBtnOpen,
+  $closeBtn: menuBlockBtnClose,
+  animationIn: animationPopapIn,
+  animationOut: animationPopapOut,
+  attrParrentNode: '[data-parrent-node-menu]',
+});

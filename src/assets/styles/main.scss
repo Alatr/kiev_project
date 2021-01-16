@@ -22,8 +22,35 @@
 @import './pages/home.scss';
 @import '../../pug/components/form/form';
 @import '../../pug/components/toster/toster';
+@import '../../pug/components/popup/popup';
 
-
+.df{
+  display: flex;
+}
+.jcc{
+  justify-content: center;
+}
+.aifs {
+  align-items: flex-start;
+}
+.aic{
+  align-items: center;
+}
+.jcsb{
+  justify-content: space-between;
+}
+.fww{
+  flex-wrap: wrap;
+}
+.fdc{
+  flex-direction: column;
+}
+.w50p{
+  width: 50%;
+}
+.w100p{
+  width: 100%;
+}
 .contact-block{
   display: flex;
   &__l, &__r{
