@@ -1,10 +1,9 @@
-
 extends ../layout/main
 block variable
   -
-    var title_page = 'Квартира 2А'
-    var id_page = 'flat-page'
-    var class_page = 'flat-page'
+    var title_page = 'Home'
+    var id_page = 'index-page'
+    var class_page = 'index-page'
     var breadcrumbsBtn = 'filter'
     var breadcrumbsSubitem = [
       {
@@ -15,9 +14,30 @@ block variable
     var liveText = ['Для тих, хто хоче жити у самому серці столиці,<b> але не готовий жертвувати власною приватністю і комфортом.</b> ', '<b>Жити в серці міста,</b> в оточенні найбільш передової та трендової екосистеми.', '<b>Насолоджуватися</b> неперевершеним видом на місто.', 'Усе найбільш надихаюче, модне та актуальне — <b>у твоєму будинку.</b>', '<b>Користуватися найбільш сучасними</b> технологіями для життя.', 'Жити тут – це означає<b> жити у центрі тяжіння.</b>',]
     var workText = ['Панорама міста, <b>яка надихає.</b>', 'Зручно доставатися у будь-яку точку центру.', '<b>Супер-сучасний коворкінг</b> у будинку.', '<b>Зручно доставатися</b> поблизу.']
     var restText = ['<b>Десятки магазинів,</b> торгівельних центрів, кафе, ресторанів та нічних клубів поряд.', '<b>KITCHEN LAB у будинку:</b> велика кількість кафе і ресторанів під одним дахом.', '<b>Головна київська променада,</b> вулиця Хрещатик – 2 хвилини пішки.', 'KYЇVPROEKT CITY SPACE у будинку <b>– ідеальне місце для шопінгу.</b>', '<b>Чудові місця для пробіжок поблизу:</b> парк ім. Шевченка, Ботанічний сад ім. Фоміна.']
-    var valuesText = ["<b>Об'єднуємо таланти</b> заради позитивної трансформації Києва", "<b>KYЇVPROEKT – це экосистема,</b> яку усі стейкхолдери створюють разом", "Архітектура, дизайн, мистецтво та технології, доповнюючи один одне, створюють <b>нову життєву філософію</b>"]
     var customText1 = ['Місце гордості та сили в серці столиці.', 'Поліфункциональний міський простір із комерційною, соціальною та освітньою функціями.', 'Масштабна платформа для найбільш передових брендів та ініціатив – в першу чергу, українських.', 'Більше 100 компаній та організацій резидентів.']
-
+    var valuesSl = [
+      {
+        title: 'Синергія',
+        ico: [1,2,3],
+        valuesItem: ["<b>Об'єднуємо таланти</b> заради позитивної трансформації Києва", "<b>KYЇVPROEKT – це экосистема,</b> яку усі стейкхолдери створюють разом", "Архітектура, дизайн, мистецтво та технології, доповнюючи один одне, створюють <b>нову життєву філософію</b>"]
+      },
+      {
+        title: 'Відкритість',
+        ico: [4,5,6],
+        valuesItem: ['Відкритиість <b>місту</b>','Відкритиість <b>людям</b>','Відкритість <b>інноваціям</b>']
+        
+      },
+      {
+        title: 'Поліфункціональність',
+        ico: [7,8,9],
+        valuesItem: ['<b>Головне – це функція,</b> яка визначає форму','<b>Функціональна різноманітність,</b> яка враховує інтереси усіх стейкхолдерів','<b>Гармонія</b> між корпоративними та публічними просторами']
+      },
+      {
+        title: 'Соціальна значимість',
+        ico: [10, 11, 12],
+        valuesItem: ['KYЇVPROEKT – це Будинок Культури. <b>Нової Культури.</b>', '<b>Ми підтримуємо найбільш талановиті та новаторські проекти</b> в галузі архітектури, мистецтва, дизайну і технологій', '<b>Ми формуємо надихаючий контекст</> для народження ідей, які змінюють майбутнє']
+      },
+    ]
 
 
 
@@ -37,68 +57,71 @@ block content
   // -----------------------------------
   section.home-section.home-section-live
     .title-wrap
-      h2.title Жити
+      h2.title.title--white Жити
     ul.home-section-live-list.info-list.df.fww
       each v, i in [1, 2, 3, 4, 5, 6]
-        +infoItem(liveText[i], 'iro_0'+v, 'info-list-item--black')
+        +infoItem(liveText[i], 'iro_0'+v, 'info-list-item--white')
   // -----------------------------------
   // -----------------------------------
-  section.home-section.home-section-works.df.fdc.jcc
+  section.home-section.home-section-work.df.fdc.jcc
     .title-wrap
       h2.title Працювати
-    ul.info-list.home-section-works-list.df.fdc
+    ul.info-list.home-section-work-list.df.fdc
       each v, i in [1, 2, 3, 4]
         +infoItem(workText[i], 'home_work_0'+v, 'info-list-item--black')
   // -----------------------------------
   // -----------------------------------
   section.home-section.home-section-rest
-    .title-wrap
-      h2.title Відпочивати
-    ul.info-list
-      each v, i in [1, 2, 3, 4, 5, 6]
-        +infoItem(restText[i], 'home_rest_0'+v, 'info-list-item--black')
+    .home-section-rest__l
+      .title-wrap
+        h2.title Відпочивати
+      ul.info-list
+        each v, i in [1, 2, 3, 4, 5, 6]
+          +infoItem(restText[i], 'home_rest_0'+v, 'info-list-item--black')
+    .home-section-rest__r
   // -----------------------------------
+
   // -----------------------------------
-  section.home-section.home-section-custom_1
-    h2.title_type_2
-      span все про 
-      span kyїvproekt
+  section.home-section.home-section-custom-1
+    .home-section-custom-1__l
+      h2.title_type_2
+        span все про 
+        span kyїvproekt
+    .home-section-custom-1__r
+      
+      ul.home-section-custom-1-list
+        each v, i in ['історія','натхнення','реновація','виміри','розташування']
+          li
+            a(href="#").tdn= v
   // -----------------------------------
   // -----------------------------------
   section.home-section.home-section-values
-    .home-section-values-l
-      .title-wrap
-        h2.title Цінності
-    .home-section-values-r
-      ul.home-section-values-list
-        each v, i in ['історія', 'натхнення', 'реновація', 'виміри', 'розташування']
-          li.home-section-values-item
-            a(href="#").home-section-values-link= v
     .slider-wrapper
-      each v, i in [1, 2, 3, 4]
+      each v, i in valuesSl
         .slider-wrapper-item
           .slider-wrapper-item__title цінності
-          .slider-wrapper-item__subtitle Синергія
-          .slider-wrapper-item__cnt= '0' + v
+          .slider-wrapper-item__subtitle= v.title
+          .slider-wrapper-item__cnt 0#{i+1}
           ul.info-list.slider-wrapper-item__list
-            each v, i in [1, 2, 3]
-              +infoItem(valuesText[i], 'home_values_0'+v, 'info-list-item--black')
+            each vv, ii in v.ico
+              +infoItem(v.valuesItem[ii], 'home_values_0'+vv, 'info-list-item--black')
     
   // -----------------------------------
   // -----------------------------------
-  section.home-section.home-section-custom-1
-    h2.title_type_2
+  section.home-section.home-section-custom-2
+    h2.title_type_2.title--white
       span kyїvproekt city space 
       span тут народжуються тренди
-    ul.info-list-custom_1
+    ul.info-list-custom_2
       each v, i in [1, 2, 3, 4]
         li !{customText1[i]}
-    a(href="#").tdn.button-circle.button-circle--black.home-section-custom-1__btn
+    a(href="#").tdn.button-circle.button-circle--black.home-section-custom-2__btn
       <svg width="71" class='button-circle__ico' height="52" viewBox="0 0 71 52" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="45" cy="26" r="25"/>
         <path d="M0 25.5L45 25.5M45 25.5L38.3182 18M45 25.5L38.3182 33"/>
       </svg>
       span.button-circle__text Дивитися розділ
+  +img('home/custom-1--bottom.jpg').home-section.home-section-custom-2__img
   // -----------------------------------
   // -----------------------------------
   section.home-section.home-section-appartments

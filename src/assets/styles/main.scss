@@ -10,7 +10,6 @@
 @import './assets/animation';  // анимации
 @import './assets/class'; // main style
 @import './assets/interface'; // main style
-@import './assets/templates'; // main style
 
 
 // sass dima
@@ -19,7 +18,7 @@
 @import './404';
 @import './loader';
 
-@import './pages/home.scss';
+
 @import '../../pug/components/form/form';
 @import '../../pug/components/toster/toster';
 @import '../../pug/components/popup/popup';
@@ -79,7 +78,9 @@
 
 .info-list-item--white{
   .info-list-item__ico{
-
+    svg {
+      fill: white;
+    }
   }
   .info-list-item__text{
     color: $color-gray;
@@ -101,8 +102,15 @@
 }
 .info-list-item{
   display: flex;
+  max-width: min(vw(340), 340px);
+  margin: 0 min(vw(60), 60px);
   align-items: center;
+  min-height: 110px;
+  padding: 30px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   &__ico{
+    display: flex;
+    flex-shrink: 0;
     width: 50px;
     height: 50px;
     svg{
@@ -111,9 +119,13 @@
     }
   }
   &__text{
+    padding-left: 40px;
     font-size: 12px;
     
 
   }
   
 }
+
+@import './assets/templates'; // main style
+@import './pages/home.scss';
