@@ -10,7 +10,7 @@ import SexyInput from '../../pug/components/input/input';
 
 global.gsap = gsap;
 
-console.log(123, global);
+// console.log(123, global);
 
 /** ******************************* */
 /*
