@@ -55,6 +55,50 @@ block content
   //- include ../includes/breadcrumbs.pug
   // -----------------------------------
   // -----------------------------------
+  // -----------------------------------
+  section.home-section.home-section-contact
+    .title-wrap
+      h2.title Контакти
+  .contact-block
+    .contact-block__l.brd
+      address.contact-location.df.fdc.aifs
+        span.contact-location__label Розташування:
+        p.contact-location__adress Київ, Шевченківський район, вул. Богдана Хмельницкого, 16-22
+        a(href="https://goo.gl/maps/FzURhcCMKHm3cupV6" rel="nofollow" target="_blank").tdn.button-circle.button-circle--black.home-section-appartments__btn
+          <svg width="71" class='button-circle__ico' height="52" viewBox="0 0 71 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="45" cy="26" r="25"/>
+            <path d="M0 25.5L45 25.5M45 25.5L38.3182 18M45 25.5L38.3182 33"/>
+          </svg>
+          span.button-circle__text Показати на Google Maps
+      .contact-schedule.df.fww
+        span.contact-schedule__label.w100p Відділ продажів:
+        .contact-schedule-l.df.fdc
+          a(href="tel:+1234567890").contact-schedule__phone +1234567890
+          a(href="mailto:info@kyivproekt.ua").contact-schedule__mail info@kyivproekt.ua
+        .contact-schedule-r
+          ul.contact-schedule__time
+            li Пн-пт: 09:00-19:00
+            li СБ: 09:00-17:00
+            li ВС: вихідний
+    .contact-block__r.brd
+      form(data-home-contact autocomplete="off")
+        .form-field.form-field-input(data-field-input data-field-name data-status="field--inactive")
+          input(type='text' name="name").form-field__input
+          .input-message(data-input-message) Ім’я:*
+        .form-field.disabled.form-field-input(data-field-input data-field-phone data-status="field--inactive")
+          input(type='text' name="phone").form-field__input
+          .input-message(data-input-message) Телефон:*
+        button( type="submit" data-btn-submit).resset.main-button.main-button--size-m
+          .main-button-wrap
+            .main-button-arrow.df.aic
+              span.main-button__line
+              +svg('button-arrow').main-button__ico
+            .main-button__circle
+          span(data-btn-submit-text).main-button__text Надіслати
+      .toast-wrapper(data-toast-wrapper)
+
+
+  // -----------------------------------
   section.home-section.home-section-live
     .title-wrap
       h2.title.title--white Жити
@@ -155,45 +199,7 @@ block content
       </svg>
       span.button-circle__text Дивитися розділ
         
-  // -----------------------------------
-  // -----------------------------------
-  section.home-section.home-section-contact
-    .title-wrap
-      h2.title Контакти
-  .contact-block
-    .contact-block__l.brd
-      address.contact-location.df.fdc.aifs
-        span.contact-location__label Розташування:
-        p.contact-location__adress Київ, Шевченківський район, вул. Богдана Хмельницкого, 16-22
-        a(href="https://goo.gl/maps/FzURhcCMKHm3cupV6" rel="nofollow" target="_blank").tdn.button-circle.button-circle--black.home-section-appartments__btn
-          <svg width="71" class='button-circle__ico' height="52" viewBox="0 0 71 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="45" cy="26" r="25"/>
-            <path d="M0 25.5L45 25.5M45 25.5L38.3182 18M45 25.5L38.3182 33"/>
-          </svg>
-          span.button-circle__text Показати на Google Maps
-      .contact-schedule.df.fww
-        span.contact-schedule__label.w100p Відділ продажів:
-        .contact-schedule-l.df.fdc
-          a(href="tel:+1234567890").contact-schedule__phone +1234567890
-          a(href="mailto:info@kyivproekt.ua").contact-schedule__mail info@kyivproekt.ua
-        .contact-schedule-r
-          ul.contact-schedule__time
-            li Пн-пт: 09:00-19:00
-            li СБ: 09:00-17:00
-            li ВС: вихідний
-    .contact-block__r.brd
-      form(data-home-contact autocomplete="off")
-        .form-field.form-field-input(data-field-input data-field-name data-status="field--inactive")
-          input(type='text' name="name").form-field__input
-          .input-message(data-input-message) Ім’я:*
-        .form-field.disabled.form-field-input(data-field-input data-field-phone data-status="field--inactive")
-          input(type='text' name="phone").form-field__input
-          .input-message(data-input-message) Телефон:*
-        button( type="submit" data-btn-submit).home-content__link.link
-          span(data-btn-submit-text).link__text.usn Надіслати
-          span.link-ico.link-ico--margin
-            span.link-ico__stic.bgc--wc
-      .toast-wrapper(data-toast-wrapper)
+  
 block footer
   include ../includes/footer.pug
 
