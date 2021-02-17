@@ -2,12 +2,13 @@ import LocomotiveScroll from 'locomotive-scroll';
 import i18next from 'i18next';
 
 import gsap from 'gsap';
-global.gsap = gsap;
 
 import * as yup from 'yup';
 import FormMonster from '../../pug/components/form/form';
 import ShowModal from '../../pug/components/popup/popup';
 import SexyInput from '../../pug/components/input/input';
+
+global.gsap = gsap;
 
 console.log(123, global);
 
