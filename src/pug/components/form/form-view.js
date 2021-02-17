@@ -44,7 +44,9 @@ const renderForm = (form, elements) => {
       });
 
       elementsParamFn.$btnSubmit.setAttribute('disabled', true);
-      elementsParamFn.$btnSubmit.querySelector('[data-btn-submit-text]').innerHTML = i18next.t('sending');
+      elementsParamFn.$btnSubmit.querySelector('[data-btn-submit-text]').innerHTML = i18next.t(
+        'sending',
+      );
 
       break;
     case 'successSand':
@@ -55,7 +57,9 @@ const renderForm = (form, elements) => {
       });
       elementsParamFn.$form.reset();
       elementsParamFn.$btnSubmit.setAttribute('disabled', false);
-      elementsParamFn.$btnSubmit.querySelector('[data-btn-submit-text]').innerHTML = i18next.t('send');
+      elementsParamFn.$btnSubmit.querySelector('[data-btn-submit-text]').innerHTML = i18next.t(
+        'send',
+      );
       /*  */
       toast.addToast({
         type: 'success',
@@ -74,7 +78,9 @@ const renderForm = (form, elements) => {
         title: 'Сталася помилка',
       });
       elementsParamFn.$btnSubmit.removeAttribute('disabled');
-      elementsParamFn.$btnSubmit.querySelector('[data-btn-submit-text]').innerHTML = i18next.t('send');
+      elementsParamFn.$btnSubmit.querySelector('[data-btn-submit-text]').innerHTML = i18next.t(
+        'send',
+      );
       break;
 
     default:

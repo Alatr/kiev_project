@@ -88,13 +88,7 @@ block content
         .form-field.disabled.form-field-input(data-field-input data-field-phone data-status="field--inactive")
           input(type='text' name="phone").form-field__input
           .input-message(data-input-message) Телефон:*
-        button( type="submit" data-btn-submit).resset.main-button.main-button--size-m
-          .main-button-wrap
-            .main-button-arrow.df.aic
-              span.main-button__line
-              +svg('button-arrow').main-button__ico
-            .main-button__circle
-          span(data-btn-submit-text).main-button__text Надіслати
+        +btn('Надіслати')(type="submit" data-btn-submit).main-button--size-m
       .toast-wrapper(data-toast-wrapper)
 
 
