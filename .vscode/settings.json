@@ -1,7 +1,7 @@
 {
   "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": false
   },
   "editor.tabSize": 2,
   "git.autofetch": true,
@@ -24,5 +24,5 @@
     "typescriptreact",
     "typescript",
   ],
-  "eslint.autoFixOnSave": true
+  "eslint.autoFixOnSave": false
 }
