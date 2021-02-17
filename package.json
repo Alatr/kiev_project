@@ -20,7 +20,7 @@
   },
   "lint-staged": {
     "*.(js|jsx)": [
-      "make lint-w",
+      "make lint",
       "git add"
     ]
   },
