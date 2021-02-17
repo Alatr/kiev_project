@@ -28,19 +28,6 @@ export const eases = {
   circI: 'circ.in',
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 export const langDetect = function () {
   if (window.location.pathname.match(/ru/)) {
     return 'ru';

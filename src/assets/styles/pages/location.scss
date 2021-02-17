@@ -1,0 +1,91 @@
+.map {
+  position: relative;
+  --markers-side-padding:30px;
+  --self-side-padding:60px;
+  --self-vertical-padding:45px;
+  padding: var(--self-vertical-padding) var(--self-side-padding);;
+  display: flex;
+
+  #map{
+    background-color: aqua;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  &__legend{
+    width: Max(20%, 275px);
+  }
+  &__title{
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 100%;
+    color: #000000;
+   
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: var(--self-vertical-padding);
+    transform: translateX(-50%);
+  }
+  &__legend-title{
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 120%;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    background: #FDC60C;
+    padding-left: var(--markers-side-padding);
+  }
+  &__legend-marker{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: var(--markers-side-padding);
+    background: #fff; 
+    display: flex;
+    color: #646464;
+    cursor: pointer;
+    transition: transform .5s ease-in;
+  }
+  &__legend-marker:nth-last-child(n+2){
+    border-left: 1px solid #DBDBDB;
+    border-right: 1px solid #DBDBDB;
+    border-bottom: 1px solid #DBDBDB;
+  }
+  &__legend-marker:last-child(n+2){
+    border-left: 1px solid #DBDBDB;
+    border-right: 1px solid #DBDBDB;
+    border-bottom: 1px solid #DBDBDB;
+  }
+  &__legend-marker-icon {
+    width: 25px;
+    height: 25px;
+    margin-right: 25px;
+  }
+  // &__legend-marker [fill]{
+  //   transition: .5s ease-in;
+  // }
+  // &__legend-marker [stroke]{
+  //   transition: .5s ease-in;
+  // }
+  &__legend-marker>*{
+      transition: transform .3s ease-in;
+    }
+  @include from(769px){
+    &__legend-marker:hover {
+      background: #0065FB;
+      color: #fff;
+    }
+    &__legend-marker:hover>*{
+      transform: translateX(20px);
+    }
+    &__legend-marker:hover [fill]{
+      fill:#fff;
+    }
+    &__legend-marker:hover [stroke]{
+      stroke:#fff;
+    }
+  }
+}
