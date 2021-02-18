@@ -1,6 +1,9 @@
 
 .ctc-part {
   margin-top: 70px;
+  @include to(575px){
+    margin-top: 35px;
+  }
 }
 .icon-title-decor {
   display: flex;
@@ -27,6 +30,28 @@
      flex-grow: 1;
       border-left: 1px solid #DBDBDB;
   }
+  @include to(950px){
+    .subtitle {
+      padding-right: 20px;
+      padding-left: 10px;
+    }
+    svg {
+      width:50px;
+      padding-right:0;
+    }
+  }
+  @include to(575px){
+    align-items: flex-start;
+    margin-bottom: 15px;
+    .subtitle {
+      width: calc(100% - 50px);
+    }
+    .decor {
+      align-self: flex-end;
+      width: 50px;
+      display: none;
+    }
+  }
   
 }
 
@@ -45,6 +70,30 @@
   }
   &>:nth-child(n+2){
    border-left: 1px solid #DBDBDB;
+  }
+  @include to(950px){
+    &>*{
+      width: 33%;
+      padding-top: var(--vert-padding);
+      padding-bottom: var(--vert-padding);
+      padding-left: calc(100% / 3 / 12);
+      padding-right: calc(100% / 3 / 12);
+      // padding-right: 60px;
+    }
+  }
+  @include to(575px){
+    flex-wrap: wrap;
+    border: none;
+    &>*{
+      width: 100%;
+      padding-top: 0;
+      padding-bottom: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    &>:nth-child(n+2){
+    border-left: none;
+    }
   }
 }
 
@@ -71,6 +120,10 @@
     background-position: -1px calc(100% + 1px), calc(100% + 1px) calc(100% + 1px);
     padding-bottom: calc(var(--decor-size) + 100px);
   }
+  &.yellow-bg &__left {
+    background-color: var(--color-architecture);
+    background-image: url(../images/sfera/white-pattern.svg);
+  }
   &__right,
   &__right2{
     border-top: 1px solid #DBDBDB;
@@ -86,5 +139,18 @@
   }
   .main-button {
     margin-top: 20px;
+  }
+  @include to(575px){
+    display: flex;
+    flex-direction: column;
+    &__left {
+          padding-bottom: calc(var(--decor-size) + 15px);
+    }
+    &>*:nth-child(n+2){
+      border-top: none;
+      border-bottom: 1px solid #DBDBDB;
+      border-left: 1px solid #DBDBDB;
+      border-right: 1px solid #DBDBDB;
+    }
   }
 }

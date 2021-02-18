@@ -1,0 +1,154 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'Sfera Living System'
+    var id_page = 'id-page-sfera'
+    var class_page = 'class-page-sfera'
+    var breadcrumbsSubitem = [
+      {
+        label: 'About',
+        link: pagesLink[0].about
+      }
+    ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/sfera.js')
+block content
+  include ../includes/breadcrumbs.pug
+  h1.page-title #{title_page}
+  .sfera-part
+    .icon-title-decor
+      +svg('figure-blue')
+      .subtitle.bold.black Atmosfera
+      .decor
+    .sfera-grid-block.yellow-bg
+      .sfera-grid-block__left 
+        <iframe src="https://www.youtube.com/embed/LYWyG4refiI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      .sfera-grid-block__right
+        .subtitle-small  ATMOSFERA — це високотехнологічна управляюча компанія, яка піклується про комфорт мешканців в усіх будинках, створених компанією SAGA Development.
+      .sfera-grid-block__right2 
+        +img('sfera/sfera-logo.svg').sfera-logo
+        <span class="bold black">Головна мета ATMOSFERA</span> — надавати високий рівень послуг мешканцям та виконувати їхні запити у максимально короткий термін.
+        .text.light-gray Звернутися до фахівців ATMOSFERA можна на всіх етапах —  як після введення будинку в експлуатацію та отримання права власності на квартиру, так і під час проживання у KYЇVPROEKT Citу Space.
+  .sfera-part
+    .icon-title-decor
+      +svg('figure-green')
+      .subtitle.bold.black Управляюча компанія atmosfera
+      .decor
+    -
+      var sferaBlock2 = [
+        'команда професіоналів з укомплектованою матеріально-технічною базою',
+        'сервіс-менеджер, який вирішить всі питання до заселення',
+        'консьєрж, який вирішить всі питання після заселення: від доставлення продуктів до виклика сантехніка',
+        'оформлення прав власності на квартиру',
+        'створення ОСББ',
+        'управління витратами та комунальними послугами',
+        'автоматизована звітність будинку',
+        'своєчасне усунення несправностей',
+        'ремонт у квартирі',
+        'відповідальність за кожну задачу від мешканця',
+        'енергозберігаючі технології',
+        'підписання договорів з постачальниками послуг: тепло, вода, електроенергія',
+        'прибирання місць загального користування',
+        'контроль якості надання послуг',
+        'безпека у будинку та на його території',
+        'допомога в устаткуванні системи «розумна квартира»',
+        'формування тарифів та рахунків',
+        'інженерно-технічне обслуговування',
+      ]
+    .triple-side-block
+      each val,i in sferaBlock2
+        if i%6 === 0
+          .triple-side-block__part
+            ul.list-std.green
+              li #{sferaBlock2[i]}
+              li #{sferaBlock2[i+1]}
+              li #{sferaBlock2[i+2]}
+              li #{sferaBlock2[i+3]}
+              li #{sferaBlock2[i+4]}
+              li #{sferaBlock2[i+5]}
+  .sfera-part
+    .icon-title-decor
+      +svg('figure-red')
+      .subtitle.bold.black Мобільний додаток Sfera
+      .decor
+    -
+      var sferaBlock3 = [
+        'звітність про будівництво',
+        'домофон у смартфоні – відкривайте двері з мобільного додатку, навіть коли вас немає вдома',
+        'важливі повідомлення',
+        'новини будинку',
+        'фінансова звірка',
+        'дистанційне відеоспостереження в зонах загального користування',
+        'контроль ремонту чи перепланування',
+        'вся документація в одному місці',
+        'календар запланованих робіт',
+        'виставлення рахунків',
+        'контроль спожитої електроенергії',
+      ]
+    .triple-side-block
+      each val,i in sferaBlock3
+        if i%4 === 0
+          .triple-side-block__part
+            ul.list-std.red
+              li #{sferaBlock3[i]}
+              li #{sferaBlock3[i+1]}
+              li #{sferaBlock3[i+2]}
+              li #{sferaBlock3[i+3]}
+  .sfera-part
+    .icon-title-decor
+      +svg('figure-yellow')
+      .subtitle.bold.black Чат Sfera
+      .decor
+    .triple-side-block
+      .triple-side-block__part
+        ul.list-std.yellow
+          li вирішення екстрених проблем
+          li замовлення послуг і товарів
+      .triple-side-block__part
+        ul.list-std.yellow
+          li зворотний зв’язок 24/7
+      .triple-side-block__part
+        ul.list-std.yellow
+          li виклик сантехніка та інших технічних фахівців
+  .sfera-part
+    .icon-title-decor
+      +svg('figure-black')
+      .subtitle.bold.black Система «розумний будинок»
+      .decor
+    -
+      var sferaBlockBlack = [
+        'управління вуличним освітленням',
+        'автоматизоване освітлення у під’їздах',
+        'відеонагляд',
+        'єдина система моніторингу будинку',
+        'IP-домофонія',
+        'система контроля доступу',
+        'збір даних з приладів обліку енергоресурсів',
+        'контроль температури у під’їздах',
+        'автоматизація та контроль індивідуального теплового пункту',
+        'система «розумний ліфт»',
+      ]
+    .triple-side-block
+      each val,i in sferaBlockBlack
+        if i%4 === 0
+          .triple-side-block__part
+            ul.list-std.black
+              li #{sferaBlockBlack[i]}
+              li #{sferaBlockBlack[i+1]}
+              li #{sferaBlockBlack[i+2]}
+              li #{sferaBlockBlack[i+3]}
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

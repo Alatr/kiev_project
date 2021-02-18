@@ -15,6 +15,10 @@
   @include from(1680px){
     font-size: 48px;
   }
+  
+  @include to(575px){
+    font-size: 24px;
+  }
 }
 
 /* Наборной большой light */
@@ -33,6 +37,13 @@
   @include to(575px) {
     font-size: 18px;
   }
+}
+.subtitle-small {
+  font-size: 18px;
+  line-height: 170%;
+  /* or 31px */
+  color: #646464;
+
 }
 
 .bold {
@@ -64,8 +75,13 @@
     border-radius: 50%;
   }
   &.green li::before{
-    
     background: var(--color-living);
+  }
+  &.red li::before{
+    background: var(--color-art);
+  }
+  &.black li::before{
+    background: var(--color-technology);
   }
   li:empty {
       display: none;

@@ -1,0 +1,75 @@
+
+.sfera-part {
+  margin-top: 70px;
+  @include to(575px){
+    margin-top: 35px;
+  }
+}
+.sfera-grid-block{
+  display: grid;
+  grid-template-columns: 65% 35%;
+  --decor-size:150px;
+  &>* {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: calc(100% / 2 / 8);
+    padding-right: calc(100% / 2 / 8);
+  }
+  &__left {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-end: 3;
+    grid-row-start: 1;
+    border:1px solid #DBDBDB;
+    background: url(../images/ctc/grid-left-decor.svg) left bottom no-repeat,url(../images/ctc/grid-right-decor.svg) right bottom no-repeat;
+    background-size: var(--decor-size) var(--decor-size) var(--decor-size) var(--decor-size); 
+    background-position: -1px calc(100% + 1px), calc(100% + 1px) calc(100% + 1px);
+    padding-bottom: 40px;
+  }
+  &.yellow-bg &__left {
+    background-color: var(--color-architecture);
+    background-image: url(../images/sfera/white-pattern.svg);
+  }
+  &__right,
+  &__right2{
+    border-top: 1px solid #DBDBDB;
+    border-right: 1px solid #DBDBDB;
+    grid-column-start: 2;
+    grid-column-end: 2;
+  }
+  &__right2 {
+    border-bottom: 1px solid #DBDBDB;
+  }
+  .subtitle.black {
+    margin-bottom: 40px;
+  }
+  .main-button {
+    margin-top: 20px;
+  }
+  iframe {
+    width: 100%;
+    height:100%;
+  }
+  @include to(575px){
+    display: flex;
+    flex-direction: column;
+    &__left {
+          padding-bottom: calc(var(--decor-size) + 15px);
+    }
+    &>*:nth-child(n+2){
+      border-top: none;
+      border-bottom: 1px solid #DBDBDB;
+      border-left: 1px solid #DBDBDB;
+      border-right: 1px solid #DBDBDB;
+    }
+  }
+}
+
+.sfera-logo {
+  width:100px;
+  height: 140px;
+  width: 100px;
+  height: 140px;
+  float: left;
+  margin: 0 15px 70px 0;
+}
