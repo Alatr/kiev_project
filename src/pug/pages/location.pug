@@ -2,13 +2,13 @@
 extends ../layout/main
 block variable
   -
-    var title_page = 'location'
+    var title_page = 'Розташування'
     var id_page = 'location'
     var class_page = 'class-page-location'
     var breadcrumbsSubitem = [
       {
-        label: 'About',
-        link: pagesLink[0].about
+        label: 'Головна',
+        link: 'index.html'
       }
     ]
 block meta
@@ -23,6 +23,7 @@ block scripts
   script(defer src='./assets/scripts/location.js')
   
 block content
+  include ../includes/breadcrumbs.pug
   h1.page-title Розташування
   .double-side-block
     .double-side-block__left
@@ -48,7 +49,7 @@ block content
         'Десятки магазинів, кафе і ресторанів',
         ]
     .double-side-block__right
-      .subtitle.black.bold В 5 хвилинах пішки від KYЇVPROEKT знаходяться:
+      .subtitle.black.bold.double-side-block__subtitle В 5 хвилинах пішки від KYЇVPROEKT знаходяться:
       ul.list-std
         each el in list 
           li #{el}
@@ -69,7 +70,7 @@ block content
         'ТРЦ "Метроград"',
         ]
     .double-side-block__right
-      .subtitle.black.bold В 15 хвилинах пішки від KYЇVPROEKT знаходяться:
+      .subtitle.black.bold.double-side-block__subtitle В 15 хвилинах пішки від KYЇVPROEKT знаходяться:
       ul.list-std
         each el in list1 
           li #{el}

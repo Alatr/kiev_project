@@ -171,9 +171,17 @@ function initMap() {
   });
 }
 
-/** Выдвижная панель маркеров на мобильной версии */
-const legend = document.querySelector('[data-mob-accordeon]');
-const legendTitle = legend.querySelector('.map__legend-title');
-legendTitle.addEventListener('click', () => {
-  legend.classList.toggle('opened');
+window.addEventListener('load', () => {
+  /** Выдвижная панель маркеров на мобильной версии */
+  const legend = document.querySelector('[data-mob-accordeon]');
+  const legendTitle = legend.querySelector('.map__legend-title');
+  legendTitle.addEventListener('click', () => {
+    legend.classList.toggle('opened');
+    // добавить плавность появление блока с маркерами
+    // if (legend.classList.contains('opened')) {
+    // gsap.fromTo('.map__legend-markers-wrap', { height: 0 }, { height: '50vh' });
+    // } else {
+    // gsap.fromTo('.map__legend-markers-wrap', { height: '50vh' }, { height: 0 });
+    // }
+  });
 });

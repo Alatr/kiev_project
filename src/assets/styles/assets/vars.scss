@@ -39,3 +39,13 @@ $color-gray: rgba(233, 233, 233, 1);
   --home-sec-mb: 60px;
   --page-side-fields:50px;
 }
+@media screen and (max-width:950px){
+  :root {
+    --page-side-fields:20px;
+    }
+}
+@media screen and (max-width:575px){
+  :root {
+    --page-side-fields:14px;
+    }
+}
