@@ -134,3 +134,87 @@
       }
     }
   }
+
+.home-contact-btn--size{
+  height: 50px;
+  margin: 0 20px;
+}
+
+.home-section-contact{
+  padding: 150px 120px;
+  background: #F9F9F9;
+}
+
+.contact-block {
+  display: flex;
+  align-items: flex-start;
+  &__l{
+    padding-bottom: 40px;
+
+    border-right: 1px solid #E8E8E8;
+  }
+
+  &__l,
+  &__r {
+    width: 50%;
+  }
+}
+
+.contact-location{
+  border-bottom: 1px solid #E8E8E8;
+  margin-bottom: 40px;
+  &__label{
+    font-size: 18px;
+    line-height: 100%;
+
+    text-transform: uppercase;
+
+    color: #000000;
+    margin: 0 0 20px 0px;
+  }
+  &__adress{
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 150%;
+    color: #000000;
+    margin: 0 0 20px 0px;
+  }
+}
+
+.home-section-appartments__btn{
+  margin-bottom: 40px;
+}
+
+.contact-schedule{
+  display: flex;
+  justify-content: space-between;
+  &-r, &-l{
+    // width: 50%;
+  }
+  &-l{
+    a{
+      font-size: 18px;
+      line-height: lh(30,18);
+      text-decoration: none;
+      color: #000000;
+    }
+  }
+  &__time{
+    margin-left: auto;
+    li{
+      display: flex;
+      font-size: 12px;
+      line-height: 170%;
+      color: #646464;
+    }
+  }
+  &__label{
+    font-size: 18px;
+    line-height: 100%;
+
+    text-transform: uppercase;
+
+    color: #000000;
+    margin: 0 0 20px 0px;
+  }
+}

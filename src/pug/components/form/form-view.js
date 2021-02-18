@@ -19,7 +19,10 @@ const renderForm = (form, elements) => {
         const field = elementsParamFn.fields[key];
         if (field.valid) {
           field.inputWrapper.showSuccessStyle();
-          field.inputWrapper.writeMessage(field.defaultMessage);
+          field.inputWrapper.writeMessage('');
+          if (elementsParamFn.showSuccessMessage) {
+            field.inputWrapper.writeMessage(field.defaultMessage);
+          }
         } else {
           field.inputWrapper.showErrorStyle();
           field.inputWrapper.addSelectedStyle();
@@ -33,7 +36,7 @@ const renderForm = (form, elements) => {
       fieldsKey.forEach((key) => {
         const field = elementsParamFn.fields[key];
         field.inputWrapper.showSuccessStyle();
-        field.inputWrapper.writeMessage(field.defaultMessage);
+        field.inputWrapper.writeMessage('');
       });
       break;
 

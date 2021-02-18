@@ -59,37 +59,54 @@ block content
   section.home-section.home-section-contact
     .title-wrap
       h2.title Контакти
-  .contact-block
-    .contact-block__l.brd
-      address.contact-location.df.fdc.aifs
-        span.contact-location__label Розташування:
-        p.contact-location__adress Київ, Шевченківський район, вул. Богдана Хмельницкого, 16-22
-        a(href="https://goo.gl/maps/FzURhcCMKHm3cupV6" rel="nofollow" target="_blank").tdn.button-circle.button-circle--black.home-section-appartments__btn
-          <svg width="71" class='button-circle__ico' height="52" viewBox="0 0 71 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="45" cy="26" r="25"/>
-            <path d="M0 25.5L45 25.5M45 25.5L38.3182 18M45 25.5L38.3182 33"/>
-          </svg>
-          span.button-circle__text Показати на Google Maps
-      .contact-schedule.df.fww
-        span.contact-schedule__label.w100p Відділ продажів:
-        .contact-schedule-l.df.fdc
-          a(href="tel:+1234567890").contact-schedule__phone +1234567890
-          a(href="mailto:info@kyivproekt.ua").contact-schedule__mail info@kyivproekt.ua
-        .contact-schedule-r
-          ul.contact-schedule__time
-            li Пн-пт: 09:00-19:00
-            li СБ: 09:00-17:00
-            li ВС: вихідний
-    .contact-block__r.brd
-      form(data-home-contact autocomplete="off")
-        .form-field.form-field-input(data-field-input data-field-name data-status="field--inactive")
-          input(type='text' name="name").form-field__input
-          .input-message(data-input-message) Ім’я:*
-        .form-field.disabled.form-field-input(data-field-input data-field-phone data-status="field--inactive")
-          input(type='text' name="phone").form-field__input
-          .input-message(data-input-message) Телефон:*
-        +btn('Надіслати')(type="submit" data-btn-submit).main-button--size-m
-      .toast-wrapper(data-toast-wrapper)
+    .contact-block
+      .contact-block__l
+        address.home-contact--width.contact-location.df.fdc.aifs
+          span.contact-location__label Розташування:
+          p.contact-location__adress Київ, Шевченківський район, вул. Богдана Хмельницкого, 16-22
+          +a('Показати на Google Maps', "https://goo.gl/maps/FzURhcCMKHm3cupV6")(rel="nofollow" target="_blank").home-section-appartments__btn
+
+        .home-contact--width.contact-schedule.df.fww
+          span.contact-schedule__label.w100p Відділ продажів:
+          .contact-schedule-l.df.fdc
+            a(href="tel:+1234567890").contact-schedule__phone +1234567890
+            a(href="mailto:info@kyivproekt.ua").contact-schedule__mail.underline info@kyivproekt.ua
+          .contact-schedule-r
+            ul.contact-schedule__time
+              li Пн-пт: 09:00-19:00
+              li СБ: 09:00-17:00
+              li ВС: вихідний
+      .contact-block__r
+        h5.form-label.home-contact--width Залишились питання?
+        form(data-home-contact autocomplete="off").home-contact--width
+          .form-field-message Введіть ваше ім’я 
+          .form-field.form-field-input(data-field-input data-field-name data-status="field--inactive")
+            input(type='text' name="name" placeholder="Ім’я:").form-field__input
+            .input-message(data-input-message)
+            .requaired-block-ico.requaired-block-ico--position
+              +svg('requaired')
+          
+          .form-field-message Введіть ваш телефон
+          .form-field.disabled.form-field-input(data-field-input data-field-phone data-status="field--inactive")
+            input(type='text' name="phone" placeholder="Телефон:").form-field__input
+            .input-message(data-input-message)
+            .requaired-block-ico.requaired-block-ico--position
+              +svg('requaired')
+
+          
+          .form-textarea
+            .form-field-message Введіть ваше повідомлення
+            textarea(placeholder="Повідомлення:")
+          
+          .form-btn-wrap.df.jcsb.aic
+            .requaired-block.df
+              .requaired-block__ico
+                +svg('requaired')
+              .requaired-block__text обов’язкові поля для
+                br
+                | заповнення
+            +btn('Надіслати')(type="submit" data-btn-submit).home-contact-btn--size
+        .toast-wrapper(data-toast-wrapper)
 
 
   // -----------------------------------

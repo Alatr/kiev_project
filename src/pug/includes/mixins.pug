@@ -14,6 +14,15 @@ mixin btn(text)
         +svg('button-arrow').main-button__ico
       .main-button__circle
     span(data-btn-submit-text).main-button__text= text
+    
+mixin a(text, hrefVal)
+  a(href= hrefVal)&attributes(attributes).tdn.main-button
+    .main-button-wrap
+      .main-button-arrow.df.aic
+        span.main-button__line
+        +svg('button-arrow').main-button__ico
+      .main-button__circle
+    span(data-btn-submit-text).main-button__text= text
 
 mixin SelectBox(name, id, options)
   .u-select-box

@@ -50,12 +50,7 @@
 .w100p{
   width: 100%;
 }
-.contact-block{
-  display: flex;
-  &__l, &__r{
-    width: 50%;
-  }
-}
+
 .tdn{
   text-decoration: none;
 }
@@ -224,5 +219,7 @@
   }
 }
 
+
+@import './form'; // main style
 @import './assets/templates'; // main style
 @import './pages/home.scss';
