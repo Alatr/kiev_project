@@ -17,12 +17,16 @@
 @import './footer';
 @import './404';
 @import './loader';
+@import './standart-elements';
+
+
 
 
 @import '../../pug/components/form/form';
 @import '../../pug/components/toster/toster';
 @import '../../pug/components/popup/popup';
 @import '../../pug/components/map/map';
+@import '../../pug/components/seo-block/seo-block';
 
 .df{
   display: flex;

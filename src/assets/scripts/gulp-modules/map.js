@@ -6,7 +6,7 @@ function func() {
   if (window.location.href.match(/localhost/)) key = '';
   // const key = '';
   script.src = `https://maps.googleapis.com/maps/api/js?key=${key}&callback=initMap`;
-  document.getElementsByTagName('head')[0].appendChild(script);
+  // document.getElementsByTagName('head')[0].appendChild(script);
 }
 setTimeout(func, 1000);
 

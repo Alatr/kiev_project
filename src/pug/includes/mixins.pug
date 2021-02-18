@@ -47,3 +47,11 @@ mixin infoItem(text, ico, color)
     span.info-list-item__ico
       +svg(ico)
     span.info-list-item__text !{text}
+
+mixin seoBlock(title,text)
+  .seo-text(data-seo-text)
+    .seo-text__decor
+    .seo-text__text-wrap
+      .seo-text__title #{title}
+      .seo-text__text #{text}
+      +btn('Читати далі')(data-seo-read-more data-text-when-opened="Згорнути" data-text-when-closed="Читати далі")

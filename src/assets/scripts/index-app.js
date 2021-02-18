@@ -7,6 +7,7 @@ import * as yup from 'yup';
 import FormMonster from '../../pug/components/form/form';
 import ShowModal from '../../pug/components/popup/popup';
 import SexyInput from '../../pug/components/input/input';
+import handleSeoBlock from '../../pug/components/seo-block/seo-block';
 
 global.gsap = gsap;
 
@@ -29,6 +30,14 @@ const locoScroll = new LocomotiveScroll({
  * smooth scroll end
  */
 /** ******************************* */
+
+/* Seo block */
+
+const seoBlocks = document.querySelectorAll('[data-seo-text]');
+seoBlocks.forEach(handleSeoBlock);
+
+/* Seo block END */
+
 /** ******************************* */
 /*
  * form handlers start

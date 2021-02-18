@@ -3,7 +3,7 @@ extends ../layout/main
 block variable
   -
     var title_page = 'location'
-    var id_page = 'id-page-location'
+    var id_page = 'location'
     var class_page = 'class-page-location'
     var breadcrumbsSubitem = [
       {
@@ -23,7 +23,59 @@ block scripts
   script(defer src='./assets/scripts/location.js')
   
 block content
+  h1.page-title Розташування
+  .double-side-block
+    .double-side-block__left
+      .subtitle KYЇVPROEKT розташований у центрі центру, у декількох хвилинах пішки від Хрещатику.
+    .double-side-block__right
+      a(target="_blank").adress-link 
+        +svg('logo').adress-link__icon
+        .adress-link__text
+          div.bold Адреса будинку: 
+          div вул. Б. Хмельницького, 16-22.
+  .double-side-block
+    +img('location/opera.jpg')
+    -
+      var list = [
+        'Ст. М. "Театральна"',
+        'Ст. М. "Хрещатик"',
+        'Вулиця Хрещатик',
+        'ЦУМ',
+        'Національна Опера України',
+        'Національний музей природних наук НАН України',
+        'Національний музей літератури України',
+        'Музей исторії Києва',
+        'Десятки магазинів, кафе і ресторанів',
+        ]
+    .double-side-block__right
+      .subtitle.black.bold В 5 хвилинах пішки від KYЇVPROEKT знаходяться:
+      ul.list-std
+        each el in list 
+          li #{el}
+  .double-side-block
+    -
+      var list1 = [
+        'Парк ім. Шевченка',
+        'Ботанічний сад ім. Фоміна',
+        'Київський Національний Універсітет',
+        'Володимирський кафедральний собор',
+        'Золоті ворота',
+        'Софійський собор',
+        'Михайлівський собор',
+        'Андріївський узвіз',
+        'Майдан Незалежності',
+        'ТРЦ "Глобус"',
+        'ТРЦ "Mandarin Plaza"',
+        'ТРЦ "Метроград"',
+        ]
+    .double-side-block__right
+      .subtitle.black.bold В 15 хвилинах пішки від KYЇVPROEKT знаходяться:
+      ul.list-std
+        each el in list1 
+          li #{el}
+    +img('location/university.jpg')
   include ../components/map/map.pug
+  +seoBlock('СЕО текст для зразку','Итальянские дизайнеры, с которыми мы сотрудничаем, разработали четыре ключевых направления, которые будут использоваться в оформлении апартаментов. В своих проектах они вдохновлялись творчеством всемирно известных художников. Часть из них тесно связана с Украиной. Это Василий Кандинский, Казимир Малевич и Энди Уорхол. Мы позаботились о том, чтобы избавить жителей SAGA City Space от лишних хлопот. Именно ')
 block footer
   include ../includes/footer.pug
 
