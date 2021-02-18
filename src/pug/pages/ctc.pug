@@ -1,0 +1,113 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'Client Technical Control'
+    var id_page = 'id-page-ctc'
+    var class_page = 'class-page-ctc'
+    var breadcrumbsSubitem = [
+      {
+        label: 'About',
+        link: pagesLink[0].about
+      }
+    ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/ctc.js')
+block content
+  include ../includes/breadcrumbs.pug
+  h1.page-title #{title_page}
+  .ctc-part
+    .icon-title-decor
+      +svg('figure-blue')
+      .subtitle.bold.black Клієнтський Технічний Контроль
+      .decor
+    .ctc-grid-block
+      .ctc-grid-block__left 
+        .subtitle Клієнтський Технічний Контроль – унікальний проєкт компанії SAGA Development, який дозволяє майбутньому мешканцю бути учасником процесу будівництва.
+      .ctc-grid-block__right <span class="bold black">Ми розуміємо, що клієнт як інвестор і замовник послуги, повинен мати можливість слідкувати за ходом будівництва,</span> контролювати термін здачі об’єкта в експлуатацію, вносити свої пропозиції щодо якості будівельних матеріалів та впливати на окремі проєктні рішення. Саме тому ми залучаємо покупця нерухомості до процесу та змінюємо його роль спостерігача на роль учасника.
+      .ctc-grid-block__right2 <span class="bold black">Мета проєкту Client Technical Control</span> – створити систему взаємодії, яка допоможе збудувати житловий комплекс у відповідності до очікувань інвестора.
+  .ctc-part
+    .icon-title-decor
+      +svg('figure-green')
+      .subtitle.bold.black Client Technical Control надає право майбутнім мешканцям:
+      .decor
+    - 
+      var secondBlockInfo = [
+        'разом з головним архітектором, менеджером проєкту та представниками компанії SAGA Development проводити щомісячний огляд будівельного майданчика;',
+        'контролювати відповідність планових і фактичних характеристик об′єкта;',
+        'слідкувати за темпами будівництва;',
+        'контролювати виконання робіт з благоустрою території;',
+        'перевіряти освітлення та обладнання місць загального користування;',
+        'обговорювати результати технагляду;',
+        'складати перелік пропозицій для компанії;',
+        'разом з замовником приймати будинок у генерального підрядника',
+        ]
+    .triple-side-block
+      each val,i in secondBlockInfo
+        if i%3 === 0
+          .triple-side-block__part
+            ul.list-std.green
+              li #{secondBlockInfo[i]}
+              li #{secondBlockInfo[i+1]}
+              li #{secondBlockInfo[i+2]}
+  .ctc-part
+    .icon-title-decor
+      +svg('figure-red')
+      .subtitle.bold.black Як здійснюється клієнтський контроль?
+      .decor
+    .ctc-grid-block
+      .ctc-grid-block__left 
+        .subtitle Ми запрошуємо всіх інвесторів стати учасником Клієнтського Контролю.
+      .ctc-grid-block__right Інформування про зустріч відбувається через чат-асистент Viber, підключитися до якого можно через мобільний додаток Sfera або за посиланням, отриманим в смс-повідомленні. Через чат-асистент Viber менеджер проєкту відправляє запрошення, отримує підтвердження, збирає питання та надає відповіді.
+      .ctc-grid-block__right2 Один раз на два місяці всі інвестори будинку отримують запрошення на зустріч з метою контролю його готовності, підготовки пропозицій щодо благоустрою території тощо.
+  .ctc-part
+    .icon-title-decor
+      +svg('figure-yellow')
+      .subtitle.bold.black Під час відвідування будівельного майданчика інвесторів зустрічають:
+      .decor
+    - 
+      var yellowBlockINfo = [
+        'менеджер проєкту;',
+        'керівник служби технічного клієнтського контролю SAGA Development;',
+        'архітектор будинку;',
+        'інженер будинку;',
+        'представник відділу продажів;',
+        'представник управляючої компанії ATMOSFERA.',
+        ]
+    .triple-side-block 
+      each val,i in yellowBlockINfo
+        if i%2 === 0
+          .triple-side-block__part
+            ul.list-std
+              li #{yellowBlockINfo[i]}
+              li #{yellowBlockINfo[i+1]}
+  .ctc-part
+    .ctc-grid-block
+      .ctc-grid-block__left
+        .subtitle За результатами візиту інвестори отримують звіт про те, які з пунктів зауважень компанія готова виконати.
+      .ctc-grid-block__right
+        .subtitle.bold.black Інвестори можуть впливати на:
+        ul.list-std 
+          li відповідність якості заявленого проєкту реальному будівництву
+          li вибір окремих видів оздоблювальних матеріалів
+          li оформлення місць загального користування
+          li благоустрій
+      .ctc-grid-block__right2 
+        p.text.light-gray *Стати учасником Клієнтського Контролю можна лише для свого будинку.
+        +btn('Дізнатися більше')()
+  .ctc-part
+    +seoBlock('СЕО текст для зразку','Итальянские дизайнеры, с которыми мы сотрудничаем, разработали четыре ключевых направления, которые будут использоваться в оформлении апартаментов. В своих проектах они вдохновлялись творчеством всемирно известных художников. Часть из них тесно связана с Украиной. Это Василий Кандинский, Казимир Малевич и Энди Уорхол. Мы позаботились о том, чтобы избавить жителей SAGA City Space от лишних хлопот. Именно ')
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

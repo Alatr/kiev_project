@@ -11,6 +11,7 @@
   font-size: 36px;
   line-height: 100%;
   text-align: center;
+  text-transform: uppercase;
   @include from(1680px){
     font-size: 48px;
   }
@@ -37,7 +38,12 @@
 .bold {
   font-weight: 500;
 }
-
+.black {
+  color: var(--color-technology);
+}
+.light-gray {
+  color: #AFAFAF;
+}
 .list-std {
   li {
     line-height: 1.7em;
@@ -56,6 +62,13 @@
     background: var(--color-architecture);
     margin-right: 20px;
     border-radius: 50%;
+  }
+  &.green li::before{
+    
+    background: var(--color-living);
+  }
+  li:empty {
+      display: none;
   }
   @include to(575px) {
     li:nth-last-child(n+2){
