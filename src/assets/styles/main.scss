@@ -127,6 +127,103 @@
   }
   
 }
+.resset{
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
+
+.main-button.main-button--size-m {
+  width: 248px;
+
+  height: 50px;
+}
+.main-button{
+  display: flex;
+  align-items: center;
+  &:hover{
+    @include from(1025px){
+
+      .main-button__line {
+        width: 50px;
+        transition: width 0.3s ease-out 0s;
+      }
+      .main-button__text{
+        transition: transform 0.3s ease-out 0s;
+        transform: translate(10px);
+
+      }
+      .main-button__circle {
+        width: 45px;
+        height: 45px;
+        min-width: 45px;
+        min-height: 45px;
+        transform: translateX(5px);
+        transform: translate(10px, -50%);
+
+        transition: all 0.3s ease-out 0s;
+      }
+    }
+  }
+  .main-button-arrow{
+    z-index: 2;
+    transform: translateX(-20px);
+  }
+  .main-button-wrap{
+    position: relative;
+    padding-left: 20px;
+    width: 80px;
+
+    height: 50px;
+    min-width: 80px;
+
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__line{
+    transform-origin: right;
+    width: 35px;
+    height: 1px;
+    display: flex;
+    background-color: #000;
+    transition: width 0.7s cubic-bezier(0, 0, 0, 2.01) 0s;
+
+  }
+  &__circle{
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translate(0, -50%);
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    display: flex;
+    border-radius: 50%;
+    background: #FDC60C;
+
+    transition: all 0.7s cubic-bezier(0, 0, 0, 2.01) 0s;
+
+  }
+  &__ico{
+    margin-left: -2px;
+    width: 100%;
+    max-width: 10px;
+    height: 100%;
+    max-height: 15px;
+  }
+  &__text{
+    font-size: 12px;
+    line-height: 100%;
+    margin: 0px 0 0 10px;
+    font-weight: 400;
+    color: #000000;
+    transition: transform 0.6s cubic-bezier(0, 0, 0, 2.01) 0s;
+
+  }
+}
 
 @import './assets/templates'; // main style
 @import './pages/home.scss';

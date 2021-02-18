@@ -1,4 +1,3 @@
-
 export default class ShowModal {
   constructor(obj) {
     this.$popup = obj.$popup;

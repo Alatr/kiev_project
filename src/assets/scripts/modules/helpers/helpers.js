@@ -1,18 +1,3 @@
-export function setNewPathAttr(inx, attr, elem) {
-  const src = elem.getAttribute(attr);
-  const reg = /(.+)\/(.+)\.(.+)$/gm;
-  const newSrc = src.replace(reg, `$1/${inx}.$3`);
-  elem.setAttribute(attr, newSrc);
-}
-
-export function setNewPathAttrFromDataAttr(inx, attr, elem) {
-  const src = elem.dataset[attr];
-
-  const reg = /(.+)\/(.+)\.(.+)$/gm;
-  const newSrc = src.replace(reg, `$1/${inx}.$3`);
-  elem.setAttribute(attr, newSrc);
-}
-
 export const eases = {
   ex: 'expo.inOut',
   exI: 'expo.in',
