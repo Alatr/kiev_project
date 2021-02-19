@@ -55,3 +55,9 @@ mixin seoBlock(title,text)
       .seo-text__title #{title}
       .seo-text__text #{text}
       +btn('Читати далі')(data-seo-read-more data-text-when-opened="Згорнути" data-text-when-closed="Читати далі")
+
+mixin iconTitleDecor(figureColor,title)
+  .icon-title-decor
+      +svg('figure-'+figureColor)
+      .subtitle.bold.black #{title}
+      .decor

@@ -2,7 +2,7 @@
 extends ../layout/main
 block variable
   -
-    var title_page = 'about'
+    var title_page = 'Все про  Kyїvproekt'
     var id_page = 'id-page-about'
     var class_page = 'class-page-about'
     var breadcrumbsSubitem = [
@@ -10,6 +10,17 @@ block variable
         label: 'About',
         link: pagesLink[0].about
       }
+    ]
+    var block1List = [
+      ['<span class="bold">Тут були розроблені</span> всі післявоєнні генплани столиці.','about-block1-icon-1'],
+      ['<span class="bold">Це місце народження київського модернізму,</span> який став символом нового архітектурного мислення.','about-block1-icon-2'],
+      ['<span class="bold">Тут сформувалася плеяда талановитих фахівців,</span> які багато в чому визначили вигляд міста.','about-block1-icon-3'],
+      ['<span class="bold">Тут проєктувалися всі</span> знакові будівлі післявоєнного Києва.','about-block1-icon-4'],
+    ]
+    var block3List = [
+      ['<span class="bold">Проводячи паралелі у світовому контексті,</span> ми звертаємось до однієї з найвизначніших архітектурних шкіл Європи та світу. ','about-block3-icon1'],
+      ['<span class="bold">Це Bauhaus — вища школа будівництва</span> та художнього конструювання, яка існувала у Німеччині з 1919 по 1933 роки. ','about-block3-icon2'],
+      ['<span class="bold">Ідеї та принципи Bauhaus</span> поширились світом і стали поворотною точкою в архітектурі, мистецтві та дизайні. Цей надихаючий вплив ми відчуваємо й сьогодні.','about-block3-icon3'],
     ]
   
 block meta
@@ -23,7 +34,31 @@ block scripts
   script(defer src='./assets/scripts/index.js')
   script(defer src='./assets/scripts/about.js')
 block content
-  h1 about
+  include ../includes/breadcrumbs.pug
+  h1.page-title #{title_page}
+  +iconTitleDecor('blue','Історія')
+  .about-double-side-block
+    .about-double-side-block__left
+      +img('about/block1-bg.jpg').about-double-side-block__bg
+      .subtitle-with-vertical-decor
+        .subtitle Що значить КИЇВПРОЕКТ для Києва?
+    .about-double-side-block__right
+      ul
+        each el in block1List
+          +infoItem(el[0], el[1], 'half-opacity')
+  .block-with-quote
+    .block-with-quote__title один із засновників BAUHAUS Вальтер Гропіус
+    .block-with-quote__foto
+    .block-with-quote__text Ми прагнемо разом придумувати і створювати нову будівлю майбутнього, де усе зіллється у єдиному образі: архітектура, скульптура, живопис, — будівлю, яка подібно храмам, що підносилися у небо руками ремісників, стане кристальним символом нової, прийдешньої віри.
+
+  +iconTitleDecor('green','Натхнення')
+  .about-double-side-block.about-double-side-block3
+    .about-double-side-block__left
+      +img('about/block3-bg.jpg').about-double-side-block__bg
+    .about-double-side-block__right
+      ul
+        each el in block3List
+          +infoItem(el[0], el[1], 'half-opacity')
 block footer
   include ../includes/footer.pug
 
