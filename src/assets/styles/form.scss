@@ -1,9 +1,10 @@
 .form-label{
-  font-size: vw(36);
+  font-size: max(vh(32), 32px);
   line-height: 100%;
   text-transform: uppercase;
   color: #000000;
   margin: 0 0 vw(20) auto;
+  white-space: nowrap;
   @include to(1440px){
     margin: 0 0 20px auto;
     font-size: 18px;
@@ -14,7 +15,7 @@
 }
 
 .home-contact--width{
-  max-width: vw(455);
+  max-width: vw(470);
   @include to(1440px){
     max-width: 400px;
 
