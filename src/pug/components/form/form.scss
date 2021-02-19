@@ -9,9 +9,13 @@ form {
 
 .form-field:not(#t) {
   position: relative;
-  margin: 20px 0 37px 0;
+  margin: vw(20) 0 vw(37) 0;
   border: 1px solid rgba(207, 190, 151, 1);
   transition: all 0.3s;
+  @include to(1440px){
+    margin: 20px 0 37px 0;
+
+  }
 
   // @include from(1025px) {
   //   &:hover {
@@ -145,12 +149,17 @@ form {
   }
 
   &__text {
-    font-size: 12px;
+    font-size: vw(16);
     line-height: 170%;
-    margin: 0px 15px;
-
-
+    margin: 0px vw(18);
+    
+    
     color: #BBBEC2;
+    @include to(1440px){
+      font-size: 12px;
+      margin: 0px 15px;
+
+    }
   }
 }
 
@@ -161,7 +170,7 @@ form {
 
     padding-left: var(--input-padding);
 
-    height: 100px;
+    height: vw(150);
     width: 100%;
     display: flex;
     background: #FFFFFF;
@@ -169,14 +178,23 @@ form {
     line-height: 100%;
     color: #CCCFD5;
     border: none;
+    @include to(1440px){
+      height: 100px;
+
+    }
   }
 }
 
 .form-field-message {
-  font-size: 16px;
+  font-size: vw(18);
   line-height: 100%;
   color: #000000;
-  margin: 10px 0 10px 0;
+  margin: vw(18) 0 vw(18) 0;
+  @include to(1440px){
+    margin: 10px 0 10px 0;
+    font-size: 16px;
+
+  }
 }
 
 .requaired-block-ico--position {

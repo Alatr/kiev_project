@@ -48,6 +48,7 @@ forms.forEach((form) => {
       elements: {
         $form,
         showSuccessMessage: false,
+        successAction: 'toster',
         $btnSubmit: $form.querySelector('[data-btn-submit]'),
         fields: {
           name: {
