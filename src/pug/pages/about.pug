@@ -22,6 +22,33 @@ block variable
       ['<span class="bold">Це Bauhaus — вища школа будівництва</span> та художнього конструювання, яка існувала у Німеччині з 1919 по 1933 роки. ','about-block3-icon2'],
       ['<span class="bold">Ідеї та принципи Bauhaus</span> поширились світом і стали поворотною точкою в архітектурі, мистецтві та дизайні. Цей надихаючий вплив ми відчуваємо й сьогодні.','about-block3-icon3'],
     ]
+    var renovationTextBlocks = [
+      '<span class="bold">Наша мета</span> – створити у центрі Києва нову екосистему, яка поєднає в собі архітектуру та дизайн, мистецтво та технології, освіту та бізнес. ',
+      '<span class="bold">Це місце для тих,</span> хто хоче бути там, де народжується все нове, прогресивне та модне.',
+      '<span class="bold">Це новий центр тяжіння для всіх,</span> хто прагне змінювати довкілля та готовий змінюватися сам. Для талантів, новаторів, візіонерів.',
+      '<span class="bold">Для тих, хто прагне</span> бути безпосереднім учасником найцікавіших і найважливіших подій міста та країни.',
+    ]
+    var renovationList = [
+      '<span class="bold">Принцип функціоналізму</span> – архітектурний образ будинку визначається чітким розумінням його майбутніх функцій',
+      '<span class="bold">Сімбіоз</span> архітектури та мистецтва ',
+      '<span class="bold">Цілісність, відсутність вичурності та дотримання чітких геометричних форм –</span> в архітектурі, в дизайні інтер\'єру і в фірмовому стилі проєкту',
+      '<span class="bold">Продумане втілення соціальних функцій –</span> гармонія між корпоративними та суспільними просторами',
+    ]
+    var blockArchiText = [
+      'Знакова архітектура будинку',
+      'У суспільних просторах – мультимедійна експозиція на основі відцифрованих архівів КИЇВПРОЕКТУ',
+      'Освітні платформи для архітекторів та урбаністів, дитяча архітектурна школа',
+    ]
+    var blockArtText = [
+      "Вражаюча вулична скульптура у внутрішньому дворі KYЇVPROEKT Citу Space",
+      "Артрезиденція для молодих художників під наглядом куратора",
+      "Артоб'єкти, створені резидентами, стають частиною експозиції у суспільних просторах KYЇVPROEKT Citу Space",
+    ]
+    var blocktechText = [
+      'Резиденція для мейкерів',
+      'Школа робототехніки для дітей та підлітків',
+      'Шоуруми українських технологічних брендів',
+    ]
   
 block meta
   title= title_page
@@ -47,10 +74,16 @@ block content
         each el in block1List
           +infoItem(el[0], el[1], 'half-opacity')
   .block-with-quote
-    .block-with-quote__title один із засновників BAUHAUS Вальтер Гропіус
-    .block-with-quote__foto
-    .block-with-quote__text Ми прагнемо разом придумувати і створювати нову будівлю майбутнього, де усе зіллється у єдиному образі: архітектура, скульптура, живопис, — будівлю, яка подібно храмам, що підносилися у небо руками ремісників, стане кристальним символом нової, прийдешньої віри.
-
+    .block-with-quote__title 
+      .block-with-quote__title-first один із засновників BAUHAUS 
+      .block-with-quote__title-second Вальтер Гропіус
+    .block-with-quote__foto-wrap
+      .block-with-quote__foto
+        img(src="./assets/images/about/gropius-image.png")
+    .block-with-quote__text.light-gray Ми прагнемо разом придумувати і створювати нову будівлю майбутнього, де усе зіллється у єдиному образі: архітектура, скульптура, живопис, — будівлю, яка подібно храмам, що підносилися у небо руками ремісників, стане кристальним символом нової, прийдешньої віри.
+  ul.simple-text-block
+    li <span class="bold">Як і Bauhaus сто років тому,</span> п'ядесят років тому КИЇВПРОЕКТ був місцем появи новаторських архітектурних рішень, які змінювали міський ландшафт. 
+    li <span class="bold">Як і Bauhaus, оновлений KYЇVPROEKT Citу Space створює навколо себе контекст,</span> який спонукає до переосмислення та розвитку, комбінування ідей та формування трендів, які змінюють життя навколо нас.
   +iconTitleDecor('green','Натхнення')
   .about-double-side-block.about-double-side-block3
     .about-double-side-block__left
@@ -59,6 +92,29 @@ block content
       ul
         each el in block3List
           +infoItem(el[0], el[1], 'half-opacity')
+  +iconTitleDecor('red','Реновації')
+  .subtitle-with-vertical-decor 
+    .subtitle Здійснюючи реновацію КИЇВПРОЕКТУ, ми дотримуємось ключових принципів Bauhaus як найбільш ідейно близької київському модернізму архітектурної школи:
+  each val in renovationList
+    +infoItem(val,'','half-opacity')
+  each val in renovationTextBlocks
+    .subtitle-with-vertical-decor 
+      div !{val}
+  +iconTitleDecor('green-square','Виміри')
+  ul
+    li ArT
+    each val in blockArchiText
+      li #{val}
+  ul
+    li deSIGN
+    each val in blockArtText
+      li #{val}
+  ul
+    li TECH
+    each val in blocktechText
+      li #{val}
+  
+  
 block footer
   include ../includes/footer.pug
 

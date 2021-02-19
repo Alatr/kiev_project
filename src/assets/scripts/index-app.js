@@ -17,7 +17,7 @@ global.gsap = gsap;
  */
 
 /* eslint-disable-next-line */
-const locoScroll = new LocomotiveScroll({
+window.locoScroll = new LocomotiveScroll({
   el: document.querySelector('[data-scroll-container]'),
   smooth: true,
   smoothMobile: false,
