@@ -1,8 +1,12 @@
+import Cleave from 'cleave.js';
+
 export default class SexyInput {
   constructor(setting) {
     this.selected = false;
     this.$field = setting.$field;
     this.$input = setting.$input || setting.$field.querySelector('input');
+    this.typeInput = setting.typeInput || 'text';
+    this.animation = setting.animation || 'none';
     this.$message = setting.$message || setting.$field.querySelector('[data-input-message]');
 
     this.$body = document.querySelector('body');
@@ -59,7 +63,9 @@ export default class SexyInput {
   }
 
   addSelectedStyle() {
-    this.$field.classList.add('selected');
+    if (this.animation === 'focus') {
+      this.$field.classList.add('selected');
+    }
   }
 
   removeSelectedStyle() {
@@ -103,11 +109,35 @@ export default class SexyInput {
 
   listeners(input) {
     const self = this;
-    input.addEventListener('focus', self.selectIn(self));
-    input.addEventListener('blur', self.selectOut(self));
+
+    if (this.typeInput === 'phone') {
+      /* eslint-disable */
+        new Cleave(input, {
+      /* eslint-enable */
+        numericOnly: true,
+        prefix: '+38',
+        blocks: [3, 3, 3, 2, 2],
+        delimiters: [' (', ') ', '-', '-'],
+        noImmediatePrefix: true,
+      });
+    }
+    if (this.animation === 'focus') {
+      input.addEventListener('focus', self.selectIn(self));
+      input.addEventListener('blur', self.selectOut(self));
+    }
+  }
+
+  prepareMarkup() {
+    if (this.animation === 'focus') {
+      this.$field.setAttribute('data-animation', 'focus');
+    }
+    if (this.animation === 'none') {
+      this.$field.setAttribute('data-animation', 'none');
+    }
   }
 
   init() {
     this.listeners(this.$input);
+    this.prepareMarkup(this.$input);
   }
 }

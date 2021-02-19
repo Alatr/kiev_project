@@ -101,6 +101,7 @@ export default class FormMonster {
   constructor(setting) {
     this.elements = setting.elements;
     this.$body = document.querySelector('body');
+    this.showSuccessMessage = setting.showSuccessMessage || true;
 
     this.state = {
       serverError: null,

@@ -1,0 +1,22 @@
+.form-label{
+  font-size: vw(36);
+  line-height: 100%;
+  text-transform: uppercase;
+  color: #000000;
+  margin: 0 0 vw(20) auto;
+  @include to(1440px){
+    margin: 0 0 20px auto;
+    font-size: 18px;
+  }
+}
+.contact-block__r form{
+  margin-left: auto;
+}
+
+.home-contact--width{
+  max-width: vw(455);
+  @include to(1440px){
+    max-width: 400px;
+
+  }
+}

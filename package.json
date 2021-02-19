@@ -80,6 +80,7 @@
     "webpack-cli": "^3.0.2"
   },
   "dependencies": {
+    "cleave.js": "^1.6.0",
     "axios": "^0.21.1",
     "bezier-easing": "^2.1.0",
     "gsap": "^3.5.1",
