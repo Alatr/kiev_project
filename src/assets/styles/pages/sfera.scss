@@ -7,6 +7,7 @@
 }
 .sfera-grid-block{
   display: grid;
+  position: relative;
   grid-template-columns: 65% 35%;
   --decor-size:150px;
   &>* {
@@ -28,7 +29,7 @@
   }
   &.yellow-bg &__left {
     background-color: var(--color-architecture);
-    background-image: url(../images/sfera/white-pattern.svg);
+    // background-image: url(../images/sfera/white-pattern.svg);
   }
   &__right,
   &__right2{
@@ -39,6 +40,22 @@
   }
   &__right2 {
     border-bottom: 1px solid #DBDBDB;
+    display: grid;
+    grid-template-columns: auto 50%;
+    grid-template-rows: repeat(2,auto);
+    column-gap: max(50px, 10%);
+  }
+  &__right2 img {
+    grid-area: 1/1/3/1;
+  }
+  &__bg{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 150px;
+    height: 150px;
+    z-index: 2;
+    pointer-events: none;
   }
   .subtitle.black {
     margin-bottom: 40px;
@@ -50,9 +67,19 @@
     width: 100%;
     height:100%;
   }
+  @include to(1024px){
+    grid-template-columns: 55% 45%;
+    &__right2 {
+      column-gap: 20px;
+    }
+  }
   @include to(575px){
     display: flex;
     flex-direction: column;
+    &>* {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
     &__left {
           padding-bottom: calc(var(--decor-size) + 15px);
     }
@@ -62,14 +89,49 @@
       border-left: 1px solid #DBDBDB;
       border-right: 1px solid #DBDBDB;
     }
+    &__right2 {
+      column-gap: 15px;
+      row-gap: 15px;
+      grid-template-rows: repeat(3,auto);
+      img{
+        grid-area: 1/1/1/3;
+        height: 100%;
+      }
+    }
+    &__right2>*:not(img){
+      grid-area: auto/1/auto/3;
+    }
+    &__bg {
+      display: none;
+    }
+    iframe {
+      height: calc((100vw - (var(--page-side-fields) * 4)) / 16 * 9);
+    }
   }
 }
 
 .sfera-logo {
-  width:100px;
-  height: 140px;
-  width: 100px;
-  height: 140px;
-  float: left;
-  margin: 0 15px 70px 0;
+  // width:100px;
+  // height: 140px;
+  // width: 100px;
+  // height: 140px;
+  // float: left;
+  // margin: 0 55px 0px 0;
+  // height: 100%;
+  object-position: top;
+  object-fit: contain;
+  @include to(575px) {
+    max-width: 200px;
+    margin: auto;
+  }
+}
+
+
+
+.icon-title-decor .decor {
+  animation: bgPosX 100s infinite;
+}
+@keyframes bgPosX {
+  from {background-position-x:0}
+  to {background-position-x:-1000px}
 }
