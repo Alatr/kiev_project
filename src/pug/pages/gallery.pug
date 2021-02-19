@@ -1,0 +1,60 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'Галерея'
+    var id_page = 'id-page-gallery'
+    var class_page = 'class-page-gallery'
+    var breadcrumbsSubitem = [
+      {
+        label: 'About',
+        link: pagesLink[0].about
+      }
+    ]
+  -
+    var imgs = [
+      './assets/images/gallery/KIEVPROECT\ HEROSHOT\ FINAL.jpg        ',
+      './assets/images/gallery/KP_VIEW_4_FINAL.jpg',
+      './assets/images/gallery/KP_VIEW_1_FINAL.jpg                      ',
+      './assets/images/gallery/SAG_KIE_SKY\ VIEW_V2_FINAL.jpg',
+      './assets/images/gallery/KP_VIEW_2_FINAL.jpg                      ',
+      './assets/images/gallery/SAG_KIE_VIEW_1_FINAL_BIG.jpg',
+      './assets/images/gallery/KP_VIEW_3_FINAL_OPTION_2.jpg             ',
+      './assets/images/gallery/SAG_KIE_VIEW_2_FINAL_long.jpg',
+      './assets/images/gallery/KP_VIEW_3_FINAL_OPTION_3\ new\ year.jpg  ',
+      './assets/images/gallery/VIEW\ FRONT\ DAY\ BIG.jpg',
+    ]
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/gallery.js')
+block content
+  include ../includes/breadcrumbs.pug
+  h1.page-title #{title_page}
+  .gallery-slider
+    .gallery-slider__fixed-proportions-container
+      .gallery-slider__wrap.swiper-container
+        .swiper-wrapper
+          each val in imgs
+            .swiper-slide
+              img(data-src=val class="swiper-lazy")
+              <div class="swiper-lazy-preloader"></div>
+            //-  img(src=val).swiper-slide
+    +btn('')(data-prev)
+    +btn('')(data-next)
+    .slide-count
+      .slide-count__cur(data-current) 1
+      .slide-count__total(data-total) 14
+  +seoBlock('СЕО текст для зразку','Итальянские дизайнеры, с которыми мы сотрудничаем, разработали четыре ключевых направления, которые будут использоваться в оформлении апартаментов. В своих проектах они вдохновлялись творчеством всемирно известных художников. Часть из них тесно связана с Украиной. Это Василий Кандинский, Казимир Малевич и Энди Уорхол. Мы позаботились о том, чтобы избавить жителей SAGA City Space от лишних хлопот. Именно ')
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug
