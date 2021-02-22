@@ -114,7 +114,7 @@
 .title{
   margin-bottom: vw(50);
   font-weight: 300;
-  font-size: vw(64);
+  font-size: max(vh(64), 64px);
   line-height: 1em;
   text-align: center;
   text-transform: uppercase;

@@ -1,3 +1,9 @@
+#index-page{
+  .page__content {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
 .logo-perfect--size{
   width: 180px;
   height: 81px;
@@ -141,7 +147,7 @@
 }
 
 .home-section-contact{
-  padding: vw(170) vw(350);
+  padding: vw(170) vw(300);
   background: #F9F9F9;
   @include to(1440px){
     padding: 150px 120px;
@@ -176,7 +182,8 @@
 
   }
   &__label{
-    font-size: vw(36);
+    font-size: max(vh(32), 32px);
+    ;
     line-height: 100%;
 
     text-transform: uppercase;
@@ -190,7 +197,7 @@
   }
   &__adress{
     font-weight: 300;
-    font-size: vw(24);
+    font-size: max(vh(24), 24px);
     line-height: 150%;
     color: #000000;
     margin: 0 0 vw(20) 0px;
@@ -215,7 +222,8 @@
   justify-content: space-between;
   &-l{
     a{
-      font-size: vw(18);
+      font-size: max(vh(18), 18px);
+      ;
       line-height: lh(30,18);
       text-decoration: none;
       color: #000000;
@@ -228,7 +236,8 @@
     margin-left: auto;
     li{
       display: flex;
-      font-size: vw(16);
+      font-size: max(vh(16), 16px);
+      ;
       line-height: 170%;
       color: #646464;
       @include to(1440px){
@@ -237,7 +246,7 @@
     }
   }
   &__label{
-    font-size: vw(36);
+    font-size: max(vh(32), 32px);
     line-height: 100%;
 
     text-transform: uppercase;
