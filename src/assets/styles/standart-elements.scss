@@ -1,99 +1,111 @@
 body {
-  background-color: #E9E9E9;
+    // background-color: #E9E9E9;
+    background: #F9F9F9;
 }
-.page__content{
-  padding-left: var( --page-side-fields);
-  padding-right: var( --page-side-fields);
-  .breadcrumbs{
-    margin-top: 30px;
-    margin-bottom: 20px;
-  }
+
+.page__content {
+    padding-left: var( --page-side-fields);
+    padding-right: var( --page-side-fields);
+    .breadcrumbs {
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
 }
-.page-title{
-  font-weight: 300;
-  font-size: 36px;
-  line-height: 100%;
-  text-align: center;
-  text-transform: uppercase;
-  @include from(1680px){
-    font-size: 48px;
-  }
-  
-  @include to(575px){
-    font-size: 24px;
-  }
+
+.page-title {
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    @include from(1680px) {
+        font-size: 48px;
+    }
+    @include to(575px) {
+        font-size: 24px;
+    }
 }
+
+.page-part {
+    margin-bottom: 70px;
+}
+
 
 /* Наборной большой light */
-.subtitle {
-  font-style: normal;
-  font-weight: 300;
-  font-size: 24px;
-  line-height: 150%;
-  color: #646464;
-  &.bold {
-    font-weight: 500;
-  }
-  &.black {
-    color: var(--color-technology);
-  }
-  @include to(575px) {
-    font-size: 18px;
-  }
-}
-.subtitle-small {
-  font-size: 18px;
-  line-height: 170%;
-  /* or 31px */
-  color: #646464;
 
+.subtitle {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 150%;
+    color: #646464;
+    &.bold {
+        font-weight: 500;
+    }
+    &.black {
+        color: var(--color-technology);
+    }
+    @include to(575px) {
+        font-size: 18px;
+    }
+}
+
+.subtitle-small {
+    font-size: 18px;
+    line-height: 170%;
+    /* or 31px */
+    color: #646464;
 }
 
 .bold {
-  font-weight: 500;
+    font-weight: 500;
 }
+
 .black {
-  color: var(--color-technology);
+    color: var(--color-technology);
 }
+
 .light-gray {
-  color: #AFAFAF;
+    color: #AFAFAF;
 }
+
 .list-std {
-  li {
-    line-height: 1.7em;
-    list-style-position: inside;
-    text-indent: -26px;
-    padding-left: 26px;
-  }
-  li:nth-last-child(n+2){
-    margin-bottom: 15px;
-  }
-  li:before {
-    content:'';
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    background: var(--color-architecture);
-    margin-right: 20px;
-    border-radius: 50%;
-  }
-  &.green li::before{
-    background: var(--color-living);
-  }
-  &.red li::before{
-    background: var(--color-art);
-  }
-  &.black li::before{
-    background: var(--color-technology);
-  }
-  li:empty {
-      display: none;
-  }
-  @include to(575px) {
-    li:nth-last-child(n+2){
-      margin-bottom: 10px;
+    li {
+        line-height: 1.7em;
+        list-style-position: inside;
+        text-indent: -26px;
+        padding-left: 26px;
     }
-  }
+    li:nth-last-child(n+2) {
+        margin-bottom: 15px;
+    }
+    li:before {
+        content: '';
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        background: var(--color-architecture);
+        margin-right: 20px;
+        border-radius: 50%;
+    }
+    &.green li::before {
+        background: var(--color-living);
+    }
+    &.red li::before {
+        background: var(--color-art);
+    }
+    &.black li::before {
+        background: var(--color-technology);
+    }
+    li:empty {
+        display: none;
+    }
+    @include to(575px) {
+        li:nth-last-child(n+2) {
+            margin-bottom: 10px;
+        }
+    }
 }
 
 .breadcrumbs {
@@ -106,7 +118,7 @@ body {
         text-decoration: none;
     }
     &-list {
-      display: flex;
+        display: flex;
     }
     &-item:not(:first-child):before {
         content: '';
@@ -124,7 +136,7 @@ body {
             transition: .3s ease-in-out;
         }
         &__current--color {
-           color: #5B758D;
+            color: #5B758D;
         }
     }
     @include from(1680px) {
@@ -145,8 +157,16 @@ body {
 }
 
 .info-list-item.half-opacity {
-  svg {
+    svg {
+        fill: rgba(0, 0, 0, 0.25)
+    }
+}
 
-    fill:rgba(0,0,0,0.25)
-  }
+.icon--black-triangle,
+.icon--blue-half-circle,
+.icon--figure-red,
+.icon--yellow-triangle,
+.icon--yellow-square {
+    width: 50px;
+    height: 50px;
 }

@@ -23,31 +23,36 @@ block variable
       ['<span class="bold">Ідеї та принципи Bauhaus</span> поширились світом і стали поворотною точкою в архітектурі, мистецтві та дизайні. Цей надихаючий вплив ми відчуваємо й сьогодні.','about-block3-icon3'],
     ]
     var renovationTextBlocks = [
-      '<span class="bold">Наша мета</span> – створити у центрі Києва нову екосистему, яка поєднає в собі архітектуру та дизайн, мистецтво та технології, освіту та бізнес. ',
-      '<span class="bold">Це місце для тих,</span> хто хоче бути там, де народжується все нове, прогресивне та модне.',
-      '<span class="bold">Це новий центр тяжіння для всіх,</span> хто прагне змінювати довкілля та готовий змінюватися сам. Для талантів, новаторів, візіонерів.',
-      '<span class="bold">Для тих, хто прагне</span> бути безпосереднім учасником найцікавіших і найважливіших подій міста та країни.',
+      ['<span class="bold">Наша мета</span> – створити у центрі Києва нову екосистему, яка поєднає в собі архітектуру та дизайн, мистецтво та технології, освіту та бізнес. ','renovation-decor1'],
+      ['<span class="bold">Це місце для тих,</span> хто хоче бути там, де народжується все нове, прогресивне та модне.','renovation-decor2'],
+      ['<span class="bold">Це новий центр тяжіння для всіх,</span> хто прагне змінювати довкілля та готовий змінюватися сам. Для талантів, новаторів, візіонерів.','renovation-decor3'],
+      ['<span class="bold">Для тих, хто прагне</span> бути безпосереднім учасником найцікавіших і найважливіших подій міста та країни.','renovation-decor4'],
     ]
     var renovationList = [
-      '<span class="bold">Принцип функціоналізму</span> – архітектурний образ будинку визначається чітким розумінням його майбутніх функцій',
-      '<span class="bold">Сімбіоз</span> архітектури та мистецтва ',
-      '<span class="bold">Цілісність, відсутність вичурності та дотримання чітких геометричних форм –</span> в архітектурі, в дизайні інтер\'єру і в фірмовому стилі проєкту',
-      '<span class="bold">Продумане втілення соціальних функцій –</span> гармонія між корпоративними та суспільними просторами',
+      ['<span class="bold">Принцип функціоналізму</span> – архітектурний образ будинку визначається чітким розумінням його майбутніх функцій','about-renovation-list1','renovation-decor1'],
+      ['<span class="bold">Сімбіоз</span> архітектури та мистецтва ','about-renovation-list2','renovation-decor2'],
+      ['<span class="bold">Цілісність, відсутність вичурності та дотримання чітких геометричних форм –</span> в архітектурі, в дизайні інтер\'єру і в фірмовому стилі проєкту','about-renovation-list3','renovation-decor3'],
+      ['<span class="bold">Продумане втілення соціальних функцій –</span> гармонія між корпоративними та суспільними просторами','about-renovation-list4','renovation-decor4'],
     ]
     var blockArchiText = [
-      'Знакова архітектура будинку',
-      'У суспільних просторах – мультимедійна експозиція на основі відцифрованих архівів КИЇВПРОЕКТУ',
-      'Освітні платформи для архітекторів та урбаністів, дитяча архітектурна школа',
+      ['Знакова архітектура будинку','about-architecture-list-03'],
+      ['У суспільних просторах – мультимедійна експозиція на основі відцифрованих архівів КИЇВПРОЕКТУ','about-architecture-list-02'],
+      ['Освітні платформи для архітекторів та урбаністів, дитяча архітектурна школа','about-architecture-list-01'],
+    ]
+    var blockDesignText = [
+      ['Освітня платформа для дизайнерів','about-design-list-03'],
+      ['Шоуруми предметного дизайну для дому та офісу – перевага для українських брендів','about-design-list-02'],
+      ['Актуальний дизайн в інтер\'єрах суспільних просторів і візуальних матеріалах','about-design-list-01'],
     ]
     var blockArtText = [
-      "Вражаюча вулична скульптура у внутрішньому дворі KYЇVPROEKT Citу Space",
-      "Артрезиденція для молодих художників під наглядом куратора",
-      "Артоб'єкти, створені резидентами, стають частиною експозиції у суспільних просторах KYЇVPROEKT Citу Space",
+      ["Вражаюча вулична скульптура у внутрішньому дворі KYЇVPROEKT Citу Space",'about-art-list-03'],
+      ["Артрезиденція для молодих художників під наглядом куратора",'about-art-list-02'],
+      ["Артоб'єкти, створені резидентами, стають частиною експозиції у суспільних просторах KYЇVPROEKT Citу Space",'about-art-list-01'],
     ]
     var blocktechText = [
-      'Резиденція для мейкерів',
-      'Школа робототехніки для дітей та підлітків',
-      'Шоуруми українських технологічних брендів',
+      ['Резиденція для мейкерів','about-technology-list-03'],
+      ['Школа робототехніки для дітей та підлітків','about-technology-list-02'],
+      ['Шоуруми українських технологічних брендів','about-technology-list-01'],
     ]
   
 block meta
@@ -63,58 +68,82 @@ block scripts
 block content
   include ../includes/breadcrumbs.pug
   h1.page-title #{title_page}
-  +iconTitleDecor('blue','Історія')
-  .about-double-side-block
-    .about-double-side-block__left
-      +img('about/block1-bg.jpg').about-double-side-block__bg
-      .subtitle-with-vertical-decor
-        .subtitle Що значить КИЇВПРОЕКТ для Києва?
-    .about-double-side-block__right
-      ul
-        each el in block1List
-          +infoItem(el[0], el[1], 'half-opacity')
-  .block-with-quote
-    .block-with-quote__title 
-      .block-with-quote__title-first один із засновників BAUHAUS 
-      .block-with-quote__title-second Вальтер Гропіус
-    .block-with-quote__foto-wrap
-      .block-with-quote__foto
-        img(src="./assets/images/about/gropius-image.png")
-    .block-with-quote__text.light-gray Ми прагнемо разом придумувати і створювати нову будівлю майбутнього, де усе зіллється у єдиному образі: архітектура, скульптура, живопис, — будівлю, яка подібно храмам, що підносилися у небо руками ремісників, стане кристальним символом нової, прийдешньої віри.
-  ul.simple-text-block
-    li <span class="bold">Як і Bauhaus сто років тому,</span> п'ядесят років тому КИЇВПРОЕКТ був місцем появи новаторських архітектурних рішень, які змінювали міський ландшафт. 
-    li <span class="bold">Як і Bauhaus, оновлений KYЇVPROEKT Citу Space створює навколо себе контекст,</span> який спонукає до переосмислення та розвитку, комбінування ідей та формування трендів, які змінюють життя навколо нас.
-  +iconTitleDecor('green','Натхнення')
-  .about-double-side-block.about-double-side-block3
-    .about-double-side-block__left
-      +img('about/block3-bg.jpg').about-double-side-block__bg
-    .about-double-side-block__right
-      ul
-        each el in block3List
-          +infoItem(el[0], el[1], 'half-opacity')
-  +iconTitleDecor('red','Реновації')
-  .subtitle-with-vertical-decor 
-    .subtitle Здійснюючи реновацію КИЇВПРОЕКТУ, ми дотримуємось ключових принципів Bauhaus як найбільш ідейно близької київському модернізму архітектурної школи:
-  each val in renovationList
-    +infoItem(val,'','half-opacity')
-  each val in renovationTextBlocks
-    .subtitle-with-vertical-decor 
-      div !{val}
-  +iconTitleDecor('green-square','Виміри')
-  ul
-    li ArT
-    each val in blockArchiText
-      li #{val}
-  ul
-    li deSIGN
-    each val in blockArtText
-      li #{val}
-  ul
-    li TECH
-    each val in blocktechText
-      li #{val}
   
-  
+  .page-part
+    +iconTitleDecor('blue','Історія')
+    .about-double-side-block
+      .about-double-side-block__left
+        +img('about/block1-bg.jpg').about-double-side-block__bg
+        .subtitle-with-vertical-decor
+          .subtitle Що значить КИЇВПРОЕКТ для Києва?
+      .about-double-side-block__right
+        ul
+          each el in block1List
+            +infoItem(el[0], el[1], 'half-opacity')
+  .page-part
+    .block-with-quote
+      .block-with-quote__title 
+        .block-with-quote__title-first один із засновників BAUHAUS 
+        .block-with-quote__title-second Вальтер Гропіус
+      .block-with-quote__foto-wrap
+        .block-with-quote__foto
+          img(src="./assets/images/about/gropius-image.png")
+      .block-with-quote__text.light-gray Ми прагнемо разом придумувати і створювати нову будівлю майбутнього, де усе зіллється у єдиному образі: архітектура, скульптура, живопис, — будівлю, яка подібно храмам, що підносилися у небо руками ремісників, стане кристальним символом нової, прийдешньої віри.
+  .page-part
+    ul.simple-text-block
+      li <span class="bold">Як і Bauhaus сто років тому,</span> п'ядесят років тому КИЇВПРОЕКТ був місцем появи новаторських архітектурних рішень, які змінювали міський ландшафт. 
+      li <span class="bold">Як і Bauhaus, оновлений KYЇVPROEKT Citу Space створює навколо себе контекст,</span> який спонукає до переосмислення та розвитку, комбінування ідей та формування трендів, які змінюють життя навколо нас.
+  .page-part
+    +iconTitleDecor('green','Натхнення')
+    .about-double-side-block.about-double-side-block3
+      .about-double-side-block__left
+        +img('about/block3-bg.jpg').about-double-side-block__bg
+      .about-double-side-block__right
+        ul
+          each el in block3List
+            +infoItem(el[0], el[1], 'half-opacity')
+  .page-part
+    +iconTitleDecor('red','Реновація')
+    .about-block-renovations
+      .about-block-renovations__subtitle
+        .subtitle-with-vertical-decor 
+          .subtitle Здійснюючи реновацію КИЇВПРОЕКТУ, ми дотримуємось ключових принципів Bauhaus як найбільш ідейно близької київському модернізму архітектурної школи:
+      .about-block-renovations__bg
+        +img('about/renovation-bg.jpg')
+        +img('about/renovation-bg-pattern.svg').about-block-renovations__pattern
+      .about-block-renovations__list
+        each val in renovationList
+          +infoItem(val[0],val[1],'half-opacity')
+      each val in renovationTextBlocks
+        .subtitle-with-vertical-decor(style="background-image:url(assets/images/about/"+val[1]+".svg)")
+          div !{val[0]}
+  .page-part
+    +iconTitleDecor('green-square','Виміри')
+    ul.dimensions-single-block
+      +img('about/archi-block-bg.jpg')
+      .dimensions-single-block__text
+        +infoItem('ARCHITECTURE','yellow-square')
+        each val in blockArchiText
+          +infoItem(val[0],val[1],'half-opacity')
+    ul.dimensions-single-block
+      +img('about/art-block-bg.jpg')
+      .dimensions-single-block__text
+        +infoItem('ART','figure-red')
+        each val in blockArtText
+          +infoItem(val[0],val[1],'half-opacity')
+        //- li #{val}
+    ul.dimensions-single-block
+      +img('about/design-block-bg.jpg')
+      .dimensions-single-block__text
+        +infoItem('DESIGN','blue-half-circle','half-opacity')
+        each val in blockDesignText
+          +infoItem(val[0],val[1],'half-opacity')
+    ul.dimensions-single-block
+      +img('about/technology-block-bg.jpg')
+      .dimensions-single-block__text
+        +infoItem('TECHNOLOGY','black-triangle')
+        each val in blocktechText
+          +infoItem(val[0],val[1],'half-opacity')
 block footer
   include ../includes/footer.pug
 
