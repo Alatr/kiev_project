@@ -112,15 +112,26 @@
   color: white
 }
 .title{
-  margin-bottom: vw(50);
+  margin-bottom: max(vh(50), 50px);;
   font-weight: 300;
   font-size: max(vh(64), 64px);
   line-height: 1em;
   text-align: center;
   text-transform: uppercase;
+  @media (-webkit-min-device-pixel-ratio: 2) and (min-width:1440px){
+    margin-bottom: max(vh(50, 1.6), 50px);;
+
+  }
   @include to(1440px){
     margin-bottom: 50px;
     font-size: 36px;
+  }
+  @include to(1024px){
+    margin-bottom: 60px;
+  }
+  @include to(576px){
+    margin-bottom: 30px;
+    font-size: 24px;
   }
 
 }

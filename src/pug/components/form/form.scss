@@ -14,8 +14,11 @@ form {
   transition: all 0.3s;
   @include to(1440px){
     margin: 20px 0 37px 0;
-
   }
+  @include to(576px){
+    margin: 10px 0 37px 0;
+  }
+
 
   // @include from(1025px) {
   //   &:hover {
@@ -48,8 +51,21 @@ form {
   height: 60px;
   @include to(1440px){
     height: 50px;
-
   }
+  @include to(576px){
+    height: 40px;
+  }
+
+}
+.mask-absolute{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 100%;
+  z-index: 10;
+  background-color: red;
+  opacity: 0.8;
 }
 
 [data-animation="focus"] .form-field__input {
@@ -70,11 +86,18 @@ form {
 }
 [data-animation="none"] .form-field__input {
   padding-left: var(--input-padding);
+  padding-right: var(--input-padding);
   width: 100%;
   border: none;
-  font-size: max(vh(12), 12px);
+  font-size: max(vh(16), 16px);
+  @media (-webkit-min-device-pixel-ratio: 2) and (min-width:1440px){
+    font-size: vw(16);
+  }
   @include to(1440px){
     font-size: 12px;
+  }
+  @include to(576px){
+    font-size: 14px;
   }
 }
 
@@ -92,6 +115,9 @@ form {
   transform: translate(0%, 100%);
   @include to(1440px) {
     font-size: 12px;
+  }
+  @include to(576px) {
+    font-size: 10px;
   }
 
 }
@@ -166,9 +192,14 @@ form {
     font-size: vw(16);
     line-height: 170%;
     margin: 0px vw(18);
-    
+        white-space: nowrap;
     
     color: #BBBEC2;
+    @media (-webkit-min-device-pixel-ratio: 2) and (min-width:1440px){
+      font-size: vw(16);
+      line-height: 1.4em;
+
+    }
     @include to(1440px){
       font-size: 12px;
       margin: 0px 15px;
@@ -180,10 +211,10 @@ form {
 .form-textarea {
   textarea {
     padding: 17px 23px;
-  margin: 20px 0 37px 0;
-
+    margin: 20px 0 37px 0;
+    
     padding-left: var(--input-padding);
-
+    
     height: vw(150);
     width: 100%;
     display: flex;
@@ -192,9 +223,17 @@ form {
     line-height: 100%;
     color: #CCCFD5;
     border: none;
+    @media (-webkit-min-device-pixel-ratio: 2) and (min-width:1440px){
+      font-size: vw(16);
+    }
     @include to(1440px){
       height: 100px;
+      font-size: 12px;
+      
+    }
+    @include to(576px){
       font-size: 14px;
+      margin: 10px 0 27px 0;
 
     }
   }
@@ -205,11 +244,18 @@ form {
   line-height: 100%;
   color: #000000;
   margin: vw(18) 0 vw(18) 0;
+  @media (-webkit-min-device-pixel-ratio: 2) and (min-width:1440px) {
+    font-size: vw(16);
+
+  }
   @include to(1440px){
     margin: 10px 0 10px 0;
     font-size: 16px;
-
   }
+  @include to(576px){
+    font-size: 14px;
+  }
+
 }
 
 .requaired-block-ico--position {

@@ -153,20 +153,21 @@
 
       }
       .main-button__circle {
-        width: 45px;
-        height: 45px;
-        min-width: 45px;
-        min-height: 45px;
-        transform: translateX(5px);
-        transform: translate(10px, -50%);
+        top: 50%;
+        right: 10px;
+        transform: translate(10px, -50%) scale(0.9);
 
-        transition: all 0.3s ease-out 0s;
+        transition: all 0.3s ease-out;
       }
     }
   }
   .main-button-arrow{
     z-index: 2;
     transform: translateX(-20px);
+    @include to(576px){
+      transform: translateX(-10px);
+
+    }
   }
   .main-button-wrap{
     position: relative;
@@ -179,6 +180,10 @@
     min-height: 50px;
     display: flex;
     align-items: center;
+    @include to(576px){
+      min-height: 36px;
+
+    }
   }
 
   &__line{
@@ -194,7 +199,7 @@
     position: absolute;
     top: 50%;
     right: 10px;
-    transform: translate(0, -50%);
+    transform: translate(0, -50%) scale(1);
     width: 50px;
     height: 50px;
     min-width: 50px;
@@ -202,8 +207,15 @@
     display: flex;
     border-radius: 50%;
     background: #FDC60C;
+    
+    transition: all 0.7s cubic-bezier(0, 0, 0, 2.01);
+    @include to(576px){
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      min-height: 36px;
 
-    transition: all 0.7s cubic-bezier(0, 0, 0, 2.01) 0s;
+    }
 
   }
   &__ico{
