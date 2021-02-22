@@ -54,6 +54,11 @@ block variable
       ['Школа робототехніки для дітей та підлітків','about-technology-list-02'],
       ['Шоуруми українських технологічних брендів','about-technology-list-01'],
     ]
+    var aboutSliderText = [
+      '<span class="bold">КИЇВПРОЕКТ — київське місце сили,</span> де народжувалися найпрогресивніші ідеї, ухвалювалися найсміливіші рішення та формувалися найактуальніші тренди.',
+      '<span class="bold">КИЇВПРОЕКТ – це історія Києва</span> другої половини ХХ століття.',
+      '<span class="bold">Наша мета – зберегти цю історію,</span> яка об\'єднує минуле та майбутнє.',
+      ]
   
 block meta
   title= title_page
@@ -63,6 +68,7 @@ block head
 block scripts
   script(defer src='./assets/scripts/vendors.bundle.js')
   script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
   script(defer src='./assets/scripts/index.js')
   script(defer src='./assets/scripts/about.js')
 block content
@@ -80,6 +86,25 @@ block content
         ul
           each el in block1List
             +infoItem(el[0], el[1], 'half-opacity')
+  .page-part 
+    .about-slider
+      .about-slider__line-left
+      .about-slider__line-right
+      .about-slider__title
+        .subtitle.black.bold Будівлі, спроєктовані у КИЇВПРОЕКТІ
+      .about-slider__slides.swiper-container 
+        .swiper-wrapper
+          img(src="./assets/images/about/slide1.jpg").swiper-slide
+          img(src="./assets/images/about/slide1.jpg").swiper-slide
+          img(src="./assets/images/about/slide1.jpg").swiper-slide
+          img(src="./assets/images/about/slide1.jpg").swiper-slide
+          img(src="./assets/images/about/slide1.jpg").swiper-slide
+          img(src="./assets/images/about/slide1.jpg").swiper-slide
+      +btn('')(data-prev)
+      +btn('')(data-next)
+      ul.about-slider__text
+        each val in aboutSliderText
+          li !{val}
   .page-part
     .block-with-quote
       .block-with-quote__title 
