@@ -36,20 +36,25 @@ block content
   .page-part
     include ../includes/breadcrumbs.pug
     h1.page-title #{title_page}
-
-    each val in digits
-      .percent-block(data-value=val[1] data-percent-block)
-        .percent-block__text #{val[0]}
-        .percent-block__digit(data-value=val[1])
-          <svg width="73" height="73" viewBox="0 0 73 73" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="36.5" cy="36.5" r="36" stroke="#0165FB"/>
-            </svg>
-    .subtitle.bold.black Статус робіт
-    +a('Веб-камери','web-camera.html')
-    .text.light-gray Виконується монтаж ліфтів. Триває влаштування систем опалення, вентиляції, водопроводу, каналізації та електрики. Проходять фасадні роботи на торцях. Виконується влаштування утеплення на балконах.
-    each val in sectionsInfo
-      .subtitle-small.bold.black #{val[0]}
-      .text #{val[1]}
+    .build-front-block
+      .build-front-block__left 
+        .subtitle.bold.black Статус робіт
+        .text.light-gray.shift-left-1 Виконується монтаж ліфтів. Триває влаштування систем опалення, вентиляції, водопроводу, каналізації та електрики. Проходять фасадні роботи на торцях. Виконується влаштування утеплення на балконах.
+        +a('Веб-камери','web-camera.html').shift-left-1
+      .build-front-block__left2 
+        each val in sectionsInfo
+          ul
+            li 
+              .subtitle-small.bold.black #{val[0]}
+              .text #{val[1]}
+      .build-front-block__right2 
+        each val in digits
+          .percent-block(data-value=val[1] data-percent-block)
+            .percent-block__text #{val[0]}
+            .percent-block__digit(data-value=val[1])
+              <svg width="73" height="73" viewBox="0 0 73 73" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="36.5" cy="36.5" r="36" stroke="#0165FB"/>
+                </svg>
 block footer
   include ../includes/footer.pug
 
