@@ -113,12 +113,25 @@ body[id*='developer']{
     .decor {
       // display: none;
       background-size: 100% auto;
+      margin-right: -1px;
+      border-bottom: 1px solid #DBDBDB !important;
     }
-    .saga-logo {
-      margin-right: 25px;
+    &>*{
+      margin-bottom: -1px !important;
+      
     }
-    .perf-logo {
-      margin-right: 15px;
+    .text-with-logo {
+      flex-direction: column;
+      .saga-logo {
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 10px;
+      }
+      .perf-logo {
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 10px;
+      }
     }
   }
 }

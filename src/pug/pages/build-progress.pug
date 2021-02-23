@@ -1,0 +1,57 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'Хід будівництва'
+    var id_page = 'id-page-build-progress'
+    var class_page = 'class-page-build-progress'
+    var breadcrumbsSubitem = [
+      {
+        label: 'About',
+        link: pagesLink[0].about
+      }
+    ]
+    var digits = [
+      ['Будівництво','90'],
+      ['Фасад','25'],
+      ['Благоустрій','5'],
+      ['Мережі','17'],
+    ]
+    var sectionsInfo = [
+      ['1, 2, 3 секція' ,'4 квартал 2020 року.'],
+      ['4 секція', '1 квартал 2021 року'],
+      ['5 секція' ,'4 квартал 2021 року'],
+    ]
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/build-progress.js')
+block content
+  .page-part
+    include ../includes/breadcrumbs.pug
+    h1.page-title #{title_page}
+
+    each val in digits
+      .percent-block(data-value=val[1] data-percent-block)
+        .percent-block__text #{val[0]}
+        .percent-block__digit(data-value=val[1])
+          <svg width="73" height="73" viewBox="0 0 73 73" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="36.5" cy="36.5" r="36" stroke="#0165FB"/>
+            </svg>
+    .subtitle.bold.black Статус робіт
+    +a('Веб-камери','web-camera.html')
+    .text.light-gray Виконується монтаж ліфтів. Триває влаштування систем опалення, вентиляції, водопроводу, каналізації та електрики. Проходять фасадні роботи на торцях. Виконується влаштування утеплення на балконах.
+    each val in sectionsInfo
+      .subtitle-small.bold.black #{val[0]}
+      .text #{val[1]}
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug
