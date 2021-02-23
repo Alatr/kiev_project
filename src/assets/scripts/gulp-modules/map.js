@@ -178,10 +178,11 @@ window.addEventListener('load', () => {
   legendTitle.addEventListener('click', () => {
     legend.classList.toggle('opened');
     // добавить плавность появление блока с маркерами
-    // if (legend.classList.contains('opened')) {
-    // gsap.fromTo('.map__legend-markers-wrap', { height: 0 }, { height: '50vh' });
-    // } else {
-    // gsap.fromTo('.map__legend-markers-wrap', { height: '50vh' }, { height: 0 });
-    // }
+    if (legend.classList.contains('opened')) {
+      gsap.fromTo('.map__legend-markers-wrap', { height: 0 },
+        { height: '50vh' });
+    } else {
+      gsap.fromTo('.map__legend-markers-wrap', { height: '50vh' }, { height: 0 });
+    }
   });
 });

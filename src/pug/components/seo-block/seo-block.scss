@@ -43,7 +43,7 @@
     z-index: 2;
     transition: opacity .5s ease-in;
     pointer-events: none;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #f9f9f9 100%);
   }
   &.opened &__text:after {
     opacity: 0;

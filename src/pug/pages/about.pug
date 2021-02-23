@@ -72,10 +72,9 @@ block scripts
   script(defer src='./assets/scripts/index.js')
   script(defer src='./assets/scripts/about.js')
 block content
-  include ../includes/breadcrumbs.pug
-  h1.page-title #{title_page}
-  
   .page-part
+    include ../includes/breadcrumbs.pug
+    h1.page-title #{title_page}
     +iconTitleDecor('blue','Історія')
     .about-double-side-block
       .about-double-side-block__left
