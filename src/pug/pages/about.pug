@@ -146,12 +146,14 @@ block content
     +iconTitleDecor('green-square','Виміри')
     ul.dimensions-single-block
       +img('about/archi-block-bg.jpg')
+      img(src="./assets/images/about/dimensions-pattern1.svg").dimensions-single-block__pattern
       .dimensions-single-block__text
         +infoItem('ARCHITECTURE','yellow-square')
         each val in blockArchiText
           +infoItem(val[0],val[1],'half-opacity')
     ul.dimensions-single-block
       +img('about/art-block-bg.jpg')
+      img(src="./assets/images/about/dimensions-pattern2.svg").dimensions-single-block__pattern
       .dimensions-single-block__text
         +infoItem('ART','figure-red')
         each val in blockArtText
@@ -159,12 +161,14 @@ block content
         //- li #{val}
     ul.dimensions-single-block
       +img('about/design-block-bg.jpg')
+      img(src="./assets/images/about/dimensions-pattern3.svg").dimensions-single-block__pattern
       .dimensions-single-block__text
         +infoItem('DESIGN','blue-half-circle','half-opacity')
         each val in blockDesignText
           +infoItem(val[0],val[1],'half-opacity')
     ul.dimensions-single-block
       +img('about/technology-block-bg.jpg')
+      img(src="./assets/images/about/dimensions-pattern4.svg").dimensions-single-block__pattern
       .dimensions-single-block__text
         +infoItem('TECHNOLOGY','black-triangle')
         each val in blocktechText

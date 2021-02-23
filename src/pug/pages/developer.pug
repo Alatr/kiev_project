@@ -1,0 +1,116 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'Забудовники'
+    var id_page = 'id-page-developer'
+    var class_page = 'class-page-developer'
+    var breadcrumbsSubitem = [
+      {
+        label: 'Головна',
+        link: pagesLink[0].about
+      }
+    ]
+    var saga = [
+      './assets/images/developer/saga/andriivsky.svg  ',
+      './assets/images/developer/saga/chicago.svg   ',
+      './assets/images/developer/saga/happy-house.svg    ',
+      './assets/images/developer/saga/new-podil.svg  ',
+      './assets/images/developer/saga/OzonLogo.svg      ',
+      './assets/images/developer/saga/rybalsky.svg         ',
+      './assets/images/developer/saga/boston.svg      ',
+      './assets/images/developer/saga/einstein.svg  ',
+      './assets/images/developer/saga/home-and-park.svg  ',
+      './assets/images/developer/saga/new-york.svg   ',
+      './assets/images/developer/saga/philadelphia.svg  ',
+      './assets/images/developer/saga/saga-city-space.svg  ',
+      './assets/images/developer/saga/san-francisco.svg',
+      './assets/images/developer/saga/bristol.svg     ',
+      './assets/images/developer/saga/franklin.svg  ',
+      './assets/images/developer/saga/kandinskiy.svg     ',
+      './assets/images/developer/saga/o2.svg         ',
+      './assets/images/developer/saga/resident.svg      ',
+      './assets/images/developer/saga/washington.svg',
+    ]
+    var perfect = [
+    './assets/images/developer/perfect/5_kvartal.svg',
+    './assets/images/developer/perfect/philadelphia.svg',
+    './assets/images/developer/perfect/franklin.svg			   ',
+    './assets/images/developer/perfect/polaris.svg',
+    './assets/images/developer/perfect/french-quarter.png		   ',
+    './assets/images/developer/perfect/Lebediniy_Dark\ logo_for_site.svg  ',
+    './assets/images/developer/perfect/stanford-white.svg',
+    './assets/images/developer/perfect/Logo_vect.svg			   ',
+    './assets/images/developer/perfect/terracota-white.svg',
+    './assets/images/developer/perfect/Logotype_Final_text_gold.svg	   ',
+    './assets/images/developer/perfect/Woodstoriya_logo_refurbished.svg',
+    ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/developer.js')
+block content
+  .page-part
+    include ../includes/breadcrumbs.pug
+    h1.page-title #{title_page}
+    .developer-grid-container
+      .title
+        +iconTitleDecor('red','Perfect Group')(class="icon-title-decor--no-decor capitalize")
+      .decor
+      .slider
+        .slider-wrapper
+          div(data-perfect-logos)
+            .arrows-container 
+              <svg data-perfect-prev  class="plain-arrow prev" width="47" height="17" viewBox="0 0 47 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0.652344 8.39992L45.6523 8.39992M45.6523 8.39992L38.9705 0.899918M45.6523 8.39992L38.9705 15.8999" stroke="black"/>
+                </svg>
+              <svg data-perfect-next class="plain-arrow next" width="47" height="17" viewBox="0 0 47 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0.652344 8.39992L45.6523 8.39992M45.6523 8.39992L38.9705 0.899918M45.6523 8.39992L38.9705 15.8999" stroke="black"/>
+                </svg>
+            .swiper-wrapper
+              each val in perfect
+                img(src=val).swiper-slide
+      .link
+        +a('Сайт забудовника', 'https://perfect-group.ua')(target='_blank')
+      .text-with-logo
+        +img('developer/perf-logo.svg').perf-logo
+        .text.light-gray Девелопер Kyїvproekt City Space — компанія <span class="bold black">Perfect Group</span>, відома такими знаковими для Києва проєктами:
+      .text
+        .text.light-gray 30 компаній ринку нерухомості, які об'єднані під цим брендом, забезпечують повний цикл робот – від початку до повного завершення будівництва. 
+    .developer-grid-container
+      .title
+        +iconTitleDecor('blue','SAGA Development')(class="icon-title-decor--no-decor capitalize")
+      .decor
+      .slider
+        .slider-wrapper
+          div(data-saga-logos) 
+            .arrows-container 
+              <svg data-saga-prev  class="plain-arrow prev" width="47" height="17" viewBox="0 0 47 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0.652344 8.39992L45.6523 8.39992M45.6523 8.39992L38.9705 0.899918M45.6523 8.39992L38.9705 15.8999" stroke="black"/>
+                </svg>
+              <svg data-saga-next class="plain-arrow next" width="47" height="17" viewBox="0 0 47 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0.652344 8.39992L45.6523 8.39992M45.6523 8.39992L38.9705 0.899918M45.6523 8.39992L38.9705 15.8999" stroke="black"/>
+                </svg>
+            .swiper-wrapper
+              each val in saga
+                img(src=val).swiper-slide
+      .link
+        +a('Сайт забудовника', 'https://saga-development.com.ua')(target='_blank')
+      .text-with-logo
+        +img('developer/saga-logo.svg').saga-logo
+        .text.light-gray Девелопер Kyїvproekt City Space — компанія <span class="bold black">SAGA Development</span>, відома такими знаковими для Києва проєктами:
+      .text
+        .text.light-gray Глобальна мета компанії – розвивати міста, спираючись на екосистему партнерства. Втілювати інноваційні та креативні рішення для комфортного життя поколінь.
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug
