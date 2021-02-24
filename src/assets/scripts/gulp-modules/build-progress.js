@@ -64,20 +64,20 @@ function filterBuildGalleries(objectWithValidFieldsArg, filterSelector, gallerie
     gallery.validCount = 0;
   });
 }
-function changeImgSrc(img, src, direction = 1) {
-  const image = img;
-  const tl = gsap.timeline();
-  tl.fromTo(image, { autoAlpha: 1, x: 0 },
-    { autoAlpha: 0.3, x: 50 * direction, duration: 0.25 });
-  tl.add(() => { image.src = src; });
-  tl.fromTo(image, { autoAlpha: 0.3, x: -50 * direction, duration: 0.5 },
-    { autoAlpha: 1, x: 0 }, '<');
-}
+// function changeImgSrc(img, src, direction = 1) {
+//   const image = img;
+//   const tl = gsap.timeline();
+//   tl.fromTo(image, { autoAlpha: 1, x: 0 },
+//     { autoAlpha: 0.3, x: 50 * direction, duration: 0.25 });
+//   tl.add(() => { image.src = src; });
+//   tl.fromTo(image, { autoAlpha: 0.3, x: -50 * direction, duration: 0.5 },
+//     { autoAlpha: 1, x: 0 }, '<');
+// }
 
 function clearAndAddImagesForRefreshSlider(links, container) {
   const containerToEdit = container;
-  containerToEdit.innerHTML = '';
   const imagesToRender = links.split('~');
+  containerToEdit.innerHTML = '';
   imagesToRender.forEach((imageLink) => {
     const newImage = document.createElement('img');
     newImage.setAttribute('src', imageLink);
@@ -86,9 +86,9 @@ function clearAndAddImagesForRefreshSlider(links, container) {
   });
 }
 
-function changeTextOnPopup(data) {
+function changeTextOnPopup() {
   POPUP_CONFIG.title.textContent = POPUP_CONFIG.title.innerHTML;
-  POPUP_CONFIG.subtitle.textContent = data.dataset.year;
+  // POPUP_CONFIG.subtitle.textContent = data.dataset.year;
 }
 function initPopupSlider(param) {
   if (POPUP_CONFIG.swiper !== undefined) {
@@ -100,8 +100,8 @@ function initPopupSlider(param) {
   }
   // eslint-disable-next-line no-use-before-define
   POPUP_CONFIG.swiper = new Swiper(POPUP_CONFIG.navImages, {
-    slidesPerView: 'auto',
-    freeMode: true,
+    slidesPerView: 1,
+    // freeMode: true,
     spaceBetween: 30,
     centeredSlides: true,
     slideToClickedSlide: true,
@@ -113,19 +113,24 @@ function initPopupSlider(param) {
       init(selfArg) {
         const self = selfArg;
         self.bigView = dqs('[data-swiper-current-img-view]');
-        changeImgSrc(self.bigView, self.slides[self.activeIndex].getAttribute('src'));
+        document.querySelector('[data-total]').innerHTML = document.querySelectorAll('.swiper-slide').length;
+      },
+      activeIndexChange(obj) {
+        document.querySelector('[data-current]').innerHTML = obj.activeIndex + 1;
       },
     },
   });
   POPUP_CONFIG.swiper.on('init', () => {});
   POPUP_CONFIG.swiper.on('slideChange', (event) => {
     const evt = event;
-    const direction = (evt.prevIndex < evt.activeIndex) ? 1 : -1;
-    changeImgSrc(evt.bigView, evt.slides[evt.activeIndex].getAttribute('src'), direction);
+    // const direction = (evt.prevIndex < evt.activeIndex) ? 1 : -1;
+    // changeImgSrc(evt.bigView, evt.slides[evt.activeIndex].getAttribute('src'), direction);
     evt.prevIndex = evt.activeIndex;
   });
 }
 
+/* Перемещение попапа из контейнера с планвным скроллом */
+document.body.append(document.querySelector('[data-build-gallery-popup]'));
 
 /* Галереи с фотографиями строительства  */
 const galleries = document.querySelectorAll('[data-progress-gallery]');

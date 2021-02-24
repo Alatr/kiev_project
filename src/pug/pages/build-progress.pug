@@ -130,37 +130,36 @@ block content
     .build-gallery-popup-close(data-build-popup-close data-build-popup) 
         span Закрити
         <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 50H50V0H0V50Z" fill="#CFBE97"/>
-            <path d="M30 30L20 20M20 30L30 20L20 30Z" stroke="white"/>
-            </svg>
+          <rect width="50" height="50" rx="25" fill="#EA4041"/>
+          <path d="M33 33L17 17M17 33L33 17L17 33Z" stroke="white" stroke-width="2"/>
+          </svg>
     .build-gallery-popup__wrap-title
         .build-gallery-popup__title(data-popup-title) Місяц
-        .build-gallery-popup__text(data-popup-subtitle) 2020
-    .build-gallery-popup__img-view(data-swiper-big-image)
-        .loader
-        img(alt="#" src="./assets/images/build-progress/test/test1.jpg" data-swiper-current-img-view)
-    .prev-gallery(data-popup-prev-gallery)
-        <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20 9L2 9M2 9L9.66667 17M2 9L9.66667 1" stroke="white" stroke-width="2"/>
-            </svg>
-        span Попередній звіт
-    .next-gallery(data-popup-next-gallery)
-        <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20 9L2 9M2 9L9.66667 17M2 9L9.66667 1" stroke="white" stroke-width="2"/>
-            </svg>
-        span Наступний звіт
     .build-gallery-popup__wrap-nav
-        <svg class="arrow-prev" width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M19 9.00195L0.999999 9.00195M0.999999 9.00195L8.66667 17.002M0.999999 9.00195L8.66667 1.00195" stroke="#CFBE97"/>
-            </svg>
+        //- <svg class="arrow-prev" width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        //-     <path d="M19 9.00195L0.999999 9.00195M0.999999 9.00195L8.66667 17.002M0.999999 9.00195L8.66667 1.00195" stroke="#CFBE97"/>
+        //-     </svg>
         .build-gallery-popup__img-slider( data-swiper-slider)
             .swiper-wrapper
                 - var imgs = ['Rectangle 3340.jpg','Rectangle 3341.jpg','Rectangle 3342.jpg','Rectangle 3343.jpg','Rectangle 3344.jpg','Rectangle 3345.jpg','Rectangle 3346.jpg','Rectangle 3347.jpg',]
                     each img in imgs 
                         img(alt="#" src='./assets/images/build-progress/test/'+img).swiper-slide
-        <svg class="arrow-next" width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6.99382e-07 9.00195L18 9.00195M18 9.00195L10.3333 17.002M18 9.00195L10.3333 1.00195" stroke="#CFBE97"/>
+    .build-gallery-popup__arrow-counter-wrap
+      .prev-gallery(data-popup-prev-gallery)
+          <svg data-perfect-prev  class="plain-arrow prev" width="47" height="17" viewBox="0 0 47 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.652344 8.39992L45.6523 8.39992M45.6523 8.39992L38.9705 0.899918M45.6523 8.39992L38.9705 15.8999" stroke="black"/>
             </svg>
+          span Попередній звіт
+      +btn('')(class="arrow-prev")
+      .slide-count
+        .slide-count__cur(data-current) 1
+        .slide-count__total(data-total) 14
+      +btn('')(class="arrow-next")
+      .next-gallery(data-popup-next-gallery)
+          <svg data-perfect-next class="plain-arrow next rotated" width="47" height="17" viewBox="0 0 47 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.652344 8.39992L45.6523 8.39992M45.6523 8.39992L38.9705 0.899918M45.6523 8.39992L38.9705 15.8999" stroke="black"/>
+            </svg>
+          span Наступний звіт
 block footer
   include ../includes/footer.pug
 
