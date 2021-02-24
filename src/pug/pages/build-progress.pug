@@ -22,6 +22,18 @@ block variable
       ['4 секція', '1 квартал 2021 року'],
       ['5 секція' ,'4 квартал 2021 року'],
     ]
+    var testCards = [
+      './assets/images/build-progress/cards/build-card-img01.jpg  ',
+      './assets/images/build-progress/cards/build-card-img05.jpg  ',
+      './assets/images/build-progress/cards/build-card-img09.jpg',
+      './assets/images/build-progress/cards/build-card-img02.jpg  ',
+      './assets/images/build-progress/cards/build-card-img06.jpg  ',
+      './assets/images/build-progress/cards/build-card-img10.jpg',
+      './assets/images/build-progress/cards/build-card-img03.jpg  ',
+      './assets/images/build-progress/cards/build-card-img07.jpg',
+      './assets/images/build-progress/cards/build-card-img04.jpg  ',
+      './assets/images/build-progress/cards/build-card-img08.jpg',
+      ]
 block meta
   title= title_page
   meta(name='description', content='')
@@ -36,25 +48,56 @@ block content
   .page-part
     include ../includes/breadcrumbs.pug
     h1.page-title #{title_page}
-    .build-front-block
-      .build-front-block__left 
-        .subtitle.bold.black Статус робіт
-        .text.light-gray.shift-left-1 Виконується монтаж ліфтів. Триває влаштування систем опалення, вентиляції, водопроводу, каналізації та електрики. Проходять фасадні роботи на торцях. Виконується влаштування утеплення на балконах.
-        +a('Веб-камери','web-camera.html').shift-left-1
-      .build-front-block__left2 
-        each val in sectionsInfo
-          ul
-            li 
-              .subtitle-small.bold.black #{val[0]}
-              .text #{val[1]}
-      .build-front-block__right2 
-        each val in digits
-          .percent-block(data-value=val[1] data-percent-block)
-            .percent-block__text #{val[0]}
-            .percent-block__digit(data-value=val[1])
-              <svg width="73" height="73" viewBox="0 0 73 73" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="36.5" cy="36.5" r="36" stroke="#0165FB"/>
-                </svg>
+    a(href="web-camera.html").absolute-link
+      +btn('')
+      .absolute-link__title ВЕБ КАМЕРИ
+  .page-part
+    .build-progress-wrap
+      .build-front-block
+        .build-front-block__left 
+          .subtitle.bold.black Статус робіт
+          .text.light-gray.shift-left-1 Виконується монтаж ліфтів. Триває влаштування систем опалення, вентиляції, водопроводу, каналізації та електрики. Проходять фасадні роботи на торцях. Виконується влаштування утеплення на балконах.
+          +a('Веб-камери','web-camera.html').shift-left-1
+        .build-front-block__left2 
+          each val in sectionsInfo
+            ul
+              li 
+                .subtitle-small.bold.black #{val[0]}
+                .text #{val[1]}
+        .build-front-block__right2 
+          each val in digits
+            .percent-block(data-value=val[1] data-percent-block)
+              .percent-block__text #{val[0]}
+              .percent-block__digit(data-value=val[1])
+                <svg width="73" height="73" viewBox="0 0 73 73" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="36.5" cy="36.5" r="36" stroke="#0165FB"/>
+                  </svg>
+      each val in testCards
+        .build-card
+          .build-card__title
+            +iconTitleDecor('red','Вересень')(class="icon-title-decor--no-decor")
+            .build-card__text-s 14 фото
+          .build-card__img
+            .build-card__img-fixed-proportions
+              img(src=val)
+          .build-card__link
+            +btn('Дивитися галерею')
+            .build-card__text-s 25.01.2021
+      .pagination
+        <svg data-perfect-next class="plain-arrow prev" width="47" height="17" viewBox="0 0 47 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.652344 8.39992L45.6523 8.39992M45.6523 8.39992L38.9705 0.899918M45.6523 8.39992L38.9705 15.8999" stroke="black"/>
+          </svg>
+        a.pagination-digit 1
+        a.pagination-digit 2
+        a.pagination-digit 3
+        a.pagination-digit 4
+        a.pagination-digit 5
+        <svg data-perfect-next class="plain-arrow next" width="47" height="17" viewBox="0 0 47 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.652344 8.39992L45.6523 8.39992M45.6523 8.39992L38.9705 0.899918M45.6523 8.39992L38.9705 15.8999" stroke="black"/>
+          </svg>
+  .page-part
+    +seoBlock('SEO текст для зразку','Итальянские дизайнеры, с которыми мы сотрудничаем, разработали четыре ключевых направления, которые будут использоваться в оформлении апартаментов. В своих проектах они вдохновлялись творчеством всемирно известных художников. Часть из них тесно связана с Украиной. Это Василий Кандинский, Казимир Малевич и Энди Уорхол. Мы позаботились о том, чтобы избавить жителей SAGA City Space от лишних хлопот. Именно')
+
 block footer
   include ../includes/footer.pug
 

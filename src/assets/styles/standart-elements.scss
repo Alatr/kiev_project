@@ -201,6 +201,9 @@ body {
     height: 100%;
     padding-right: 80px;
   }
+  &.icon-title-decor--no-decor .subtitle{
+    padding-right: 0;
+  }
   .decor {
     background: url(../images/ctc/icon-title-decor-bg.svg) right;
      background-size: auto 50px;
