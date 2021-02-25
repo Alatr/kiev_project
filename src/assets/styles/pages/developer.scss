@@ -48,7 +48,9 @@ body[id*='developer']{
     background-image: url(../images/developer/grid-container-decor.svg);
     background-repeat: repeat-y;
     background-size: auto 100%;
+    background-size: 45.5px auto;
     border: none !important;
+  
   }
   .slider { 
     grid-area: slider;
@@ -98,6 +100,9 @@ body[id*='developer']{
     padding-right: var(--inner-right-padding);
     display: flex;
     align-items: center;
+  } 
+  @include to(950px){
+    border-bottom: 1px solid #DBDBDB ;
   }
   @include to(575px){
     grid-template-columns: 30px calc(33.333% - 10px) calc(33.333% - 10px) calc(33.333% - 10px);

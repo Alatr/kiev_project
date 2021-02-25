@@ -48,6 +48,14 @@
   @include to(768px){
       --self-vert-padding:30px;
       --self-side-padding:30px;
+      &>img {
+          max-height: 75vh;
+      }
+      &__right {
+        display: flex;
+        align-items: center;flex-direction: column;
+        justify-content: center;
+      }
   }
   @include to(575px){
       --self-vert-padding:20px;
