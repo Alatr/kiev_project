@@ -64,15 +64,6 @@ function filterBuildGalleries(objectWithValidFieldsArg, filterSelector, gallerie
     gallery.validCount = 0;
   });
 }
-// function changeImgSrc(img, src, direction = 1) {
-//   const image = img;
-//   const tl = gsap.timeline();
-//   tl.fromTo(image, { autoAlpha: 1, x: 0 },
-//     { autoAlpha: 0.3, x: 50 * direction, duration: 0.25 });
-//   tl.add(() => { image.src = src; });
-//   tl.fromTo(image, { autoAlpha: 0.3, x: -50 * direction, duration: 0.5 },
-//     { autoAlpha: 1, x: 0 }, '<');
-// }
 
 function clearAndAddImagesForRefreshSlider(links, container) {
   const containerToEdit = container;
@@ -128,7 +119,11 @@ function initPopupSlider(param) {
     evt.prevIndex = evt.activeIndex;
   });
 }
-
+function changeInnerText(element, config) {
+  const elementToAdd = element;
+  elementToAdd.innerHTML = config.dataset.innerPopupContent;
+  console.log(config.dataset.innerPopupContent);
+}
 /* Перемещение попапа из контейнера с планвным скроллом */
 document.body.append(document.querySelector('[data-build-gallery-popup]'));
 
@@ -143,6 +138,7 @@ const POPUP_CONFIG = {
   swiper: undefined,
   currentPopup: undefined,
   filteredPopups: Array.from(galleries),
+  innerPopupElement: dqs('[data-popup-inner-content]'),
 };
 
 document.querySelectorAll('[data-build-filter-name]').forEach((el) => {
@@ -157,18 +153,22 @@ initPopupSlider(galleries[0]);
 
 galleries.forEach((galleryWithData) => {
   /* const buildPopup = */
-  new showModal({
+  const gallery = galleryWithData;
+  gallery.popupConstructor = new showModal({
     $popup: document.querySelector('[data-build-gallery-popup]'),
     $openBtn: galleryWithData,
     $closeBtn: document.querySelector('[data-build-popup-close]'),
     animationIn: animationPopapIn,
     animationOut: animationPopapOut,
-    // attrParrentNode: '[data-build-popup="' + galleryWithData.dataset.buildPopup + '"]',
     attrParrentNode: `[data-build-popup="${galleryWithData.dataset.buildPopup}"]`,
     onOpenCompleteCallback() {
       initPopupSlider(galleryWithData);
       changeTextOnPopup(galleryWithData);
       POPUP_CONFIG.currentPopup = galleryWithData;
+      changeInnerText(
+        POPUP_CONFIG.innerPopupElement,
+        POPUP_CONFIG.currentPopup,
+      );
       document.querySelector('[data-build-gallery-popup] [data-build-popup-close]').setAttribute('data-build-popup', galleryWithData.dataset.buildPopup);
     },
   });
@@ -177,4 +177,22 @@ galleries.forEach((galleryWithData) => {
 $percentBlocks.forEach((block) => {
   const svg = block.querySelector('circle');
   pathDrawingInPercents(svg, +block.dataset.value);
+});
+document.querySelector('.build-card').click();
+const innerPopupCall = document.querySelector('[data-inner-popup-call]');
+const innerPopupClose = document.querySelectorAll('[data-inner-popup-close]');
+const innerPopup = document.querySelector('[data-inner-popup]');
+const innerPopupWrap = document.querySelector('[data-inner-popup-wrap]');
+
+innerPopupCall.addEventListener('click', () => {
+  innerPopup.classList.add('opened');
+  innerPopupWrap.classList.add('opened');
+});
+innerPopupClose.forEach((button) => {
+  button.addEventListener('click', (evt) => {
+    if (evt.target.closest('[data-inner-popup]') !== null
+      && evt.target.dataset.innerPopupClose === undefined) return;
+    innerPopup.classList.remove('opened');
+    innerPopupWrap.classList.remove('opened');
+  });
 });

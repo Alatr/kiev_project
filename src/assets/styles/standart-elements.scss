@@ -224,7 +224,7 @@ body {
   }
   @include to(575px){
     align-items: flex-start;
-    margin-bottom: 15px;
+    // margin-bottom: 15px;
     .subtitle {
       width: calc(100% - 50px);
       align-self: center;

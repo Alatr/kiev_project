@@ -40,9 +40,17 @@
     }
   }
   @include to(768px){
-    --digit-size:42px; 
+    --digit-size:80px; 
+    flex-wrap: wrap;
+    justify-content: center;
+    &__text {
+      width: 100%;
+      text-align: center;
+      font-size: 18px;
+    }
     &__digit {
-      font-size: 12px;
+      margin-bottom: 15px;
+      // font-size: 12px;
     }
   }
 }
@@ -124,6 +132,15 @@
   }
   @include to(768px){
     grid-template-columns: 66.6% 33.3%;
+    &>* {
+      padding-top: 40px;
+      padding-bottom: 40px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    &__left {
+      padding-bottom: calc(30px + var(--decor-size));
+    }
   }
   @include to(575px){
     display: flex;
@@ -162,6 +179,7 @@
       grid-template-rows: 50% 50%;
       grid-template-columns: 50% 50%;
       grid-gap: 10px;
+      padding: 30px 15px;
     }
   }
 }
@@ -211,6 +229,9 @@
       object-fit: cover;
     }
   }
+  @include to(768px){
+    --side-padding:15px; 
+  }
 }
 
 .build-progress-wrap {
@@ -228,6 +249,14 @@
   }
   &>*:nth-child(n+2):not(.pagination){
     width: calc(50% - (var(--gap) / 2));
+  }
+  @include to(768px){
+    --gap:20px;
+  }
+  @include to(575px){
+    &>*:nth-child(n+2):not(.pagination){
+      width: 100%;
+    }
   }
 }
 
@@ -247,6 +276,10 @@
     &:hover {
       background-color: var(--color-architecture);
     }
+  }
+  @include to(575px){
+    font-size: 12px;
+    --size:36px;
   }
 }
 
@@ -278,6 +311,12 @@
     text-transform: uppercase;
     color: #000000;
   }
+  @include to(768px){
+    right: var(--page-side-fields);
+  }
+  @include to(575px){
+    display: none;
+  }
 }
 
 .build-gallery-popup {
@@ -285,12 +324,16 @@
     width: 100vw;
     height: 100vh;
     --self-side-padding:50px;
+    --self-vert-padding:40px;
     // overflow: scroll;
     left: 0;
     top: 0;
-    background: white;
+    background-color: white;
+    background-image: url(../images/build-progress/popup/build-left-bg.svg),url(../images/build-progress/popup/build-right-bg.svg);
+    background-repeat: no-repeat;
+    background-position: left calc(50% + 45px), right center ;
     z-index: 50;
-    padding: var(--self-side-padding);
+    padding: var(--self-vert-padding) var(--self-side-padding);
     visibility: hidden;
     opacity: 0;
     &__img-view {
@@ -374,12 +417,7 @@
         }
     }
     .next-gallery {
-        svg {
-            transform: rotate(0.5turn);
-            margin-left: 10px;
-        }
         flex-direction: row-reverse;
-        right: var(--self-side-padding);
     }
     &__wrap-nav {
         position: absolute;
@@ -391,9 +429,9 @@
         
     }
     &-close {
-        position: absolute;
+        // position: absolute;
         right: var(--self-side-padding);
-        top: var(--self-side-padding);
+        top: var(--self-vert-padding);
         display: flex;
         align-items: center;
         font-weight: 500;
@@ -418,15 +456,24 @@
             margin-right: 10px;
         }
     }
+    &__head {
+      display: flex;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
     &__wrap-title {
-        position: absolute;
+        // position: absolute;
         left: 50%;
-        top: var(--self-side-padding);
+        top: var(--self-vert-padding);
         transform: translateX(-50%);
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
+    }
+    &>svg {
+      top: var(--self-vert-padding);
     }
     .arrow-next {
         // position: absolute;
@@ -452,6 +499,11 @@
         margin-left: 30px;
       }
     }
+    .absolute-link {
+      right: auto;
+      left: var(--self-side-padding);
+      top: calc(var(--self-vert-padding) + 130px);
+    }
     @include from(769px) {
         &__img-slider img:hover {
             cursor: pointer;
@@ -467,6 +519,8 @@
         }
     }
     @include to(575px) {
+        --self-side-padding:15px;
+        --self-vert-padding:20px;
         &>svg {
             width: 100px;
         }
@@ -495,4 +549,98 @@
             bottom: calc(var(--self-side-padding) + 25px);
         }
     }
+}
+.popup-inner-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(100,100,100,0);
+  transition: background-color .25s ease-out;
+  pointer-events: none;
+  &.opened {
+    background-color: rgba(100,100,100,0.5);
+    pointer-events: all;
+  }
+}
+.popup-inner {
+  
+  pointer-events: all;
+  position: absolute;
+  --side-padd:50px;
+  --decor-size:145px;
+  left: 0;
+  top: 0;
+  padding: 15px var(--side-padd);
+  height: 100%;
+  width: max(25%, 450px);
+  z-index: 4;
+  transform: translateX(-100%);
+  transition: all .25s cubic-bezier(0.08, 0.96, 0.76, 1.01);
+  background: url(../images/ctc/grid-left-decor.svg) left bottom no-repeat,url(../images/ctc/grid-right-decor.svg) right bottom no-repeat;
+    background-size: var(--decor-size) var(--decor-size) var(--decor-size) var(--decor-size); 
+    background-position: -1px calc(100% + 1px), calc(100% + 1px) calc(100% + 1px);
+    background-color: #fff;
+  &.opened {
+    transform: translateX(0);
+  }
+
+  &>* {
+    margin-bottom: 35px;
+    position: relative;
+    z-index: 1;
+  }
+  &__logo {
+    width: 133px;
+    height: 50px;
+  }
+  &__decor {
+    background-image: url(../images/build-progress/popup/inner-popup-decor.svg);
+    background-position: 1px top;
+    height: 50px;
+    background-repeat: repeat-x;
+    margin-left: calc(var(--side-padd) * -1);
+    margin-right: calc(var(--side-padd) * -1);
+
+  }
+  &__title-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__title {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 100%;
+    color: var(--color-technology);
+  }
+  &__close {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: transform .5s ease-in-out;
+  }
+  &__content{
+    font-size: 12px;
+    line-height: 170%;
+  }
+  &__content ul{
+    color:  #6F7A84;
+    margin-bottom: 1.7em;
+  }
+  &__content li:first-child{
+    font-weight: 500;
+    color: #000;
+    
+  }
+  @include from(769px){
+    &__close:hover {
+      transform: scale(1.05);
+    }
+  }
+  @include to(575px){
+    --side-padd:15px;
+    width: max(25%, 320px);
+  }
 }
