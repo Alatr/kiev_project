@@ -106,6 +106,15 @@ block content
         each val in aboutSliderText
           li !{val}
   .page-part
+    +iconTitleDecor('green','Натхнення')
+    .about-double-side-block.about-double-side-block3
+      .about-double-side-block__left
+        +img('about/block3-bg.jpg').about-double-side-block__bg
+      .about-double-side-block__right
+        ul
+          each el in block3List
+            +infoItem(el[0], el[1], 'half-opacity')
+  .page-part
     .block-with-quote
       .block-with-quote__title 
         .block-with-quote__title-first один із засновників BAUHAUS 
@@ -118,15 +127,6 @@ block content
     ul.simple-text-block
       li <span class="bold">Як і Bauhaus сто років тому,</span> п'ядесят років тому КИЇВПРОЕКТ був місцем появи новаторських архітектурних рішень, які змінювали міський ландшафт. 
       li <span class="bold">Як і Bauhaus, оновлений KYЇVPROEKT Citу Space створює навколо себе контекст,</span> який спонукає до переосмислення та розвитку, комбінування ідей та формування трендів, які змінюють життя навколо нас.
-  .page-part
-    +iconTitleDecor('green','Натхнення')
-    .about-double-side-block.about-double-side-block3
-      .about-double-side-block__left
-        +img('about/block3-bg.jpg').about-double-side-block__bg
-      .about-double-side-block__right
-        ul
-          each el in block3List
-            +infoItem(el[0], el[1], 'half-opacity')
   .page-part
     +iconTitleDecor('red','Реновація')
     .about-block-renovations

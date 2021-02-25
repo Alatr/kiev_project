@@ -72,7 +72,7 @@
   background-position-x: left;
   border-right:1px solid #DBDBDB;
     border-bottom:1px solid #DBDBDB;
-
+justify-items:start;
   &>* {
     padding-top: 40px;
     padding-bottom: 40px;
@@ -196,6 +196,7 @@
   background-repeat: repeat-y;
   background-size: var(--decor-size) auto;
   border: 1px solid #DBDBDB;
+  cursor: pointer;
   &__img {
 
   }
@@ -221,6 +222,7 @@
   &__img-fixed-proportions {
     position: relative;
     padding-bottom: calc(100% / 390 * 270);
+    overflow: hidden;
     img {
       position: absolute;
       left: 0;
@@ -228,6 +230,13 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: transform .25s ease-out;
+    }
+  }
+  @include from(769px){
+    &:hover img {
+      transform: scale(1.1);
+      transition: transform .5s ease-out;
     }
   }
   @include to(768px){
@@ -538,6 +547,7 @@
         }
         .absolute-link {
           display: flex;
+          top: var(--header-h);
         }
         &__head>svg {
           width: 88px;
@@ -580,6 +590,7 @@
   background-color: rgba(100,100,100,0);
   transition: background-color .25s ease-out;
   pointer-events: none;
+  z-index: 10;
   &.opened {
     background-color: rgba(100,100,100,0.5);
     pointer-events: all;

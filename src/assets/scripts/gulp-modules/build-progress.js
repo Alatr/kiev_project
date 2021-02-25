@@ -78,7 +78,8 @@ function clearAndAddImagesForRefreshSlider(links, container) {
 }
 
 function changeTextOnPopup() {
-  POPUP_CONFIG.title.textContent = POPUP_CONFIG.title.innerHTML;
+  if (POPUP_CONFIG.currentPopup === undefined) return;
+  POPUP_CONFIG.title.textContent = POPUP_CONFIG.currentPopup.querySelector('.subtitle.bold.black').textContent;
   // POPUP_CONFIG.subtitle.textContent = data.dataset.year;
 }
 function initPopupSlider(param) {
@@ -151,6 +152,41 @@ document.querySelectorAll('[data-build-filter-name]').forEach((el) => {
 });
 initPopupSlider(galleries[0]);
 
+// function getBetweenDistance(elem1, elem2) {
+//   // get the bounding rectangles
+//   const el1 = elem1.getBoundingClientRect();
+//   const el2 = elem2.getBoundingClientRect();
+//   // get div1's center point
+//   const div1x = el1.left + (el1.width / 2);
+//   const div1y = el1.top + (el1.height / 2);
+
+//   // get div2's center point
+//   const div2x = el2.left + (el2.width / 2);
+//   const div2y = el2.top + (el2.height / 2);
+
+//   // calculate the distance using the Pythagorean Theorem (a^2 + b^2 = c^2)
+// const distanceSquared = window.Math.pow(div1x - div2x, 2) + window.Math.pow(div1y - div2y, 2);
+//   // const distance = Math.sqrt(distanceSquared)
+//   return {
+//     x: div1x - div2x,
+//     y: div1y - div2y,
+//   };
+// }
+
+function buildPopupIn(settings) {
+  const obj = { ...settings, paused: true, clearProps: 'all' };
+  const tl = gsap.timeline(obj);
+  tl.fromTo(this.$popup, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.25 }, '<0.125');
+  tl.fromTo(this.$popup.querySelector('.swiper-slide'), { scale: 1.1 }, { scale: 1 }, '<');
+  return tl;
+}
+function buildPopupOut(settings) {
+  const obj = { ...settings, paused: true, clearProps: 'all' };
+  const tl = gsap.timeline(obj);
+  tl.fromTo(this.$popup.querySelector('.swiper-slide'), { scale: 1 }, { scale: 1.1 });
+  tl.fromTo(this.$popup, { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.25 }, '<0.125');
+  return tl;
+}
 galleries.forEach((galleryWithData) => {
   /* const buildPopup = */
   const gallery = galleryWithData;
@@ -158,8 +194,8 @@ galleries.forEach((galleryWithData) => {
     $popup: document.querySelector('[data-build-gallery-popup]'),
     $openBtn: galleryWithData,
     $closeBtn: document.querySelector('[data-build-popup-close]'),
-    animationIn: animationPopapIn,
-    animationOut: animationPopapOut,
+    animationIn: buildPopupIn,
+    animationOut: buildPopupOut,
     attrParrentNode: `[data-build-popup="${galleryWithData.dataset.buildPopup}"]`,
     onOpenCompleteCallback() {
       initPopupSlider(galleryWithData);
@@ -172,6 +208,7 @@ galleries.forEach((galleryWithData) => {
       document.querySelector('[data-build-gallery-popup] [data-build-popup-close]').setAttribute('data-build-popup', galleryWithData.dataset.buildPopup);
     },
   });
+  gallery.popupConstructor.initiator = galleryWithData;
 });
 
 $percentBlocks.forEach((block) => {
