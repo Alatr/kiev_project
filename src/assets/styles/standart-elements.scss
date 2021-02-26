@@ -27,11 +27,15 @@ body {
     }
     @include to(575px) {
         font-size: 24px;
+        margin-bottom: 20px;
     }
 }
 
 .page-part {
     margin-bottom: 70px;
+    @include to(575px){
+      margin-bottom: 20px;
+    }
 }
 
 
@@ -185,7 +189,8 @@ body {
 .icon-title-decor {
   display: flex;
   align-items: center;
-  min-height: 50px;
+  --decor-size:50px;
+  min-height: var(--decor-size);
   margin-bottom: -1px;
   &.capitalize {
     text-transform: capitalize;
@@ -195,7 +200,7 @@ body {
   }
   svg {
     width:80px;
-    height: 50px;
+    height: var(--decor-size);
     padding-right: 30px;
   }
   .subtitle{
@@ -209,9 +214,9 @@ body {
   }
   .decor {
     background: url(../images/ctc/icon-title-decor-bg.svg) right;
-     background-size: auto 50px;
+     background-size: auto var(--decor-size);
      background-position-x: right;
-     height: 50px;
+     height: var(--decor-size);
      flex-grow: 1;
       border-left: 1px solid #DBDBDB;
   }
@@ -221,22 +226,24 @@ body {
       padding-left: 20px;
     }
     svg {
-      width:50px;
+      width:var(--decor-size);
       padding-right:0;
     }
   }
   @include to(575px){
     align-items: flex-start;
     // margin-bottom: 15px;
+    --decor-size:36px;
     .subtitle {
-      width: calc(100% - 50px);
+      width:auto;
       align-self: center;
       padding-left: 20px;
+      padding-right: 57px;
     }
     .decor {
       align-self: flex-end;
-      width: 50px;
-      display: none;
+      // width: 50px;
+      // display: none;
     }
   }
   
@@ -245,4 +252,16 @@ body {
 
 .rotated {
   transform: rotate(180deg);
+}
+
+@include to(575px) {
+  .info-list-item {
+    .info-list-item__ico {
+      width: 36px;
+      height: 36px;
+    }
+    .info-list-item__text {
+      padding-left: 14px;
+    }
+  }
 }
