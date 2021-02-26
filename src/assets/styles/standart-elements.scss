@@ -256,6 +256,8 @@ body {
 
 @include to(575px) {
   .info-list-item {
+    align-items: flex-start;
+    min-height: auto;
     .info-list-item__ico {
       width: 36px;
       height: 36px;

@@ -46,6 +46,7 @@ body[id*='about']{
         background-image: url(../images/sfera/white-pattern.svg);
         background-repeat: no-repeat;
         background-position: bottom left;
+        overflow: hidden;
         .subtitle-with-vertical-decor {
             max-width: 320px;
         }
@@ -145,6 +146,8 @@ body[id*='about']{
           position: static;
           left: 0;
           top: 0;
+          max-width: none;
+          padding-right: 20%;
       }
       .info-list-item {
         min-height: auto;
@@ -184,14 +187,29 @@ body[id*='about']{
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    background: url(../images/about/quote-block-bg2.svg) left bottom no-repeat, url(../images/about/quote-block-bg1.svg) right top no-repeat;
+    /*background: url(../images/about/quote-block-bg2.svg) left bottom no-repeat, url(../images/about/quote-block-bg1.svg) right top no-repeat*/;
     background-size: 135px, 135px;
     background-color: white;
     max-width: 1360px;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
     --title-width:195px;
     --between-margin:50px;
+    &__right-bg {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 135px;
+      height: 135px;
+    }
+    &__left-bg {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 135px;
+      height: 135px;
+    }
     &__foto-wrap {
         width: calc((100% - var(--title-width)) / 2 - (var(--between-margin) * 2));
         margin-left: var(--between-margin);
@@ -209,6 +227,7 @@ body[id*='about']{
         position: relative;
         width: 100%;
         padding-top: 100%;
+        overflow: hidden;
         &:after {
             position: absolute;
             content: '';
@@ -503,11 +522,32 @@ body[id*='about']{
         padding-bottom: 25px;
         min-height: auto;
         min-height: calc(var(--decor-width) * 5);
+        
+        font-size: 14px;
+        line-height: 1.7em;
+        
+      }
+      .mob-fixed-height {
+        min-height: auto !important;
+        height: calc(var(--decor-width) * 5 - 5px);
+      }
+      &>.subtitle-with-vertical-decor:nth-child(odd),
+      &>.subtitle-with-vertical-decor:nth-child(even) {
+        margin-left: 0;
+        padding-left: calc(var(--decor-width) + 32px);
+        
       }
       &__pattern {
         width: 108px;
         height: 108px;
       }
+      &__list>* {
+        height: auto;
+      }
+      .info-list-item {
+        padding: 20px 14px;
+      }
+      
     }
 }
 
@@ -518,6 +558,7 @@ body[id*='about']{
     grid-template-rows: 60vh;
     overflow: hidden;
     position: relative;
+    --pattern-size:145px;
     &:nth-last-child(n+2) {
         margin-bottom: 40px;
     }
@@ -526,16 +567,16 @@ body[id*='about']{
       position: absolute;
       left: 0;
       bottom: 0;
-      width: 145px;
-      height: 145px;
+      width: var(--pattern-size);
+      height: var(--pattern-size);
       z-index: 2;
     }
     &:nth-child(odd) &__pattern {
       position: absolute;
       right: 0;
       bottom: 0;
-      width: 145px;
-      height: 145px;
+      width: var(--pattern-size);
+      height: var(--pattern-size);
       z-index: 2;
     }
     .info-list-item {
@@ -560,7 +601,10 @@ body[id*='about']{
     }
     // display: flex;
     // flex-wrap: wrap;
-    &>img:not(.dimensions-single-block__pattern) {
+    &__img-wrap {
+      overflow: hidden;
+    }
+    &__img-wrap>img:not(.dimensions-single-block__pattern) {
       height: 100%;
       object-fit: cover;
     }
@@ -570,7 +614,7 @@ body[id*='about']{
         grid-template-columns: 30% 70%;
         grid-template-rows: 60vh;
     }
-    &:nth-child(odd)>img:not(.dimensions-single-block__pattern) {
+    &:nth-child(odd) &__img-wrap>img:not(.dimensions-single-block__pattern) {
         grid-column-start: 2;
         grid-column-end: 2;
         grid-row-start: 1;
@@ -604,7 +648,7 @@ body[id*='about']{
         grid-template-columns: 100%;
         grid-template-rows: auto;
       }
-      &>img:not(.dimensions-single-block__pattern) {
+      &__img-wrap>img:not(.dimensions-single-block__pattern) {
         height: 100%;
         height: calc(100vw * 0.75);
       }
@@ -620,7 +664,7 @@ body[id*='about']{
         top: calc(100vw * 0.75);
         transform: translateY(-100%);
       }
-      &:nth-child(odd)>img:not(.dimensions-single-block__pattern) {
+      &:nth-child(odd) &__img-wrap>img:not(.dimensions-single-block__pattern) {
         grid-column-start: 1;
         grid-column-end: 1;
         grid-row-start: 1;
@@ -635,6 +679,20 @@ body[id*='about']{
         grid-row-end: 2;
       }
     }
+    @include to(575px){
+      --pattern-size:108px;
+      &__text>*{
+       width: 100%; 
+      }
+      .info-list-item {
+        padding: 10px 15px;
+      }
+      .info-list-item:first-child{
+        align-items: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+    }
 }
 
 .about-slider {
@@ -647,6 +705,7 @@ body[id*='about']{
     min-height: 75vh;
     position: relative;
     background: url(../images/about/slider-decor-right.svg) right no-repeat, url(../images/about/slider-decor-left.svg) left no-repeat;
+    background-size: auto 40vh;
     background-color: #fff;
     &>* {
         // border: 1px solid pink;

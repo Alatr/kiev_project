@@ -17,7 +17,7 @@
 @import './footer';
 @import './404';
 @import './loader';
-@import './standart-elements';
+
 
 
 
@@ -228,7 +228,7 @@
   }
 }
 
-
+@import './standart-elements';
 @import './form'; // main style
 @import './assets/templates'; // main style
 @import './pages/home.scss';
