@@ -14,11 +14,17 @@
   }
   .info-list-item{
     max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    cursor: pointer;
   }
   .active[data-hover-image] {
-    cursor: pointer;
-    background-color: blue;
+    
+    color: var(--color-design);
   }
+}
+symbol.active path {
+  fill: var(--color-design);
 }
 .front-block__bg{
   display: none;

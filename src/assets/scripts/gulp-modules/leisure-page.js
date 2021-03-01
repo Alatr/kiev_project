@@ -246,6 +246,11 @@ hoverImages.forEach(listItem => {
   
   listItem.addEventListener('click',switchDistortionEffect)
   listItem.addEventListener('click',()=>{
+    const src = listItem.querySelector('use').getAttribute('xlink:href');
+    const activeSymbol = document.querySelector('symbol.active');
+    activeSymbol && document.querySelector('symbol.active').classList.remove('active');
+    document.querySelector(src).classList.add('active');
+    console.log(document.querySelector(src));
     document.querySelector('.active[data-hover-image]').classList.remove('active');
     listItem.classList.add('active')
   });
