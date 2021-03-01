@@ -46,11 +46,12 @@ block scripts
   script(defer src='./assets/scripts/index.js')
   script(defer src='./assets/scripts/leisure-page.js')
 block content
+  include ../includes/breadcrumbs.pug
+  img(src=contentListImages[0]).front-block__bg
   .page-part.front-block(data-displacement="./assets/images/leisure-page/displacement.jpg")
-    include ../includes/breadcrumbs.pug
-    h1.page-title #{title_page}
-    img(src=contentListImages[0]).front-block__bg
     ul
+      li 
+        h1.page-title #{title_page}
       each val,index in contentList
         +infoItem(contentListText[index][0], val[0], 'half-opacity')(data-info-item-anim data-hover-image=contentListImages[index])
 block footer

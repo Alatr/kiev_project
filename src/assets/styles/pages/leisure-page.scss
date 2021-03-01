@@ -1,5 +1,5 @@
 [id*='leisure']  canvas{ 
-  position: absolute;
+  // position: absolute;
   right: 0;
   top: 0;
   width: 50vw !important;
@@ -8,7 +8,22 @@
 
 .front-block {
   position: relative;
+  display: flex;
+  &>*{
+    width: 50%;
+  }
+  .info-list-item{
+    max-width: none;
+  }
+  .active[data-hover-image] {
+    cursor: pointer;
+    background-color: blue;
+  }
 }
 .front-block__bg{
   display: none;
+}
+
+.front-block canvas {
+  pointer-events: none;
 }
