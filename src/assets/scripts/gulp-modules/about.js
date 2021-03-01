@@ -62,6 +62,7 @@ $verticalDecorsBlocks.forEach((block) => {
     },
   });
 });
+
 const $blockRenovationBG = document.querySelectorAll('.about-block-renovations__bg');
 $blockRenovationBG.forEach((block) => {
   const thisBlock = block;

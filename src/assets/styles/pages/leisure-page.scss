@@ -1,0 +1,14 @@
+[id*='leisure']  canvas{ 
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50vw !important;
+  height: 50vh !important;
+}
+
+.front-block {
+  position: relative;
+}
+.front-block__bg{
+  display: none;
+}
