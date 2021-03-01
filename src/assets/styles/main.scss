@@ -17,7 +17,7 @@
 @import './footer';
 @import './404';
 @import './loader';
-@import './standart-elements';
+
 
 
 
@@ -240,7 +240,7 @@
   }
 }
 
-
+@import './standart-elements';
 @import './form'; // main style
 @import './assets/templates'; // main style
 @import './pages/home.scss';
@@ -249,4 +249,6 @@
 @import './pages/sfera.scss';
 @import './pages/gallery.scss';
 @import './pages/about.scss';
+@import './pages/developer.scss';
+@import './pages/build-progress.scss';
 
