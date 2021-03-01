@@ -80,15 +80,14 @@ $blockRenovationBG.forEach((block) => {
 });
 
 
-const quote = document.querySelectorAll('[data-cubes-anim]');
-const cubesEasing = new BezierEasing(0.47, 0.01, 0.82, 0.34);
-quote.forEach((block) => {
-  // block.style.overflow = 'hidden';
-  // const bg = block.querySelector('[data-cubes-anim]');
-  gsap.set('[data-from-right-bottom]', { x: '100%', y: '100%' });
-  gsap.set('[data-from-left-bottom]', { x: '-100%', y: '100%' });
-  gsap.set('[data-from-left-top]', { x: '-100%', y: '-100%' });
-  gsap.set('[data-from-right-top]', { x: '100%', y: '-100%' });
+const quoteCubes = document.querySelectorAll('[data-cubes-anim]');
+// const cubesEasing = new BezierEasing(0.42,0,0.58,1);
+const cubesEasing = new BezierEasing(0.48, 0.01, 0.5, 1);
+quoteCubes.forEach((block) => {
+  gsap.set(block.querySelectorAll('[data-from-right]'), { x: '100%', scale: 0.95 });
+  gsap.set(block.querySelectorAll('[data-from-top]'), { y: '-100%', scale: 0.95 });
+  gsap.set(block.querySelectorAll('[data-from-left]'), { x: '-100%', scale: 0.95 });
+  gsap.set(block.querySelectorAll('[data-from-bottom]'), { y: '100%', scale: 0.95 });
   const tl = gsap.timeline({
     paused: true,
     timeScale: 0.5,
@@ -98,11 +97,14 @@ quote.forEach((block) => {
       end: '+=50%',
     },
   });
-  tl.to('[data-cubes]', {
+  tl.to(block.querySelectorAll('[data-cubes]'), {
     x: 0,
     y: 0,
+    // ease: cubesEasing,
+    duration: 0.95,
+    scale: 1,
+    // stagger: block.dataset.stagger !== undefined ? 0.02 : 0,
     ease: cubesEasing,
-    duration: 1,
   });
 });
 
@@ -111,7 +113,7 @@ const quoteImage = document.querySelectorAll('[data-quote-image]');
 quoteImage.forEach((block) => {
   gsap.from(block, {
     scrollTrigger: block, // start the animation when ".box" enters the viewport (once)
-    scale: 0.8,
+    // scale: 0.8,
     duration: 1.6,
   });
 });
@@ -124,4 +126,40 @@ blockImg.forEach((block) => {
     scale: 1.1,
     duration: 1.6,
   });
+});
+
+
+const stdListIcons = document.querySelectorAll('[data-info-item-anim]');
+const easingStdList = new BezierEasing(0.48, 0.01, 0.5, 1);
+stdListIcons.forEach((item) => {
+  const svg = item.querySelector('svg');
+  const text = item.querySelector('.info-list-item__text');
+  const DURATION = 0.75;
+  const tl = gsap.timeline({
+    paused: true,
+    timeScale: 0.5,
+    scrollTrigger: {
+      triggerHook: 0.75,
+      trigger: item,
+      end: '+=50%',
+    },
+  });
+  tl.from(svg, {
+    scrollTrigger: svg, // start the animation when ".box" enters the viewport (once)
+    y: '-100%',
+    duration: DURATION,
+    easing: easingStdList,
+  });
+  tl.fromTo(text, {
+    scrollTrigger: text, // start the animation when ".box" enters the viewport (once)
+    y: -30,
+    autoAlpha: 0,
+  },
+  {
+    scrollTrigger: text, // start the animation when ".box" enters the viewport (once)
+    y: 0,
+    autoAlpha: 1,
+    duration: DURATION,
+    easing: easingStdList,
+  }, '<');
 });

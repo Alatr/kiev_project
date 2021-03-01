@@ -704,7 +704,7 @@ body[id*='about']{
     grid-row-gap: 0px;
     min-height: 75vh;
     position: relative;
-    background: url(../images/about/slider-decor-right.svg) right no-repeat, url(../images/about/slider-decor-left.svg) left no-repeat;
+    // background: url(../images/about/slider-decor-right.svg) right no-repeat, url(../images/about/slider-decor-left.svg) left no-repeat;
     background-size: auto 40vh;
     background-color: #fff;
     &>* {
@@ -739,6 +739,18 @@ body[id*='about']{
           object-fit: cover;
           height: 100%;
         }
+    }
+    &__decor-left {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translate(0,-50%);
+    }
+    &__decor-right {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translate(0,-50%);
     }
     &__title {
         grid-area: 1 / 2 / 2 / 6;

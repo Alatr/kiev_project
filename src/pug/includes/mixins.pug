@@ -52,7 +52,7 @@ mixin RangeSlider(options)
 
         
 mixin infoItem(text, ico, color)
-  li(class='info-list-item ' + color)
+  li(class='info-list-item ' + color)&attributes(attributes)
     span.info-list-item__ico
       +svg(ico)
     span.info-list-item__text !{text}

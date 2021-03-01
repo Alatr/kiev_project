@@ -254,6 +254,10 @@ body {
   transform: rotate(180deg);
 }
 
+.info-list-item__ico {
+  overflow: hidden;
+}
+
 @include to(575px) {
   .info-list-item {
     align-items: flex-start;
