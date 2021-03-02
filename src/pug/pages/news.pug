@@ -1,0 +1,111 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'Новини'
+    var id_page = 'id-page-news'
+    var class_page = 'class-page-news'
+    var breadcrumbsSubitem = [
+      {
+        label: 'About',
+        link: pagesLink[0].about
+      }
+    ]
+    var articles = [
+      [
+        'У Кyїvproekt відкриється медичний центр Median',
+      'Здоров`я мешканців — понад усе у RYBALSKY, тому ми заздалегідь передбачили приміщення для медичного закладу та шукали клініку, …',
+      'Читати новину',
+      '25.01.2021',],
+      [
+        'Встигніть здійснити бажання про власне житло! Купуйте квартиру з першим внеском 30%',
+      'Здоров`я мешканців — понад усе у RYBALSKY, тому ми заздалегідь передбачили приміщення для медичного закладу та шукали клініку, …',
+      'Читати новину',
+      '25.01.2021',],
+      [
+        'Встигніть здійснити бажання про власне житло! Купуйте квартиру з першим внеском 30%',
+      'Здоров`я мешканців — понад усе у RYBALSKY, тому ми заздалегідь передбачили приміщення для медичного закладу та шукали клініку, …',
+      'Читати новину',
+      '25.01.2021',],
+      [
+        'У Кyїvproekt відкриється медичний центр Median',
+      'Здоров`я мешканців — понад усе у RYBALSKY, тому ми заздалегідь передбачили приміщення для медичного закладу та шукали клініку, …',
+      'Читати новину',
+      '25.01.2021',],
+      [
+        'Встигніть здійснити бажання про власне житло! Купуйте квартиру з першим внеском 30%',
+      'Здоров`я мешканців — понад усе у RYBALSKY, тому ми заздалегідь передбачили приміщення для медичного закладу та шукали клініку, …',
+      'Читати новину',
+      '25.01.2021',],
+      [
+        'Встигніть здійснити бажання про власне житло! Купуйте квартиру з першим внеском 30%',
+      'Здоров`я мешканців — понад усе у RYBALSKY, тому ми заздалегідь передбачили приміщення для медичного закладу та шукали клініку, …',
+      'Читати новину',
+      '25.01.2021',],
+      [
+        'У Кyїvproekt відкриється медичний центр Median',
+      'Здоров`я мешканців — понад усе у RYBALSKY, тому ми заздалегідь передбачили приміщення для медичного закладу та шукали клініку, …',
+      'Читати новину',
+      '25.01.2021',],
+      [
+        'У Кyїvproekt відкриється медичний центр Median',
+      'Здоров`я мешканців — понад усе у RYBALSKY, тому ми заздалегідь передбачили приміщення для медичного закладу та шукали клініку, …',
+      'Читати новину',
+      '25.01.2021',],
+      [
+        'Встигніть здійснити бажання про власне житло! Купуйте квартиру з першим внеском 30%',
+      'Здоров`я мешканців — понад усе у RYBALSKY, тому ми заздалегідь передбачили приміщення для медичного закладу та шукали клініку, …',
+      'Читати новину',
+      '25.01.2021',],
+      [
+        'У Кyїvproekt відкриється медичний центр Median',
+      'Здоров`я мешканців — понад усе у RYBALSKY, тому ми заздалегідь передбачили приміщення для медичного закладу та шукали клініку, …',
+      'Читати новину',
+      '25.01.2021',],
+    ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/news.js')
+block content
+  include ../includes/breadcrumbs.pug
+  h1.page-title #{title_page}
+  each val,index in articles
+    if index%2===0
+      .news-link.reverse
+        .news-link__title 
+          +iconTitleDecor('black',val[0])(class="icon-title-decor--no-decor")
+        .news-link__decor
+        .news-link__preview #{val[1]}
+        .news-link__link
+          +a(val[2],'single-news.html')
+          span.news-link__date #{val[3]}
+        .news-link__image
+          .news-link__fixed-proportions
+            img(src="./assets/images/news/test-iamge.jpg")
+    else
+      .news-link
+        .news-link__title 
+          +iconTitleDecor('black',val[0])(class="icon-title-decor--no-decor")
+        .news-link__decor
+        .news-link__preview #{val[1]}
+        .news-link__link
+          +a(val[2],'single-news.html')
+          span.news-link__date #{val[3]}
+        .news-link__image
+          .news-link__fixed-proportions
+            img(src="./assets/images/news/test-iamge.jpg")
+
+
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug
