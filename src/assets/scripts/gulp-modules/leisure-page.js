@@ -207,18 +207,19 @@ function getImgForFronBlock() {
 
 Array.from(document.querySelectorAll('.front-block')).forEach((el) => {
     const img = document.querySelector('.front-block__bg');
+    console.log(img.naturalWidth, img.naturalHeight);
     Expo = new BezierEasing(0.48, 0.01, 0.5, 1);
     frontScreenEffect = new hoverEffect({
-        parent: el,
+        parent: el.querySelector('.front-block__canvas-wrap'),
         intensity: 0.1,
-        angle: Math.PI / 4,
+        angle: Math.PI / 6,
         intensity: el.dataset.intensity || 0.7,
-        speedIn: el.dataset.speedin || 0.5,
-        speedOut: el.dataset.speedout || 0.5,
+        speedIn: el.dataset.speedin || 0.7,
+        speedOut: el.dataset.speedout || 0.7,
         easing: el.dataset.easing || undefined,
         hover: el.dataset.hover || undefined,
-        // imagesRatio: 9 / 16,
-        imagesRatio: setImagesRatio(img),
+        imagesRatio: img.naturalHeight / img.naturalWidth,
+        // imagesRatio: setImagesRatio(img),
         image1: getImgForFronBlock(),
         image2: getImgForFronBlock(),
         displacementImage: el.dataset.displacement,
@@ -241,20 +242,41 @@ function switchDistortionEffect(evt){
 }
 
 const hoverImages = document.querySelectorAll('[data-hover-image]')
-hoverImages[0].classList.add('active')
+hoverImages[0].classList.add('active');
+switchClassOnSvgSprite(hoverImages[0].querySelector('use'),'active');
 hoverImages.forEach(listItem => {
+
+  listItem.addEventListener('mouseenter',switchDistortionEffect)
+  listItem.addEventListener('mouseenter',switchActiveList);
+});
+
+let indexForAutoplayInterval = 1;
+const autoPlayInterval = 5000;
+const autoPlay = setInterval(() => {
+  const hoverImage = hoverImages[indexForAutoplayInterval];
+  const src = hoverImage.querySelector('use').getAttribute('xlink:href');
+  switchClassOnSvgSprite(hoverImage.querySelector('use'),'active');
+  document.querySelector('.active[data-hover-image]').classList.remove('active');
+  hoverImage.classList.add('active');
+  switchDistortionEffect({target:hoverImage})
+  indexForAutoplayInterval===hoverImages.length-1 ? indexForAutoplayInterval = 0 :  indexForAutoplayInterval++;
+}, autoPlayInterval);
+
+
+function switchActiveList(){
+    switchClassOnSvgSprite(this.querySelector('use'),'active');
+    document.querySelector('.active[data-hover-image]').classList.remove('active');
+    this.classList.add('active');
+    clearInterval(autoPlay);
+  }
   
-  listItem.addEventListener('click',switchDistortionEffect)
-  listItem.addEventListener('click',()=>{
-    const src = listItem.querySelector('use').getAttribute('xlink:href');
-    const activeSymbol = document.querySelector('symbol.active');
+  function switchClassOnSvgSprite(useElement, nameOfClass){
+    const src = useElement.getAttribute('xlink:href');
+    const activeSymbol = document.querySelector('symbol.'+nameOfClass);
     activeSymbol && document.querySelector('symbol.active').classList.remove('active');
     document.querySelector(src).classList.add('active');
-    console.log(document.querySelector(src));
-    document.querySelector('.active[data-hover-image]').classList.remove('active');
-    listItem.classList.add('active')
-  });
-});
+}
+
 
 
 

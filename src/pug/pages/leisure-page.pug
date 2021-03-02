@@ -19,19 +19,18 @@ block variable
       ['leisure-icon_05'],
     ]
     var contentListText = [
-      ['KYЇVPROEKT CITY SPACE у будинку – ідеальне місце для шопінгу.'],
-      ['KITCHEN LAB у будинку: велика кількість кафе і ресторанів під одним дахом.'],
-      ['Десятки магазинів, торгівельних центрів, кафе, ресторанів та нічних клубів поряд.'],
-      ['Головна київська променада, вулиця Хрещатик – 2 хвилини пішки.'],
-      ['Чудові місця для пробіжок поблизу: парк ім. Шевченка, Ботанічний сад ім. Фоміна.'],
+      ['KYЇVPROEKT CITY SPACE у будинку – <span class="bold">ідеальне місце для шопінгу.</span>'],
+      ['<span class="bold">KITCHEN LAB у будинку:</span> велика кількість кафе і ресторанів під одним дахом.'],
+      ['<span class="bold">Десятки магазинів,</span> торгівельних центрів, кафе, ресторанів та нічних клубів поряд.'],
+      ['<span class="bold">Головна київська променада,</span> вулиця Хрещатик – 2 хвилини пішки.'],
+      ['<span class="bold">Чудові місця для пробіжок поблизу:</span> парк ім. Шевченка, Ботанічний сад ім. Фоміна.'],
     ];
     contentListImages = [
-      './assets/images/leisure-page/attractive-elegant-young-couple-drinking-cocktail-160632413.jpg',
-      './assets/images/leisure-page/beautiful-caucasian-couple-running-together-outdoor-654951058.jpg',
-      './assets/images/leisure-page/kyiv-ukraine-may-27-2020-independence-1751767751.jpg',
-      './assets/images/leisure-page/logan-weaver-neTbsT6n4tI-unsplash\ 5.jpg',
-      './assets/images/leisure-page/logan-weaver-neTbsT6n4tI-unsplash\ 6.jpg',
-      './assets/images/leisure-page/side-view-couple-looking-through-store-1137839798.jpg',
+      './assets/images/leisure-page/couple-in-street.jpg',
+      './assets/images/leisure-page/couple.jpg',
+      './assets/images/leisure-page/night-render.jpg',
+      './assets/images/leisure-page/kreshatik.jpg',
+      './assets/images/leisure-page/runing.jpg',
     ]
   
 block meta
@@ -49,11 +48,12 @@ block content
   include ../includes/breadcrumbs.pug
   img(src=contentListImages[0]).front-block__bg
   .page-part.front-block(data-displacement="./assets/images/leisure-page/displacement.jpg")
-    ul
+    ul.front-block__text-wrap
       li 
         h1.page-title #{title_page}
       each val,index in contentList
         +infoItem(contentListText[index][0], val[0], 'half-opacity')(data-info-item-anim data-hover-image=contentListImages[index])
+    .front-block__canvas-wrap
 block footer
   include ../includes/footer.pug
 
