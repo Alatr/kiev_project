@@ -1,0 +1,47 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'Документи'
+    var id_page = 'id-page-documents'
+    var class_page = 'class-page-documents'
+    var breadcrumbsSubitem = [
+      {
+        label: 'About',
+        link: pagesLink[0].about
+      }
+    ]
+    var docs = [
+      'Сертифікат про введення другої і третьої черги по будинку №3 ',
+      'Декларація про початок будівельних робіт',
+      'Декларація про початок будівельних робіт',
+      'Декларація про початок будівельних робіт',
+      'Декларація про початок будівельних робіт',
+      'Декларація про початок будівельних робіт',
+    ]
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/documents.js')
+block content
+  include ../includes/breadcrumbs.pug
+  h1.page-title #{title_page}
+  .page-part.docs-wrap
+    each doc in docs
+      a(target='_blank' href="#").document
+        .document__img
+          img(src="./assets/images/documents/doc.jpg")
+        .document__name #{doc}
+  +seoBlock('CEO','CEO')
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

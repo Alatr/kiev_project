@@ -1,0 +1,64 @@
+.document {
+  background-color: #fff;
+  --padding:30px;
+  --decor-size:45px;
+  padding: var(--padding) calc(var(--padding) + var(--decor-size)) var(--padding) var(--padding);
+  background-image: url(../images/documents/doc-decor.svg);
+  background-position: top right;
+  background-repeat: repeat-y;
+  font-size: 16px;
+  line-height: 1.6em;
+  color: var(--color-technology);
+  text-decoration: none;
+  display: block;
+  &__name {
+    margin-top: 20px;
+    padding-right: 25%;
+  }
+  &__img {
+    width: 50%;
+    
+    img {
+      transition: .3s ease-in-out;
+    }
+  }
+  @include to(950px){
+    &__name {
+    margin-top: 20px;
+    padding-right: 0;
+    }
+    &__img {
+      width: 100%;
+    }
+  }
+  @include from(769px){
+    &:hover img{
+      transform: scale(1.1) translateX(10px);
+    }
+  }
+}
+.docs-wrap {
+  column-count: 3;
+  // break-inside: avoid;
+  &>*{
+    margin-bottom: 20px;
+    max-width: 320px;
+    break-inside: avoid-column;
+  }
+  @include from(1680px){
+    column-count: 4;
+    &>* {
+    }
+
+  }
+  @include to(768px){
+    column-count: 2;
+  }
+  @include to(575px){
+    column-count: auto;
+    &>*{ 
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
