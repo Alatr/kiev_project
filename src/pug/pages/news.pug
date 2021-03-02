@@ -16,52 +16,70 @@ block variable
         'У Кyїvproekt відкриється медичний центр Median',
       'Здоров`я мешканців — понад усе у RYBALSKY, тому ми заздалегідь передбачили приміщення для медичного закладу та шукали клініку, …',
       'Читати новину',
-      '25.01.2021',],
+      '25.01.2021',
+      'red'
+      ],
       [
         'Встигніть здійснити бажання про власне житло! Купуйте квартиру з першим внеском 30%',
       'Здоров`я мешканців — понад усе у RYBALSKY, тому ми заздалегідь передбачили приміщення для медичного закладу та шукали клініку, …',
       'Читати новину',
-      '25.01.2021',],
+      '25.01.2021',
+      'blue'
+      ],
       [
         'Встигніть здійснити бажання про власне житло! Купуйте квартиру з першим внеском 30%',
       'Здоров`я мешканців — понад усе у RYBALSKY, тому ми заздалегідь передбачили приміщення для медичного закладу та шукали клініку, …',
       'Читати новину',
-      '25.01.2021',],
+      '25.01.2022',
+      'green'
+      ],
       [
         'У Кyїvproekt відкриється медичний центр Median',
       'Здоров`я мешканців — понад усе у RYBALSKY, тому ми заздалегідь передбачили приміщення для медичного закладу та шукали клініку, …',
       'Читати новину',
-      '25.01.2021',],
+      '25.01.2021',
+      'black'
+      ],
       [
         'Встигніть здійснити бажання про власне житло! Купуйте квартиру з першим внеском 30%',
       'Здоров`я мешканців — понад усе у RYBALSKY, тому ми заздалегідь передбачили приміщення для медичного закладу та шукали клініку, …',
       'Читати новину',
-      '25.01.2021',],
+      '25.01.2021',
+      'red'
+      ],
       [
         'Встигніть здійснити бажання про власне житло! Купуйте квартиру з першим внеском 30%',
       'Здоров`я мешканців — понад усе у RYBALSKY, тому ми заздалегідь передбачили приміщення для медичного закладу та шукали клініку, …',
       'Читати новину',
-      '25.01.2021',],
+      '25.01.2021',
+      'blue'
+      ],
       [
         'У Кyїvproekt відкриється медичний центр Median',
       'Здоров`я мешканців — понад усе у RYBALSKY, тому ми заздалегідь передбачили приміщення для медичного закладу та шукали клініку, …',
       'Читати новину',
-      '25.01.2021',],
+      '25.01.2021',
+      'green'
+      ],
       [
         'У Кyїvproekt відкриється медичний центр Median',
       'Здоров`я мешканців — понад усе у RYBALSKY, тому ми заздалегідь передбачили приміщення для медичного закладу та шукали клініку, …',
       'Читати новину',
-      '25.01.2021',],
+      '25.01.2021',
+      'black'
+      ],
       [
         'Встигніть здійснити бажання про власне житло! Купуйте квартиру з першим внеском 30%',
       'Здоров`я мешканців — понад усе у RYBALSKY, тому ми заздалегідь передбачили приміщення для медичного закладу та шукали клініку, …',
       'Читати новину',
-      '25.01.2021',],
+      '25.01.2021',
+      'red'],
       [
         'У Кyїvproekt відкриється медичний центр Median',
       'Здоров`я мешканців — понад усе у RYBALSKY, тому ми заздалегідь передбачили приміщення для медичного закладу та шукали клініку, …',
       'Читати новину',
-      '25.01.2021',],
+      '25.01.2021',
+      'blue'],
     ]
   
 block meta
@@ -72,37 +90,50 @@ block head
 block scripts
   script(defer src='./assets/scripts/vendors.bundle.js')
   script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
   script(defer src='./assets/scripts/index.js')
   script(defer src='./assets/scripts/news.js')
 block content
-  include ../includes/breadcrumbs.pug
-  h1.page-title #{title_page}
-  each val,index in articles
-    if index%2===0
-      .news-link.reverse
-        .news-link__title 
-          +iconTitleDecor('black',val[0])(class="icon-title-decor--no-decor")
-        .news-link__decor
-        .news-link__preview #{val[1]}
-        .news-link__link
-          +a(val[2],'single-news.html')
-          span.news-link__date #{val[3]}
-        .news-link__image
-          .news-link__fixed-proportions
-            img(src="./assets/images/news/test-iamge.jpg")
-    else
-      .news-link
-        .news-link__title 
-          +iconTitleDecor('black',val[0])(class="icon-title-decor--no-decor")
-        .news-link__decor
-        .news-link__preview #{val[1]}
-        .news-link__link
-          +a(val[2],'single-news.html')
-          span.news-link__date #{val[3]}
-        .news-link__image
-          .news-link__fixed-proportions
-            img(src="./assets/images/news/test-iamge.jpg")
-
+  .page-part
+    include ../includes/breadcrumbs.pug
+    h1.page-title #{title_page}
+    each val,index in articles
+      if index%2===0
+        .news-link.reverse
+          .news-link__title 
+            +iconTitleDecor(val[4],val[0])(class="icon-title-decor--no-decor")
+          .news-link__decor
+          .news-link__preview #{val[1]}
+          .news-link__link
+            +a(val[2],'single-news.html')
+            span.news-link__date #{val[3]}
+          .news-link__image
+            .news-link__fixed-proportions
+              img(src="./assets/images/news/test-iamge.jpg" data-block-img)
+      else
+        .news-link
+          .news-link__title 
+            +iconTitleDecor(val[4],val[0])(class="icon-title-decor--no-decor")
+          .news-link__decor
+          .news-link__preview #{val[1]}
+          .news-link__link
+            +a(val[2],'single-news.html')
+            span.news-link__date #{val[3]}
+          .news-link__image
+            .news-link__fixed-proportions
+              img(src="./assets/images/news/test-iamge.jpg" data-block-img)
+    .pagination
+      <svg data-perfect-next class="plain-arrow prev" width="47" height="17" viewBox="0 0 47 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0.652344 8.39992L45.6523 8.39992M45.6523 8.39992L38.9705 0.899918M45.6523 8.39992L38.9705 15.8999" stroke="black"/>
+        </svg>
+      a.pagination-digit 1
+      a.pagination-digit 2
+      a.pagination-digit 3
+      a.pagination-digit 4
+      a.pagination-digit 5
+      <svg data-perfect-next class="plain-arrow next" width="47" height="17" viewBox="0 0 47 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0.652344 8.39992L45.6523 8.39992M45.6523 8.39992L38.9705 0.899918M45.6523 8.39992L38.9705 15.8999" stroke="black"/>
+        </svg>
 
 block footer
   include ../includes/footer.pug
