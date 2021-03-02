@@ -1,0 +1,59 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'Працювати'
+    var id_page = 'id-page-work-page'
+    var class_page = 'class-page-work-page'
+    var breadcrumbsSubitem = [
+      {
+        label: 'About',
+        link: pagesLink[0].about
+      }
+    ]
+    var contentList = [
+      ['work-page-icon_01'],
+      ['work-page-icon_02'],
+      ['work-page-icon_03'],
+      ['work-page-icon_04'],
+    ]
+    var contentListText = [
+      ['Панорама міста, <span class="bold">яка надихає.</span>'],
+      ['<span class="bold">Зручно діставатися</span> у будь-яку точку центру.'],
+      ['<span class="bold">Супер-сучасний коворкінг</span> у будинку.'],
+      ['<span class="bold">Великі бізнес-центри</span> поблизу.'],
+    ];
+    contentListImages = [
+    './assets/images/work-page/logan-weaver-neTbsT6n4tI-unsplash\ 5.jpg',
+    './assets/images/work-page/beautiful-businesswoman-sitting-on-backseat-elegant-617678804.jpg',
+    './assets/images/work-page/interior-photography-tall-work-table-meeting-1689727729.jpg',
+    './assets/images/work-page/small-group-young-elegant-businessmen-scrolling-1686677395.jpg',
+
+    ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/work-page.js')
+block content
+  include ../includes/breadcrumbs.pug
+  img(src=contentListImages[0]).front-block__bg
+  .page-part.front-block(data-displacement="./assets/images/leisure-page/displacement.jpg")
+    ul.front-block__text-wrap
+      li 
+        h1.page-title #{title_page}
+      each val,index in contentList
+        +infoItem(contentListText[index][0], val[0], 'half-opacity')(data-info-item-anim data-hover-image=contentListImages[index])
+    .front-block__canvas-wrap
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

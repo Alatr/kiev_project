@@ -20,7 +20,8 @@ body {
     text-transform: uppercase;
     margin-bottom: 50px;
     @include from(1680px) {
-        font-size: 48px;
+        font-size: 64px;
+        margin-bottom: 60px;
     }
     @include to(950px){
       margin-bottom: 30px;
@@ -268,6 +269,18 @@ body {
     }
     .info-list-item__text {
       padding-left: 14px;
+    }
+  }
+}
+@include from(1680px){
+  .info-list-item {
+    .info-list-item__text {
+      font-size: 16px;
+      line-height: 1.7em;
+    }
+    .info-list-item__ico {
+      width: 70px;
+      height: 70px;
     }
   }
 }
