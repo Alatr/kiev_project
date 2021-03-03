@@ -102,7 +102,7 @@ block content
         .news-link.reverse
           .news-link__title 
             +iconTitleDecor(val[4],val[0])(class="icon-title-decor--no-decor")
-          .news-link__decor
+          .news-link__decor(data-block-decor)
           .news-link__preview #{val[1]}
           .news-link__link
             +a(val[2],'single-news.html')
@@ -114,7 +114,7 @@ block content
         .news-link
           .news-link__title 
             +iconTitleDecor(val[4],val[0])(class="icon-title-decor--no-decor")
-          .news-link__decor
+          .news-link__decor(data-block-decor)
           .news-link__preview #{val[1]}
           .news-link__link
             +a(val[2],'single-news.html')

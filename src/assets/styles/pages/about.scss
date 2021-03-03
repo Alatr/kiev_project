@@ -202,6 +202,7 @@ body[id*='about']{
       top: 0;
       width: 135px;
       height: 135px;
+      z-index: 0;
     }
     &__left-bg {
       position: absolute;
@@ -222,6 +223,8 @@ body[id*='about']{
         width: calc((100% - var(--title-width)) / 2 - (var(--between-margin) * 2));
         margin-left: var(--between-margin);
         margin-right: var(--between-margin);
+        position: relative;
+        z-index: 1;
     }
     &__foto {
         position: relative;
@@ -329,7 +332,7 @@ body[id*='about']{
       padding-left: 17px;
       padding-right: 17px;
       justify-content: center;
-      background: url(../images/about/quote-block-bg1.svg) right top no-repeat;
+      // background: url(../images/about/quote-block-bg1.svg) right top no-repeat;
       background-size: 108px, 108px;
       background-color: #fff;
       --between-margin:0px;
@@ -349,6 +352,16 @@ body[id*='about']{
         font-size: 14px;
         line-height: 170%;
         margin-top: 0;
+      }
+      &__title,
+      &__text{
+        position: relative;
+        z-index: 1;
+      }
+      &__left-bg,
+      &__right-bg {
+        width: 85px;
+        height: 85px;
       }
     }
 
@@ -745,12 +758,16 @@ body[id*='about']{
       left: 0;
       top: 50%;
       transform: translate(0,-50%);
+      max-height: 45vh;
+      z-index: 0;
     }
     &__decor-right {
       position: absolute;
       right: 0;
       top: 50%;
       transform: translate(0,-50%);
+      max-height: 45vh;
+      z-index: 0;
     }
     &__title {
         grid-area: 1 / 2 / 2 / 6;
@@ -760,6 +777,10 @@ body[id*='about']{
         border-left: 1px solid #DBDBDB;
         border-right: 1px solid #DBDBDB;
         border-bottom: 1px solid #DBDBDB;
+    }
+    &__text {
+      position: relative;
+      z-index: 1;
     }
     [data-next] {
         position: absolute;
@@ -821,6 +842,8 @@ body[id*='about']{
       grid-template-rows:16vh 48vh auto;
       background: url(../images/about/slider-decor-tablet-right.svg) right no-repeat, 
       url(../images/about/slider-decor-tablet-left.svg) left no-repeat;
+      background-image: none;
+      background-color: #fff;
       background-position: 0 190px, 100% 190px;
       &__slides {
         grid-area: 2/2/2/6;
@@ -843,6 +866,10 @@ body[id*='about']{
       [data-prev] {    
           top: 38vh;
           left: 85px;
+      }
+      &__decor-left,
+      &__decor-right {
+        top: 40vh;
       }
     }
     @include from-to(576px, 950px){
@@ -897,6 +924,10 @@ body[id*='about']{
       [data-prev] {
         top: calc(28vw + 57px);
         left: -20px;
+      }
+      &__decor-left,
+      &__decor-right {
+        display: none;
       }
     }
     @include to(370px){

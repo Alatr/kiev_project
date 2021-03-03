@@ -40,3 +40,29 @@ blockImg.forEach((block) => {
     duration: 1.6,
   });
 });
+
+
+const blockBg = document.querySelectorAll('[data-block-decor]');
+blockBg.forEach((block) => {
+  const tl = gsap.timeline({
+    paused: true,
+    timeScale: 0.5,
+    scrollTrigger: {
+      triggerHook: 0.5,
+      trigger: block,
+      end: '+=50%',
+      scrub: true,
+    },
+  });
+  tl.fromTo(block, {
+    x: 0,
+    y: 0,
+    // ease: cubesEasing,
+    duration: 0.95,
+    backgroundPositionY: '1px',
+    // stagger: block.dataset.stagger !== undefined ? 0.02 : 0,
+    // ease: cubesEasing,
+  }, {
+    backgroundPositionY: '50px',
+  });
+});

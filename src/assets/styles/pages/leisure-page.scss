@@ -1,9 +1,24 @@
+
+
+.front-block__bg{
+  display: none;
+}
+
+
+
 [id*='leisure']  canvas{ 
   // position: absolute;
   right: 0;
   top: 0;
   // width: 50vw !important;
   // height: 50vh !important;
+  symbol path {
+  // transition: .3s ease-out;
+}
+symbol.active path {
+
+  fill: var(--color-design);
+}
 
 }
 
@@ -96,13 +111,6 @@
   }
 
 }
-symbol path {
-  transition: .3s ease-out;
-}
-symbol.active path {
 
-  fill: var(--color-design);
-}
-.front-block__bg{
-  display: none;
-}
+
+
