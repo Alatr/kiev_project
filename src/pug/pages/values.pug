@@ -1,0 +1,47 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'Цінності'
+    var id_page = 'id-page-values'
+    var class_page = 'class-page-values'
+    var breadcrumbsSubitem = [
+      {
+        label: 'About',
+        link: pagesLink[0].about
+      }
+    ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/values.js')
+block content
+  include ../includes/breadcrumbs.pug
+  h1.page-title #{title_page}
+  .page-part
+    .slider(data-slider)
+      .slide(data-slide).active
+        span 01
+        img(src="./assets/images/values/values-slide-image01.jpg")
+      .slide(data-slide)
+        span 02
+        img(src="./assets/images/values/values-slide-image02.jpg")
+      .slide(data-slide)
+        span 03
+        img(src="./assets/images/values/values-slide-image03.jpg")
+      .slide(data-slide)
+        span 04
+        img(src="./assets/images/values/values-slide-image04.jpg")
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug
