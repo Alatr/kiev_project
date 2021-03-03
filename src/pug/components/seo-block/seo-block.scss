@@ -17,6 +17,8 @@
     border-right: 1px solid  #DBDBDB;
     // border-left: 1px solid  #DBDBDB;
     background-position-x: left;
+    background-repeat: repeat-x;
+    background-size: auto var(--decor-height);
   }
   &__text{
     font-size: 18px;
@@ -71,6 +73,7 @@
   @include to(575px){
       padding-left: 14px;
       padding-right: 14px;
+      --decor-height:30px;
       &__text {
         font-size: 14px;
       }

@@ -1,0 +1,47 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'Веб камери'
+    var id_page = 'id-page-web-camera'
+    var class_page = 'class-page-web-camera'
+    var breadcrumbsSubitem = [
+        {
+          label: 'Головна',
+          link: 'index.html'
+        },
+        {
+          label: 'Хід будівництва',
+          link: 'build-progress.html'
+        }
+      ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/web-camera.js')
+block content
+  include ../includes/breadcrumbs.pug
+  h1.page-title #{title_page}
+  .webcam-block
+    .webcam-block__frame-wrap
+      .webcam-block__frame
+        iframe(data-webcam-frame )
+    .webcam-block__tabs
+      .webcam-block__tab(data-src='https://www.youtube.com/embed/v83xURVfJ1g') Камера 1
+      .webcam-block__tab(data-src='https://www.youtube.com/embed/v83xURVfJ1g') Камера 2
+      .webcam-block__tab(data-src='https://www.youtube.com/embed/v83xURVfJ1g') Камера 3
+      .webcam-block__tab(data-src='https://www.youtube.com/embed/v83xURVfJ1g') Камера 4
+  +seoBlock('CEO','CEO')
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug
