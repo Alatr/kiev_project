@@ -13,7 +13,6 @@ slider.querySelectorAll('.slide').forEach((block) => {
     const tl = gsap.timeline();
 
     tl.add(() => {
-      active.classList.remove('active');
       block.classList.add('active');
     });
     tl.fromTo(active,
@@ -25,5 +24,8 @@ slider.querySelectorAll('.slide').forEach((block) => {
       { width: unactiveWidth },
       { width: activeWidth, ease: changeEasing, duration: changeDuration },
       '<');
+    tl.add(() => {
+      active.classList.remove('active');
+    });
   });
 });
