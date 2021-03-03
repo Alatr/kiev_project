@@ -134,6 +134,7 @@ body {
     }
     &-list {
         display: flex;
+        max-width: 100%;
     }
     &-item:not(:first-child):before {
         content: '';

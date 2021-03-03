@@ -1,0 +1,95 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'Встигніть здійснити бажання про власне житло! Купуйте квартиру з першим внеском 30%'
+    var id_page = 'id-page-single-news'
+    var class_page = 'class-page-single-news'
+    var breadcrumbsSubitem = [
+      {
+        label: 'Головна',
+        link: 'index.html'
+      },
+      {
+        label: 'Новини',
+        link: 'news.html'
+      }
+    ]
+    var articles = [
+      [
+        'У Кyїvproekt відкриється медичний центр Median',
+      'Здоров`я мешканців — понад усе у RYBALSKY, тому ми заздалегідь передбачили приміщення для медичного закладу та шукали клініку, …',
+      'Читати новину',
+      '25.01.2021',
+      'red'
+      ],
+      [
+        'Встигніть здійснити бажання про власне житло! Купуйте квартиру з першим внеском 30%',
+      'Здоров`я мешканців — понад усе у RYBALSKY, тому ми заздалегідь передбачили приміщення для медичного закладу та шукали клініку, …',
+      'Читати новину',
+      '25.01.2021',
+      'blue'
+      ],
+    ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/single-news.js')
+block content
+  section
+    include ../includes/breadcrumbs.pug
+    a(href='news.html').news-back-link
+        <svg width="41" height="16" viewBox="0 0 41 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M41 8L1 8M1 8L7.36364 1M1 8L7.36364 15" stroke="black"/>
+        </svg>
+        span назад
+    .news-item
+      .news-item__decor(src="./assets/images/single-news/decor.svg")
+      h1 #{title_page}
+      .news-item__date 01.03.2020
+      img(alt="#" src="./assets/images/single-news/single-news01.jpg")
+      b Здоров`я мешканців — понад усе у RYBALSKY, тому ми заздалегідь передбачили приміщення для медичного закладу та шукали клініку, яка піклуватиметься про сім`ї, які житимуть у районі. Сьогодні ми хочемо привідкрити завісу та розповісти про медичний заклад, який працюватиме у RYBALSKY.
+      p Median — мережа багатопрофільних медичних центрів з 15-річним досвідом роботи. Її клініки відкриті у Києві та Київській області, а у команді працюють лікарі понад 20 спеціалізацій. Крім діагностики та лікування пацієнтів, у центрі можна здати аналізи та швидко отримати результати. Median має власну лабораторію, тож клініці не потрібно відправляти аналізи фахівцям інших медичних закладів.
+      p Попри те, що клініка буде розташована у районі, за потреби мешканці  можуть замовити здачу аналізів чи консультацію лікаря додому.
+      p У Median працюють дитячі лікарі, тож для батьків це можливість мати кваліфікованих фахівців у своєму районі. У RYBALSKY клініка знаходитиметься у будинку №3 у приміщенні №9. Чекаємо на відкриття!
+      +a('Обрати квартиру','3d.html')
+    section.last-news-section.dark-green
+      .page-title інші новини
+      each val,index in articles
+        if index%2===0
+          .news-link.reverse
+              .news-link__title 
+                +iconTitleDecor(val[4],val[0])(class="icon-title-decor--no-decor")
+              .news-link__decor(data-block-decor)
+              .news-link__preview #{val[1]}
+              .news-link__link
+                +a(val[2],'single-news.html')
+                span.news-link__date #{val[3]}
+              .news-link__image
+                .news-link__fixed-proportions
+                  img(src="./assets/images/news/test-iamge.jpg" data-block-img)
+        else
+          .news-link
+              .news-link__title 
+                +iconTitleDecor(val[4],val[0])(class="icon-title-decor--no-decor")
+              .news-link__decor(data-block-decor)
+              .news-link__preview #{val[1]}
+              .news-link__link
+                +a(val[2],'single-news.html')
+                span.news-link__date #{val[3]}
+              .news-link__image
+                .news-link__fixed-proportions
+                  img(src="./assets/images/news/test-iamge.jpg" data-block-img)
+
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug
