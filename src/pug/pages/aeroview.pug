@@ -1,0 +1,41 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'Аерообліт'
+    var id_page = 'id-page-aeroview'
+    var class_page = 'class-page-aeroview'
+    var breadcrumbsSubitem = [
+      {
+        label: 'Голвная',
+        link: 'index.html'
+      }
+    ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/aeroview.js')
+block content
+  include ../includes/breadcrumbs.pug
+  h1.page-title #{title_page}
+  .page-part
+    .aero-wrap
+      <iframe data-panorama allowfullscreen="" style="border-style:none;" src="https://boston-house.kiev.ua/wp-content/themes/boston/assets/panorama/pannellum.htm#panorama=https://boston-house.kiev.ua/wp-content/themes/boston/assets/images/panorama/10floor.JPG&amp;autoLoad=true&amp;preview=https://boston-house.kiev.ua/wp-content/themes/boston/assets/images/panorama/preiew.jpg"></iframe>
+    .switcher
+      <span>День</span>
+      <input data-panorama-switcher  id="s2" data-day="static/panorama/pannellum.htm#panorama=../../assets/images/aeroview/day.jpg&autoLoad=true"  data-night="static/panorama/pannellum.htm#panorama=../../assets/images/aeroview/night.jpg&autoLoad=true"  type="checkbox"  class="switch">
+      <span>Ніч</span>
+
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug
