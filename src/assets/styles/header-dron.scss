@@ -1,0 +1,30 @@
+
+@include to(575px){
+  :root {
+    --header-h:50px;
+  }
+  .header {
+    padding: 0 14px;
+  }
+  .header__logo {
+      width: 92px;
+      height: 35px;
+  }
+  .header__social,
+  .header__lang {
+    display: none;
+  }
+  .main-button.header__call-form {
+    display: none;
+  }
+  .header-menu {
+
+  }
+  .header-menu__text {
+    display: none;
+  }
+  .header-menu__burg {
+    width: 35px;
+    height: 35px;
+  }
+}

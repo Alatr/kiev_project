@@ -49,35 +49,35 @@ block content
   include ../includes/breadcrumbs.pug
   h1.page-title #{title_page}
   .page-part
-    .slider(data-slider)
+    .values-slider(data-slider)
       .slide(data-slide).active
-        span.slider__number 01
+        span.values-slider__number 01
         ul.slide__content 
           li.subtitle-small.black.uppercased Соціальна значимість
           each val in valueSocial
             +infoItem(val[1], val[0], '')
-        img(src="./assets/images/values/values-slide-image01.jpg")
+        img(src="./assets/images/values/values-slide-image01.jpg" data-mob="./assets/images/values/values-slide-image-mob01.jpg")
       .slide(data-slide)
-        span.slider__number 02
+        span.values-slider__number 02
         ul.slide__content 
           li.subtitle-small.black.uppercased ПОЛІФУНКЦІОНАЛЬНІСТЬ
           each val in valuePoly
             +infoItem(val[1], val[0], '')
-        img(src="./assets/images/values/values-slide-image02.jpg")
+        img(src="./assets/images/values/values-slide-image02.jpg" data-mob="./assets/images/values/values-slide-image-mob02.jpg")
       .slide(data-slide)
-        span.slider__number 03
+        span.values-slider__number 03
         ul.slide__content
           li.subtitle-small.black.uppercased ВІДКРИТІСТЬ
           each val in valueOpening
             +infoItem(val[1], val[0], '')
-        img(src="./assets/images/values/values-slide-image03.jpg")
+        img(src="./assets/images/values/values-slide-image03.jpg" data-mob="./assets/images/values/values-slide-image-mob03.jpg")
       .slide(data-slide)
-        span.slider__number 04
+        span.values-slider__number 04
         ul.slide__content
           li.subtitle-small.black.uppercased Синергія
           each val in valueSymergy
             +infoItem(val[1], val[0], '')
-        img(src="./assets/images/values/values-slide-image04.jpg")
+        img(src="./assets/images/values/values-slide-image04.jpg" data-mob="./assets/images/values/values-slide-image-mob04.jpg")
   +seoBlock('CEO','CEO')
 
 block footer
