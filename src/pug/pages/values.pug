@@ -12,24 +12,24 @@ block variable
       }
     ]
     var valueOpening = [
-      ['values-opening-01','Відкритиість місту'],
-      ['values-opening-02','Відкритиість людям'],
-      ['values-opening-03','Відкритість інноваціям'],
+      ['values-opening-01','Відкритиість <span class="bold"> місту</span>'],
+      ['values-opening-02','Відкритиість <span class="bold"> людям</span>'],
+      ['values-opening-03','Відкритість <span class="bold"> інноваціям</span>'],
     ]
     var valuePoly = [
-      ['values-poly-01','Головне – це функція, яка визначає форму'],
-      ['values-poly-02','Функціональна різноманітність, яка враховує інтереси усіх стейкхолдерів'],
-      ['values-poly-03','Гармонія між корпоративними та публічними просторами'],
+      ['values-poly-01','<span class="bold">Головне – це функція,</span> яка визначає форму'],
+      ['values-poly-02','<span class="bold">Функціональна різноманітність,</span> яка враховує інтереси усіх стейкхолдерів'],
+      ['values-poly-03','<span class="bold">Гармонія</span> між корпоративними та публічними просторами'],
     ]
     var valueSocial = [
-      ['values-social-01','KYЇVPROEKT – це Будинок Культури. Нової Культури'],
-      ['values-social-02','Ми підтримуємо найбільш талановиті та новаторські проєкти в галузі архітектури, мистецтва, дизайну та технологій'],
-      ['values-social-03','Ми формуємо надихаючий контекст для народження ідей, які змінюють майбутнє'],
+      ['values-social-01','KYЇVPROEKT – це Будинок Культури. <span class="bold">Нової Культури</span>'],
+      ['values-social-02','<span class="bold">Ми підтримуємо найбільш талановиті та новаторські проєкти</span> в галузі архітектури, мистецтва, дизайну та технологій'],
+      ['values-social-03','<span class="bold">Ми формуємо надихаючий контекст</span> для народження ідей, які змінюють майбутнє'],
     ]
     var valueSymergy = [
-      ['values-synergy-01','Об\'єднуємо таланти заради позитивної трансформації Києва'],
-      ['values-synergy-02','KYЇVPROEKT – це экосистема, яку усі стейкхолдери створюють разом'],
-      ['values-synergy-03','Архітектура, дизайн, мистецтво та технології, доповнюючи один одне, створюють нову життєву філософію'],
+      ['values-synergy-01','<span class="bold">Об\'єднуємо таланти</span> заради позитивної трансформації Києва'],
+      ['values-synergy-02','<span class="bold">KYЇVPROEKT – це экосистема,</span> яку усі стейкхолдери створюють разом'],
+      ['values-synergy-03','Архітектура, дизайн, мистецтво та технології, доповнюючи один одне, створюють <span class="bold">нову життєву філософію</span>'],
 
     ]
     //values-social-02
@@ -53,33 +53,33 @@ block content
       .slide(data-slide).active
         span.slider__number 01
         ul.slide__content 
-          li Соціальна значимість
+          li.subtitle-small.black.uppercased Соціальна значимість
           each val in valueSocial
             +infoItem(val[1], val[0], '')
         img(src="./assets/images/values/values-slide-image01.jpg")
       .slide(data-slide)
         span.slider__number 02
         ul.slide__content 
-          li ПОЛІФУНКЦІОНАЛЬНІСТЬ
+          li.subtitle-small.black.uppercased ПОЛІФУНКЦІОНАЛЬНІСТЬ
           each val in valuePoly
             +infoItem(val[1], val[0], '')
         img(src="./assets/images/values/values-slide-image02.jpg")
       .slide(data-slide)
         span.slider__number 03
         ul.slide__content
-          li ВІДКРИТІСТЬ
+          li.subtitle-small.black.uppercased ВІДКРИТІСТЬ
           each val in valueOpening
             +infoItem(val[1], val[0], '')
         img(src="./assets/images/values/values-slide-image03.jpg")
       .slide(data-slide)
         span.slider__number 04
         ul.slide__content
-          li Синергія
+          li.subtitle-small.black.uppercased Синергія
           each val in valueSymergy
             +infoItem(val[1], val[0], '')
-        
-
         img(src="./assets/images/values/values-slide-image04.jpg")
+  +seoBlock('CEO','CEO')
+
 block footer
   include ../includes/footer.pug
 
