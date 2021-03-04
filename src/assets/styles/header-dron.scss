@@ -1,4 +1,37 @@
-
+.header {
+  border: none;
+  min-width: 320px;
+  padding-left: var(--page-side-fields);
+  padding-right: var(--page-side-fields);
+  background-color: rgba(255,255,255,0.95);
+}
+@include from(951px){
+  .header__call-form-mobile {
+    display: none;
+  }
+  
+}
+@include to(950px){
+  .header__lang {
+    display: none;
+  }
+  .main-button.header__call-form {
+    display: none;
+  }
+  .header__call {
+    margin-left: 10px;
+    margin-right: 10px;
+    svg {
+      display: none;
+    }
+  }
+}
+@include from-to(576px, 950px){
+  .header__call-form-mobile {
+    width: 50px;
+    height: 50px;
+  }
+}
 @include to(575px){
   :root {
     --header-h:50px;
@@ -14,9 +47,7 @@
   .header__lang {
     display: none;
   }
-  .main-button.header__call-form {
-    display: none;
-  }
+  
   .header-menu {
 
   }
@@ -26,5 +57,14 @@
   .header-menu__burg {
     width: 35px;
     height: 35px;
+  }
+  .call-link__text {
+    margin-left: 0px;
+    margin-right: 0;
+  }
+  
+  button {
+    padding-left: 0;
+    padding-right: 0;
   }
 }

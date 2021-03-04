@@ -363,6 +363,10 @@ body[id*='about']{
         width: 85px;
         height: 85px;
       }
+      &__left-bg {
+        display: none;
+      }
+      
     }
 
 }
@@ -732,8 +736,8 @@ body[id*='about']{
         justify-content: center;
         &>* {
             width: 33.33333%;
-            padding-left: 5%;
-            padding-right: 5%;
+            padding-left: 3%;
+            padding-right: 3%;
             padding-top: 15px;
             padding-bottom: 15px;
             text-align: center;
@@ -745,6 +749,7 @@ body[id*='about']{
             align-items: center;
             align-content: center;
         }
+        
     }
     &__slides {
         grid-area: 2/2/2/6;
@@ -872,9 +877,15 @@ body[id*='about']{
         top: 40vh;
       }
     }
+    
     @include from-to(576px, 950px){
       margin-left: -20px;
       margin-right: -20px;
+    }
+    @include from(769px){
+      &__text>*:nth-child(n+2){
+        border-left: none;
+      }
     }
     @include to(575px){
       background-color: #fff;
@@ -928,6 +939,23 @@ body[id*='about']{
       &__decor-left,
       &__decor-right {
         display: none;
+      }
+      &__text {
+        border: 1px solid #DBDBDB;
+      }
+      &__text>* {
+        border: none;
+        position: relative;
+      }
+      &__text>*:nth-last-child(n+2):after{
+        width: calc(100% - 34px);
+        height: 1px;
+        background: #DBDBDB;
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
       }
     }
     @include to(370px){
