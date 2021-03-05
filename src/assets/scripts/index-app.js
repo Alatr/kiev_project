@@ -2,7 +2,7 @@ import LocomotiveScroll from 'locomotive-scroll';
 import i18next from 'i18next';
 
 import gsap from 'gsap';
-
+import BezierEasing from 'bezier-easing';
 import * as yup from 'yup';
 import FormMonster from '../../pug/components/form/form';
 import ShowModal from '../../pug/components/popup/popup';
@@ -165,21 +165,79 @@ const callPopap = new ShowModal({
   animationIn: animationPopapIn,
   animationOut: animationPopapOut,
   attrParrentNode: '[data-parrent-node-popup]',
-  onOpenCompleteCallback: () => {
-    console.log(this.$popup);
-    // this.$popup.dataset.opened = true;
-  },
-  onCloseCompleteCallback: () => {
-    // this.$popup.dataset.opened = false;
-    // console.log('rgrg');
-  },
 });
 /*  */
 /*  */
-/*  */
+/* MENU Behaviour COnfig */
 const menuBlockBtnOpen = document.querySelector('[data-menu-btn]');
 const menuBlockBtnClose = document.querySelector('[data-menu-popup-close]');
 const menuBlock = document.querySelector('[data-menu-popup-block]');
+const textCybesEasing = new BezierEasing(0.5, 0.01, 0.19, 1);
+const menuCybesEasing = new BezierEasing(0.5, 0.01, 0.42, 1);
+function cubesAnim() {
+  const quoteCubes = document.querySelectorAll('.menu [data-cubes-anim]');
+  const tlArray = [];
+  quoteCubes.forEach((block) => {
+    const tl = gsap.timeline({
+      // paused: true,
+    });
+    tl.set(block.querySelectorAll('[data-from-right]'), { x: '100%', scale: 0.95 });
+    tl.set(block.querySelectorAll('[data-from-top]'), { y: '-100%', scale: 0.95 });
+    tl.set(block.querySelectorAll('[data-from-left]'), { x: '-100%', scale: 0.95 });
+    tl.set(block.querySelectorAll('[data-from-bottom]'), { y: '100%', scale: 0.95 });
+    tl.to(block.querySelectorAll('[data-cubes]'), {
+      x: 0,
+      y: 0,
+      // ease: cubesEasing,
+      duration: 0.5,
+      scale: 1,
+      stagger: 0.05,
+      ease: menuCybesEasing,
+    });
+    tlArray.push(tl);
+  });
+  return tlArray;
+}
+
+function menuIn(settings) {
+  const obj = { ...settings, paused: true };
+  const tl = gsap.timeline(obj);
+  tl.set(document.querySelectorAll('.menu__decor'), { autoAlpha: 0 });
+  tl.set(this.$popup, { autoAlpha: 1, transformOrigin: 'right top' });
+  tl.fromTo('[data-menu-aniumation-circle]', { clipPath: 'ellipse(4% 5% at 100% 0%)' },
+    {
+      clipPath: 'ellipse(150% 150% at 100% 0%)',
+      scale: 1,
+      immediateRender: false,
+      ease: menuCybesEasing,
+      duration: 1,
+    });
+  tl.fromTo('.menu__left', { x: '-100%' }, { x: 0, duration: 1, ease: menuCybesEasing }, '<');
+  tl.fromTo('.menu-large-title', { x: '-100%' }, { x: 0, stagger: 0.1, ease: textCybesEasing }, '<+0.075');
+  tl.fromTo('.menu__links-group .subtitle, .menu__links-group a',
+    { autoAlpha: 0, y: 75 },
+    { autoAlpha: 1, y: 0, stagger: 0.015 }, '<+0.5');
+  tl.set(document.querySelectorAll('.menu__decor'), { autoAlpha: 1 }, '<');
+  tl.add(cubesAnim(), '<');
+  return tl;
+}
+
+function menuOut(settings) {
+  const obj = { ...settings, paused: true };
+  const tl = gsap.timeline(obj);
+  tl.fromTo(
+    this.$popup,
+    0.25,
+    { autoAlpha: 1 },
+    {
+      autoAlpha: 0,
+      clearProps: 'all',
+      immediateRender: false,
+      duration: 0.1,
+    },
+  );
+  return tl;
+}
 /*  */
 const changeTextNicely = (elArg, text) => {
   const element = elArg;
@@ -192,7 +250,6 @@ const changeTextNicely = (elArg, text) => {
 
 const handleMenuOpenButton = (argInstance) => {
   const instance = argInstance;
-  console.log(instance);
   const tl = gsap.timeline({ duration: 0.5, paused: true });
   const reverseTl = gsap.timeline({ duration: 0.5, paused: true });
   tl.to('.line__3', { scaleX: 0 });
@@ -215,21 +272,18 @@ const menuPopap = new ShowModal({
   $popup: menuBlock,
   $openBtn: menuBlockBtnOpen,
   $closeBtn: menuBlockBtnClose,
-  animationIn: animationPopapIn,
-  animationOut: animationPopapOut,
+  animationIn: menuIn,
+  animationOut: menuOut,
   attrParrentNode: '[data-parrent-node-menu]',
   onOpenCompleteCallback: () => {
     const self = menuPopap;
     self.$popup.dataset.opened = true;
     handleMenuOpenButton(self);
-    // this.$popup.dataset.opened = true;
   },
   onCloseCompleteCallback: () => {
     const self = menuPopap;
     self.$popup.dataset.opened = false;
     handleMenuOpenButton(self);
-    // this.$popup.dataset.opened = false;
-    // console.log('rgrg');
   },
 });
-document.querySelector('[data-menu-btn]').click();
+/* MENU Behaviour COnfig END */

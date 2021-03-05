@@ -289,3 +289,14 @@ body {
 .uppercased {
   text-transform: uppercase;
 }
+.circle-ico {
+  width: 30px;
+  height: 30px;
+}
+
+.main-button.transparent {
+  .main-button__circle {
+    background: transparent;
+    border: 1px solid var(--color-technology);
+  }
+}
