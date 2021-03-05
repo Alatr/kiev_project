@@ -272,8 +272,8 @@ const menuPopap = new ShowModal({
   $popup: menuBlock,
   $openBtn: menuBlockBtnOpen,
   $closeBtn: menuBlockBtnClose,
-  animationIn: menuIn,
-  animationOut: menuOut,
+  animationIn: document.documentElement.clientWidth < 576 ? animationPopapIn : menuIn,
+  animationOut: document.documentElement.clientWidth < 576 ? animationPopapOut : menuOut,
   attrParrentNode: '[data-parrent-node-menu]',
   onOpenCompleteCallback: () => {
     const self = menuPopap;

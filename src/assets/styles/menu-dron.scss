@@ -140,6 +140,44 @@
       padding-right: var(--page-side-fields);
     }
   }
+  @include to(575px){
+    flex-wrap: wrap;
+    --padding-top:20px;
+    --decor-size: 125px;
+    padding-bottom: var(--decor-size);
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    &__left,
+    &__right {
+      min-height: auto;
+      width: 100%;
+      justify-content: flex-start;
+      padding-left: var(--page-side-fields);
+      padding-right: var(--page-side-fields);
+
+    }
+    &__left::before,
+    &__left {
+      background: #F9F9F9;
+    }
+    &__decor {
+      display: none;
+    }
+    &__decor rect {
+      fill: #F9F9F9;
+    }
+    &__links-group-title{
+      font-size: 18px;
+    }
+    &__link {
+      font-size: 14px;
+      line-height: 140%;
+      color: #5B758D;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+  }
 }
 .menu-large-title {
   font-weight: 300;
@@ -152,5 +190,8 @@
   display: inline-block;
   @include to(768px){
     font-size: 28px;
+  }
+  @include to(575px){
+    font-size: 24px;
   }
 }

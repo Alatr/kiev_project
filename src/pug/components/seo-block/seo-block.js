@@ -10,5 +10,6 @@ export default function handleSeoBlock(block) {
     } else {
       readMoreButton.querySelector('.main-button__text').innerText = readMoreButton.dataset.textWhenClosed;
     }
+    if (window.locoScroll !== undefined) window.locoScroll.update();
   });
 }
