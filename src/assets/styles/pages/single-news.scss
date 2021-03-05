@@ -184,10 +184,20 @@
         --decor-size: 35px;
         @include size(11.5);
         @include shift-left(0.5);
-        // margin-left: 0;
+        width: calc(95.83333% - 10px);
+        width: 100%;
+        margin-left: 0;
         h1 {
             font-size: 18px;
             margin-bottom: 20px;
+        }
+        b, p, .main-button {
+          padding-left: 0;
+          padding-right: 0;
+        }
+        b {
+            font-size: 14px;
+            line-height: 1.5em;
         }
     }
 }
@@ -258,7 +268,10 @@
     @include to(575px) {
         padding-top: 40px;
         padding-bottom: 40px;
-        
+        &>* {
+          width:100%;
+          margin-left: 0;
+        }
         .news-link__text {
             max-width: 85%;
         }
@@ -296,5 +309,8 @@
       &:hover svg {
         transform: scaleX(1.15);
       }
+    }
+    @include to(575px){
+      display: none;
     }
 }

@@ -7,6 +7,8 @@ export default class ShowModal {
     this.status = false;
     this.animationIn = obj.animationIn;
     this.animationOut = obj.animationOut;
+    this.onOpenCompleteCallback = obj.onOpenCompleteCallback || function some() {};
+    this.onCloseCompleteCallback = obj.onCloseCompleteCallback || function some() {};
 
     this.$body = document.querySelector('body');
 
@@ -30,6 +32,7 @@ export default class ShowModal {
 
   /*  */
   open() {
+    this.onOpenCompleteCallback();
     const onComplete = () => {
       this.enableButton(this.$openBtn);
       this.status = true;
@@ -40,6 +43,8 @@ export default class ShowModal {
   }
 
   close() {
+    this.onCloseCompleteCallback();
+    console.log('egegegeg');
     const onComplete = () => {
       this.enableButton(this.$openBtn);
 

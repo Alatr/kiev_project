@@ -1,0 +1,73 @@
+.menu
+  .menu__left
+    ul
+      li
+        a(href="index.html").menu-large-title MAIN
+      li
+        a(href="living-page.html").menu-large-title LIVE
+      li
+        a(href="working-page.html").menu-large-title WORK
+      li
+        a(href="leisure-page.html").menu-large-title LEISURE
+  - 
+    var menu1 = [
+        ['Проєкт'],
+        ['Цінності'],
+        ['Все про Kyїvproekt'],
+        ['Галерея'],
+        ['Аерообліт'],
+        ['Sfera Living System'],
+        ['Новини'],
+    ]
+    var menu2 = [
+      ['Квартири',],
+      ['Обрати за поверхом',],
+      ['Підбір за параметрами',],
+      ['Технічні характеристики',],
+      ['Аерообліт',],
+      ['Sfera Living System',],
+      ['Умови придбання',],
+    ]
+    var menu3 = [
+      ['Будівництво'],
+      ['Забудовники'],
+      ['Хід будівництва'],
+      ['Вебкамери'],
+      ['Аерообліт'],
+      ['Документи'],
+      ['Client Technical Control'],
+    ]
+    var menu4 = [
+      ['Контакти'],
+      ['Розташування'],
+      ['Зв’язок'],
+      ['Документи'],
+      ['Аерообліт'],
+      ['Sfera Living System'],
+      ['Веб камера'],
+    ]
+  .menu__right
+    .menu__links-group
+      .subtitle.menu__links-group-title Проєкт
+      ul
+        each val in menu1
+          li
+            a.menu__link #{val[0]}
+    .menu__links-group
+      .subtitle.menu__links-group-title Квартири
+      ul
+        each val in menu2
+          li
+            a.menu__link #{val[0]}
+    .menu__links-group
+      .subtitle.menu__links-group-title Будівництво
+      ul
+        each val in menu3
+          li
+            a.menu__link #{val[0]}
+    .menu__links-group
+      .subtitle.menu__links-group-title Контакти
+      ul
+        each val in menu4
+          li
+            a.menu__link #{val[0]}

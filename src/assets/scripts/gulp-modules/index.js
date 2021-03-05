@@ -62,6 +62,7 @@ class showModal {
 
   open() {
     this.onOpenCompleteCallback();
+    console.log('egegeg');
     const onComplete = () => {
       this.enableButton(this.$openBtn);
       this.status = true;

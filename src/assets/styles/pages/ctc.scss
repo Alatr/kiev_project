@@ -3,7 +3,17 @@
   margin-top: 70px;
   @include to(575px){
     margin-top: 35px; 
+    .icon-title-decor {
+      margin-bottom: 10px;
+      .subtitle{
+        padding-right: 10px;
+      }
+      .decor {
+        display: none;
+      }
+    }
   }
+  
 }
 
 

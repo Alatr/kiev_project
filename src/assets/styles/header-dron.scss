@@ -4,6 +4,11 @@
   padding-left: var(--page-side-fields);
   padding-right: var(--page-side-fields);
   background-color: rgba(255,255,255,0.95);
+  z-index: 50;
+  .header-menu__text {
+    min-width: 7.5ch;
+    text-align: right;
+  }
 }
 @include from(951px){
   .header__call-form-mobile {
