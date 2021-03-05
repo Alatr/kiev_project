@@ -267,13 +267,40 @@ const handleMenuOpenButton = (argInstance) => {
   }
 };
 
+function menuInMobile(settings) {
+  const obj = { ...settings, paused: true };
+  const tl = gsap.timeline(obj);
+  tl.set(this.$popup, { autoAlpha: 1 });
+  tl.fromTo(this.$popup,
+    {
+      x: '110vw', skewX: 5,
+    },
+    {
+      x: 0, skewX: 0, duration: 0.75, ease: menuCybesEasing,
+    });
+  return tl;
+}
+
+function menuOutMobile(settings) {
+  const obj = { ...settings, paused: true };
+  const tl = gsap.timeline(obj);
+  tl.fromTo(this.$popup, {
+    x: 0, skewX: 0,
+  }, {
+    x: '110vw', skewX: 5, duration: 0.75, ease: menuCybesEasing,
+  });
+  tl.set(this.$popup, { autoAlpha: 0 });
+  tl.reverse();
+  return tl;
+}
+
 /* eslint-disable-next-line */
 const menuPopap = new ShowModal({
   $popup: menuBlock,
   $openBtn: menuBlockBtnOpen,
   $closeBtn: menuBlockBtnClose,
-  animationIn: document.documentElement.clientWidth < 576 ? animationPopapIn : menuIn,
-  animationOut: document.documentElement.clientWidth < 576 ? animationPopapOut : menuOut,
+  animationIn: document.documentElement.clientWidth < 576 ? menuInMobile : menuIn,
+  animationOut: document.documentElement.clientWidth < 576 ? menuOutMobile : menuOut,
   attrParrentNode: '[data-parrent-node-menu]',
   onOpenCompleteCallback: () => {
     const self = menuPopap;
