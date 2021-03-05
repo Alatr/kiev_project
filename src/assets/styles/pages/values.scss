@@ -12,7 +12,7 @@ body[id*='values']{
   left: 0;
   margin-left: calc(var(--page-side-fields) * -1);  
   // Высота тайтла страницы и хлебных крошек
-      margin-top: calc((var(--header-h) + 60px + 70px) * -1);
+      margin-top: calc((var(--header-h) + 60px + 85px) * -1);
   top: var(--header-h);
   width: 100vw;
   height: calc(100vh - var(--header-h));

@@ -66,45 +66,35 @@
       li
         a(href="living-page.html").menu-large-title ЖИТИ
       li
-        a(href="working-page.html").menu-large-title ПРАЦЮВАТИ
+        a(href="work-page.html").menu-large-title ПРАЦЮВАТИ
       li
         a(href="leisure-page.html").menu-large-title ВІДПОЧИВАТИ
   - 
     var menu1 = [
-        ['Проєкт'],
-        ['Цінності'],
-        ['Все про Kyїvproekt'],
-        ['Галерея'],
-        ['Аерообліт'],
-        ['Sfera Living System'],
-        ['Новини'],
+        ['Цінності', 'values.html'],
+        ['Все про Kyїvproekt', 'about.html'],
+        ['Галерея', 'gallery.html'],
+        ['Аерообліт', 'aeroview.html'],
+        ['Sfera Living System', 'sfera.html'],
+        ['Новини', 'news.html'],
     ]
     var menu2 = [
-      ['Квартири',],
       ['Обрати за поверхом',],
       ['Підбір за параметрами',],
       ['Технічні характеристики',],
-      ['Аерообліт',],
-      ['Sfera Living System',],
-      ['Умови придбання',],
     ]
     var menu3 = [
-      ['Будівництво'],
-      ['Забудовники'],
-      ['Хід будівництва'],
-      ['Вебкамери'],
-      ['Аерообліт'],
-      ['Документи'],
-      ['Client Technical Control'],
+      ['Забудовники', 'developer.html'],
+      ['Хід будівництва', 'build-progress.html'],
+      ['Вебкамери', 'web-camera.html'],
+      ['Аерообліт', 'aeroview.html'],
+      ['Документи', 'documents.html'],
+      ['Client Technical Control', 'ctc.html'],
     ]
     var menu4 = [
-      ['Контакти'],
-      ['Розташування'],
-      ['Зв’язок'],
-      ['Документи'],
-      ['Аерообліт'],
-      ['Sfera Living System'],
-      ['Веб камера'],
+      ['Розташування', 'location.html'],
+      ['Зв’язок', 'contacts.html'],
+      ['Документи', 'documents.html'],
     ]
   .menu__right
     .menu__links-group
@@ -112,22 +102,22 @@
       ul
         each val in menu1
           li
-            a.menu__link #{val[0]}
-    .menu__links-group
-      .subtitle.menu__links-group-title Квартири
-      ul
-        each val in menu2
-          li
-            a.menu__link #{val[0]}
+            a.menu__link(href=val[1]) #{val[0]}
     .menu__links-group
       .subtitle.menu__links-group-title Будівництво
       ul
         each val in menu3
           li
-            a.menu__link #{val[0]}
+            a.menu__link(href=val[1]) #{val[0]}
+    .menu__links-group
+      .subtitle.menu__links-group-title Квартири
+      ul
+        each val in menu2
+          li
+            a.menu__link(href=val[1]) #{val[0]}
     .menu__links-group
       .subtitle.menu__links-group-title Контакти
       ul
         each val in menu4
           li
-            a.menu__link #{val[0]}
+            a.menu__link(href=val[1]) #{val[0]}
