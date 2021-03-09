@@ -1,4 +1,31 @@
 /* eslint-disable no-undef */
+locoScroll.on('scroll', () => {
+  // eslint-disable-next-line no-unused-expressions
+  ScrollTrigger.update;
+});
+
+ScrollTrigger.scrollerProxy(document.body, {
+  scrollTop(value) {
+    return (arguments.length
+      ? locoScroll.scrollTo(value, 0, 0)
+      : locoScroll.scroll.instance.scroll.y);
+  }, // we don't have to define a scrollLeft because we're only scrolling vertically.
+  getBoundingClientRect() {
+    return {
+      top: 0,
+      left: 0,
+      width: window.innerWidth,
+      height: window.innerHeight,
+    };
+  },
+  pinType: document.body.style.transform ? 'transform' : 'fixed',
+});
+ScrollTrigger.addEventListener('fixed', () => locoScroll.update());
+
+ScrollTrigger.refresh();
+gsap.registerPlugin(ScrollTrigger);
+
+/* eslint-disable no-undef */
 const mainScreenTransition = new BezierEasing(0.75, 0.01, 0.31, 1);
 const swiper = new Swiper('.swiper-container', {
   slidesPerView: 1,
@@ -58,5 +85,22 @@ quoteCubes.forEach((block) => {
     scale: 1,
     stagger: block.dataset.stagger !== undefined ? 0.02 : 0,
     ease: cubesEasing,
+  });
+});
+
+
+const paralaxSections = document.querySelectorAll('[data-home-paralax]');
+
+paralaxSections.forEach((section) => {
+  gsap.set(section, { backgroundPositionY: -50 });
+  ScrollTrigger.create({
+    triggerHook: 'center',
+    trigger: section,
+    end: 'bottom',
+    onEnter: () => {},
+    onUpdate: (self) => {
+      console.log('efefef');
+      gsap.to(section, { backgroundPositionY: `${(self.progress * 100) - 50}px` });
+    },
   });
 });
