@@ -35,8 +35,40 @@ block variable
       {
         title: 'Соціальна значимість',
         ico: [10, 11, 12],
-        valuesItem: ['KYЇVPROEKT – це Будинок Культури. <b>Нової Культури.</b>', '<b>Ми підтримуємо найбільш талановиті та новаторські проекти</b> в галузі архітектури, мистецтва, дизайну і технологій', '<b>Ми формуємо надихаючий контекст</> для народження ідей, які змінюють майбутнє']
+        valuesItem: ['KYЇVPROEKT – це Будинок Культури. <b>Нової Культури.</b>', '<b>Ми підтримуємо найбільш талановиті та новаторські проекти</b> в галузі архітектури, мистецтва, дизайну і технологій', '<b>Ми формуємо надихаючий контекст</b> для народження ідей, які змінюють майбутнє']
       },
+    ]
+    var accordeonItems = [
+      'Fashion LAB',
+      'Healthy LAB',
+      'Smart LAB',
+      'Education LAB',
+      'Освітня платформа',
+      'Коворкінг',
+      'Media LAB',
+      'Kids LAB',
+      'Kitchen LAB',
+    ]
+    var valueOpening = [
+      ['values-opening-01','Відкритиість <span class="bold"> місту</span>'],
+      ['values-opening-02','Відкритиість <span class="bold"> людям</span>'],
+      ['values-opening-03','Відкритість <span class="bold"> інноваціям</span>'],
+    ]
+    var valuePoly = [
+      ['values-poly-01','<span class="bold">Головне – це функція,</span> яка визначає форму'],
+      ['values-poly-02','<span class="bold">Функціональна різноманітність,</span> яка враховує інтереси усіх стейкхолдерів'],
+      ['values-poly-03','<span class="bold">Гармонія</span> між корпоративними та публічними просторами'],
+    ]
+    var valueSocial = [
+      ['values-social-01','KYЇVPROEKT – це Будинок Культури. <span class="bold">Нової Культури</span>'],
+      ['values-social-02','<span class="bold">Ми підтримуємо найбільш талановиті та новаторські проєкти</span> в галузі архітектури, мистецтва, дизайну та технологій'],
+      ['values-social-03','<span class="bold">Ми формуємо надихаючий контекст</span> для народження ідей, які змінюють майбутнє'],
+    ]
+    var valueSymergy = [
+      ['values-synergy-01','<span class="bold">Об\'єднуємо таланти</span> заради позитивної трансформації Києва'],
+      ['values-synergy-02','<span class="bold">KYЇVPROEKT – це экосистема,</span> яку усі стейкхолдери створюють разом'],
+      ['values-synergy-03','Архітектура, дизайн, мистецтво та технології, доповнюючи один одне, створюють <span class="bold">нову життєву філософію</span>'],
+
     ]
 
 
@@ -137,7 +169,9 @@ block content
         </svg>
       .subtitle.black <span class="bold">Суперсучасний простір для життя</span> з унікальним панорамним вікновидом на історичний центр
       +btn('Дізнатися більше')
-  section.colorfull-block <span class="blue">kyїvproekt</span>&nbsp;/&nbsp;<span class="green">city space</span>&nbsp;/&nbsp;<span class="red">kyїvproekt</span>&nbsp;/&nbsp;<span class="yellow">city space</span>&nbsp;/
+  section.colorfull-block
+    .colorfull-block__wrap
+      <span class="blue">kyїvproekt</span>&nbsp;/&nbsp;<span class="green">city space</span>&nbsp;/&nbsp;<span class="red">kyїvproekt</span>&nbsp;/&nbsp;<span class="yellow">city space</span>&nbsp;/
   
 
   // -----------------------------------
@@ -148,56 +182,6 @@ block content
       each v, i in [1, 2, 3, 4, 5, 6]
         +infoItem(liveText[i], 'iro_0'+v, 'info-list-item--white')
   // -----------------------------------
-  section.home-section.home-section-contact
-    .title-wrap
-      h2.title Контакти
-    .contact-block
-      .contact-block__l
-        address.home-contact--width.contact-location.df.fdc.aifs
-          span.contact-location__label Розташування:
-          p.contact-location__adress Київ, Шевченківський район, вул. Богдана Хмельницкого, 16-22
-          +a('Показати на Google Maps', "https://goo.gl/maps/FzURhcCMKHm3cupV6")(rel="nofollow" target="_blank").home-section-appartments__btn
-
-        .home-contact--width.contact-schedule.df.fww
-          span.contact-schedule__label.w100p Відділ продажів:
-          .contact-schedule-l.df.fdc
-            a(href="tel:+1234567890").contact-schedule__phone +1234567890
-            a(href="mailto:info@kyivproekt.ua").contact-schedule__mail.underline info@kyivproekt.ua
-          .contact-schedule-r
-            ul.contact-schedule__time
-              li Пн-пт: 09:00-19:00
-              li Сб: 09:00-17:00
-              li Вс: вихідний
-      .contact-block__r
-        h5.form-label.home-contact--width Залишились питання?
-        form(data-home-contact autocomplete="off").home-contact--width
-          .form-field-message Введіть ваше ім’я 
-          .form-field.form-field-input(data-field-input data-field-name data-status="field--inactive")
-            input(type='text' name="name" placeholder="Ім’я:").form-field__input
-            .input-message(data-input-message)
-            .requaired-block-ico.requaired-block-ico--position
-              +svg('requaired')
-          
-          .form-field-message Введіть ваш телефон
-          .form-field.disabled.form-field-input(data-field-input data-field-phone data-status="field--inactive")
-            input(type='text' name="phone" placeholder="Телефон:").form-field__input
-            .input-message(data-input-message)
-            .requaired-block-ico.requaired-block-ico--position
-              +svg('requaired')
-            .mask-absolute.js-mask-absolute
-          
-          .form-textarea
-            .form-field-message Введіть ваше повідомлення
-            textarea(placeholder="Повідомлення:")
-          
-          .form-btn-wrap.df.jcsb.aic
-            .requaired-block.df
-              .requaired-block__ico
-                +svg('requaired')
-              .requaired-block__text обов’язкові поля для
-                br
-                | заповнення
-            +btn('Надіслати')(type="submit" data-btn-submit).home-contact-btn--size
   // -----------------------------------
   section.home-section.home-section-work.df.fdc.jcc(data-home-paralax)
     .title-wrap
@@ -253,50 +237,88 @@ block content
         span все про 
         span.bold.title_type_2_bigger kyїvproekt
     .home-section-custom-1__r
-      
       ul.home-section-custom-1-list
         each v, i in ['історія','натхнення','реновація','виміри','розташування']
           li
             a(href="#").tdn.uppercased.custom-links= v
   // -----------------------------------
-  section.home-section
+  section.home-section.home-map-block
     include ../components/map/map.pug
   // -----------------------------------
-  section.home-section.home-section-values
-    .slider-wrapper
-      each v, i in valuesSl
-        .slider-wrapper-item
-          .slider-wrapper-item__title цінності
-          .slider-wrapper-item__subtitle= v.title
-          .slider-wrapper-item__cnt 0#{i+1}
-          ul.info-list.slider-wrapper-item__list
-            each vv, ii in v.ico
-              +infoItem(v.valuesItem[ii], 'home_values_0'+vv, 'info-list-item--black')
+  //- section.home-section.home-section-values
+  //-   .slider-wrapper
+  //-     each v, i in valuesSl
+  //-       .slider-wrapper-item
+  //-         .slider-wrapper-item__title цінності
+  //-         .slider-wrapper-item__subtitle= v.title
+  //-         .slider-wrapper-item__cnt 0#{i+1}
+  //-         ul.info-list.slider-wrapper-item__list
+  //-           each vv, ii in v.ico
+  //-             +infoItem(v.valuesItem[ii], 'home_values_0'+vv, 'info-list-item--black')
     
   // -----------------------------------
+  section.home-values-block
+    .values-slider(data-slider)
+      .slide(data-slide).active
+        span.values-slider__number 01
+        ul.slide__content 
+          li.title.uppercased Цінності
+          li.subtitle-small.black.uppercased Соціальна значимість
+          each val in valueSocial
+            +infoItem(val[1], val[0], '')
+        img(src="./assets/images/values/values-slide-image01.jpg" data-mob="./assets/images/values/values-slide-image-mob01.jpg")
+      .slide(data-slide)
+        span.values-slider__number 02
+        ul.slide__content 
+          li.title.uppercased Цінності
+          li.subtitle-small.black.uppercased ПОЛІФУНКЦІОНАЛЬНІСТЬ
+          each val in valuePoly
+            +infoItem(val[1], val[0], '')
+        img(src="./assets/images/values/values-slide-image02.jpg" data-mob="./assets/images/values/values-slide-image-mob02.jpg")
+      .slide(data-slide)
+        span.values-slider__number 03
+        ul.slide__content
+          li.title.uppercased Цінності
+          li.subtitle-small.black.uppercased ВІДКРИТІСТЬ
+          each val in valueOpening
+            +infoItem(val[1], val[0], '')
+        img(src="./assets/images/values/values-slide-image03.jpg" data-mob="./assets/images/values/values-slide-image-mob03.jpg")
+      .slide(data-slide)
+        span.values-slider__number 04
+        ul.slide__content
+          li.title.uppercased Цінності
+          li.subtitle-small.black.uppercased Синергія
+          each val in valueSymergy
+            +infoItem(val[1], val[0], '')
+        img(src="./assets/images/values/values-slide-image04.jpg" data-mob="./assets/images/values/values-slide-image-mob04.jpg")
   // -----------------------------------
   section.home-section.home-section-custom-2
-    h2.title_type_2.title--white
+    h2.title_type_2.title--white.uppercased
       span kyїvproekt city space 
       span тут народжуються тренди
+    .custom-subtitle.yellow.uppercased Комерційний простір
     ul.info-list-custom_2
       each v, i in [1, 2, 3, 4]
         li !{customText1[i]}
+    .custom-subtitle.yellow.accordeons-subtitle KYЇVPROEKT CITY SPACE складається з семи елементів, які доповнюють один одно-го:
+    .accordeon-list 
+      each val in accordeonItems
+        .accordeon-item(data-accordeon)
+          .accordeon-item__title.uppercased #{val}
+          <svg class="accordeon-item__decor" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line data-hidden-while-opened x1="12.7646" x2="12.7646" y2="25" stroke="white" stroke-width="2"/>
+            <line x1="25" y1="13.5" x2="-8.74228e-08" y2="13.5" stroke="white" stroke-width="2"/>
+            </svg>
+          ul.accordeon-item__inner
+            li Простір для лекцій, конференцій, презентацій, громадських дискусій
+            li Освітня платформа
+            li Коворкінг
     a(href="#").tdn.button-circle.button-circle--black.home-section-custom-2__btn
       <svg width="71" class='button-circle__ico' height="52" viewBox="0 0 71 52" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="45" cy="26" r="25"/>
         <path d="M0 25.5L45 25.5M45 25.5L38.3182 18M45 25.5L38.3182 33"/>
       </svg>
-      +a('Дивитися розділ')
   +img('home/custom-1--bottom.jpg').home-section.home-section-custom-2__img
-  // -----------------------------------
-  // -----------------------------------
-  section.home-section.home-section-appartments
-    .title-wrap
-      h2.title Квартири
-    p.home-section-appartments__subtitle Об'єднуємо таланти заради позитивної трансформації Києва
-    +a('Дивитися розділ')
-  // -----------------------------------
   // -----------------------------------
   section.home-section.home-section-developers
     .title-wrap
@@ -310,12 +332,66 @@ block content
         +img('logo-saga.svg').home-section-developers-item__img.logo-saga--size
         h5.home-section-developers-item__title Saga development
         p.home-section-developers-item__text Глобальна мета компанії – розвивати міста, спираючись на екосистему партнерства. Втілювати інноваційні та креативні рішення для комфортного життя поколінь.
-    a(href="#").tdn.button-circle.button-circle--black.home-section-appartments__btn
-      <svg width="71" class='button-circle__ico' height="52" viewBox="0 0 71 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="45" cy="26" r="25"/>
-        <path d="M0 25.5L45 25.5M45 25.5L38.3182 18M45 25.5L38.3182 33"/>
-      </svg>
-      span.button-circle__text Дивитися розділ
+  // -----------------------------------
+  section.home-section.home-section-appartments
+    .title-wrap
+      h2.title Квартири
+    p.home-section-appartments__subtitle Об'єднуємо таланти заради позитивної трансформації Києва
+    +a('Дивитися розділ')
+  // -----------------------------------
+  // -----------------------------------
+
+  // ------------------
+  section.home-section.home-section-contact
+    .title-wrap
+      h2.title Контакти
+    .contact-block
+      .contact-block__l
+        address.home-contact--width.contact-location.df.fdc.aifs
+          span.contact-location__label Розташування:
+          p.contact-location__adress Київ, Шевченківський район, вул. Богдана Хмельницкого, 16-22
+          +a('Показати на Google Maps', "https://goo.gl/maps/FzURhcCMKHm3cupV6")(rel="nofollow" target="_blank").home-section-appartments__btn
+
+        .home-contact--width.contact-schedule.df.fww
+          span.contact-schedule__label.w100p Відділ продажів:
+          .contact-schedule-l.df.fdc
+            a(href="tel:+1234567890").contact-schedule__phone +1234567890
+            a(href="mailto:info@kyivproekt.ua").contact-schedule__mail.underline info@kyivproekt.ua
+          .contact-schedule-r
+            ul.contact-schedule__time
+              li Пн-пт: 09:00-19:00
+              li Сб: 09:00-17:00
+              li Вс: вихідний
+      .contact-block__r
+        h5.form-label.home-contact--width Залишились питання?
+        form(data-home-contact autocomplete="off").home-contact--width
+          .form-field-message Введіть ваше ім’я 
+          .form-field.form-field-input(data-field-input data-field-name data-status="field--inactive")
+            input(type='text' name="name" placeholder="Ім’я:").form-field__input
+            .input-message(data-input-message)
+            .requaired-block-ico.requaired-block-ico--position
+              +svg('requaired')
+          
+          .form-field-message Введіть ваш телефон
+          .form-field.disabled.form-field-input(data-field-input data-field-phone data-status="field--inactive")
+            input(type='text' name="phone" placeholder="Телефон:").form-field__input
+            .input-message(data-input-message)
+            .requaired-block-ico.requaired-block-ico--position
+              +svg('requaired')
+            .mask-absolute.js-mask-absolute
+          
+          .form-textarea
+            .form-field-message Введіть ваше повідомлення
+            textarea(placeholder="Повідомлення:")
+          
+          .form-btn-wrap.df.jcsb.aic
+            .requaired-block.df
+              .requaired-block__ico
+                +svg('requaired')
+              .requaired-block__text обов’язкові поля для
+                br
+                | заповнення
+            +btn('Надіслати')(type="submit" data-btn-submit).home-contact-btn--size
         
   
 block footer

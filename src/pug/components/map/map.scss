@@ -5,6 +5,7 @@
   --self-vertical-padding:45px;
   padding: var(--self-vertical-padding) var(--self-side-padding);
   display: flex;
+  align-items: flex-end;
   width: calc(100% + (var(--self-side-padding) * 2));
   margin-left: calc(var(--self-side-padding) * -1);
 
