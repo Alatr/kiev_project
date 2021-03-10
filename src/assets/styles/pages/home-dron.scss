@@ -274,7 +274,7 @@ body[id*="index"] {
   @include to(950px){
     background: url(../images/home/work-tablet.jpg) center no-repeat;
     background-size: cover;
-    padding-left: 40%;
+    padding-left: 50%;
     .info-list-item {
       max-width: 300px;
       padding: 20px 0;
@@ -296,22 +296,48 @@ body[id*="index"] {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
- 
   .info-list-item  {
     max-width: none;
     margin-left: 0;
+    border-color: rgba(0, 0, 0, 0.1);
   }
   &__l {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
   }
-  @include from(576px){
+  @include from(951px){
     &__l {
       width: 35%;
     }
     &__r {
         width: 65%;
+    }
+  }
+  @include to(950px){
+    margin-bottom: 0;
+    .title {
+      margin-bottom: 30px;
+    }
+    &__l,
+    &__r {
+      width: 100%;
+    }
+    &__r {
+      min-height: auto;
+      height: 70vw;
+    }
+    .info-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      &>* {
+        width: calc(50% - 15px);
+      }
+    }
+    .info-list-item {
+      margin: 0;
+      padding: 30px 0;
     }
   }
 }
@@ -370,10 +396,19 @@ body[id*="index"] {
   @include to(1240px){
     --parts-padding:30px;
   }
+  @include to(950px){
+    flex-wrap: wrap;
+    &__l,
+    &__r {
+      width: 100%;
+      min-height: 50vh;
+    }
+  }
 }
 
 .home-section .map__title {
-  display: none;
+  // display: none;
+  text-transform: uppercase;
 }
 
 .home-map-block {
@@ -408,6 +443,25 @@ body[id*="index"] {
   }
   .title {
     margin-bottom: 30px;
+  }
+  @include to(768px){
+    margin-bottom: 0;
+    min-height: 80vw;
+    padding-left: 25vw;
+    padding-right: 25vw;
+    &__subtitle {
+      display: flex;
+      flex-direction: column;
+      &:before{
+        margin-bottom: 15px;
+      }
+      &:after {
+        margin-top: 15px;
+      }
+    }
+    .main-button {
+      margin-top: 30px;
+    }
   }
 }
 
@@ -470,6 +524,19 @@ body[id*="index"] {
     margin-right: calc(var(--side-padding) * -1);
     padding-left: var(--side-padding);
     padding-right: var(--side-padding);
+  }
+  @include to(768px){
+    --side-padding: 22px;
+    .info-list-custom_2 {
+      font-size: 18px;
+    }
+    .title_type_2 {
+      margin-bottom: 100px;
+    }
+    .custom-subtitle {
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
   }
 }
 
@@ -576,6 +643,19 @@ body[id*="index"] {
       width: 50%;
     }
   }
+  @include to(768px){
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
+    .home-section-developers-list {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+    .title {
+      margin-bottom: 50px;
+    }
+  }
 }
 .home-section-developers-item {
   display: flex;
@@ -598,5 +678,15 @@ body[id*="index"] {
     /* or 20px */
     text-align: center;
     color: #646464;
+  }
+  @include from-to(576px, 768px){
+    &:nth-child(even){
+      padding-right: 0;
+      padding-left: 10%;
+    }
+    &:nth-child(odd){
+      padding-right: 10%;
+      padding-left: 0;
+    }
   }
 }

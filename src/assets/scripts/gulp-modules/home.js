@@ -137,7 +137,7 @@ function homePageValuesSlider() {
   const transitionEasing = new BezierEasing(0.79, 0.01, 0.32, 0.99);
   const transitionDuration = document.documentElement.clientWidth > 575 ? 1.25 : 0.75;
   slider.style.setProperty('--js-transition', `${transitionDuration}s`);
-
+  slider.style.setProperty('--slides-count', slider.querySelectorAll('.slide').length);
   function animateSlideTransfer(slide) {
     const activeSlide = slide.parentElement.querySelector('.active');
     const activeWidth = getComputedStyle(activeSlide).width;
@@ -207,7 +207,7 @@ function homePageValuesSlider() {
   }
   function configSlideBehavior(slide) {
     slide.addEventListener('click', () => {
-      (document.documentElement.clientWidth > 575)
+      (document.documentElement.clientWidth > 768)
         ? animateSlideTransfer(slide)
         : animateSlideTransferHeight(slide);
 
@@ -219,7 +219,7 @@ function homePageValuesSlider() {
 
   let indexSl = 1;
   slider.slideAutoPlay = setInterval(() => {
-    (document.documentElement.clientWidth > 575)
+    (document.documentElement.clientWidth > 768)
       ? animateSlideTransfer(slider.querySelectorAll('.slide')[indexSl])
       : animateSlideTransferHeight(slider.querySelectorAll('.slide')[indexSl]);
     // console.log(indexSl);
@@ -228,7 +228,7 @@ function homePageValuesSlider() {
 
 
   /* ПОдмена картинок на мобильной версии если такие есть */
-  if (document.documentElement.clientWidth < 576) {
+  if (document.documentElement.clientWidth < 768) {
     document.querySelectorAll('[data-mob]').forEach((mobImg) => {
       const img = mobImg;
       img.src = img.dataset.mob;

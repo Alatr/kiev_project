@@ -132,10 +132,16 @@
   @include from-to(576px,950px){
     &__legend {
       position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
+      top: auto;
+      bottom: var(--self-vertical-padding);
+      // transform: translateY(-50%);
       left: 20px;
     }
+    &__legend-marker:nth-last-child(n+1){
+    border-left: 1px solid #DBDBDB;
+    border-right: 1px solid #DBDBDB;
+    border-bottom: 1px solid #DBDBDB;
+  }
   }
   @include to(950px){
     padding: 0 var(--self-vertical-padding) var(--self-side-padding) 0;

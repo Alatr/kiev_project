@@ -22,6 +22,11 @@
     min-width: 7.5ch;
     text-align: right;
   }
+  @include to(768px){
+    .header__call-svg {
+      display: none;
+    }
+  }
   @include to(575px){
     .header__call-svg {
       display: none;
