@@ -129,6 +129,12 @@
       stroke:#fff;
     }
   }
+  @include from(1680px){
+    --self-vertical-padding: 150px;
+    &__title {
+      font-size: 64px;
+    }
+  }
   @include from-to(576px,950px){
     &__legend {
       position: absolute;

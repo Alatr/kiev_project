@@ -92,6 +92,22 @@ body[id*='values']{
     line-height: 80px;
     font-weight: normal;
   }
+  @include from(1680px){
+    .slide {
+      width: 88px;
+    }
+    .subtitle-small {
+      font-size: 36px;
+    }
+    &__number {
+      font-size: 64px;
+      line-height: 42px;
+    }
+    .active &__number {
+      font-size: 144px;
+      line-height: 100px;
+    }
+  }
   @include to(768px){
     flex-wrap: wrap;
     margin-top: 0;
