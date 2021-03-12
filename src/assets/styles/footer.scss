@@ -8,6 +8,9 @@
   align-items: center;
   justify-content: space-between;
   background: #F9F9F9;
+  @include to(575px){
+    background-color:#fff;
+  }
 }
 
 .footer-dev{

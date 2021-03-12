@@ -44,6 +44,7 @@ seoBlocks.forEach(handleSeoBlock);
 
 const forms = [
   '[data-home-contact]',
+  '[data-popup-form]',
 ];
 
 forms.forEach((form) => {
