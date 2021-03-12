@@ -130,6 +130,18 @@
       margin-top: 50px;
     }
   }
+  @include from(1680px){
+    &__link {
+      font-size: 24px;
+      line-height: 1.25em;
+    }
+    &__links-group-title {
+      font-size: 36px;
+    }
+    .menu-large-title {
+      font-size: 48px;
+    }
+  }
   @include to(1320px){
     &__right {
       padding-left: 8%;
