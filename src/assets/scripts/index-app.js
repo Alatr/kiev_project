@@ -2,6 +2,7 @@ import LocomotiveScroll from 'locomotive-scroll';
 import i18next from 'i18next';
 
 import gsap from 'gsap';
+import Power4 from 'gsap/all';
 import BezierEasing from 'bezier-easing';
 import * as yup from 'yup';
 import FormMonster from '../../pug/components/form/form';
@@ -44,13 +45,56 @@ seoBlocks.forEach(handleSeoBlock);
 
 const forms = [
   '[data-home-contact]',
+];
+const formsWithRedirect = [
   '[data-popup-form]',
 ];
 
+formsWithRedirect.forEach((form) => {
+  const $form = document.querySelector(form);
+  if ($form) {
+    /* eslint-disable */
+    new FormMonster({
+      /* eslint-enable */
+      elements: {
+        $form,
+        showSuccessMessage: false,
+        successAction: () => { window.location.href = 'message'; },
+        $btnSubmit: $form.querySelector('[data-btn-submit]'),
+        fields: {
+          name: {
+            inputWrapper: new SexyInput({ animation: 'none', $field: $form.querySelector('[data-field-name]') }),
+            rule: yup.string().required(i18next.t('required')).trim(),
+            defaultMessage: i18next.t('name'),
+            valid: false,
+            error: [],
+          },
+
+          phone: {
+            inputWrapper: new SexyInput({ animation: 'none', $field: $form.querySelector('[data-field-phone]'), typeInput: 'phone' }),
+            rule: yup
+              .string()
+              .required(i18next.t('required'))
+              .min(19, i18next.t('field_too_short', { cnt: 19 - 7 })),
+
+            defaultMessage: i18next.t('phone'),
+            valid: false,
+            error: [],
+          },
+        },
+
+      },
+    });
+
+    $form.querySelector('.js-mask-absolute').addEventListener('click', () => {
+      console.log($form);
+      $form.querySelector('[name="phone"]').focus();
+    }, false);
+  }
+});
+
 forms.forEach((form) => {
   const $form = document.querySelector(form);
-
-
   if ($form) {
     /* eslint-disable */
     new FormMonster({
@@ -109,12 +153,21 @@ function animationPopapIn(settings) {
   // gsap.set([], {autoAlpha:0});
   const obj = { ...settings, paused: true };
   const tl = gsap.timeline(obj);
-  tl.fromTo(this.$popup, 0.5, { autoAlpha: 0 },
+  tl.fromTo(this.$popup, 0.5, { scale: 1.1, autoAlpha: 0 },
     {
       autoAlpha: 1,
       immediateRender: false,
-      duration: 0.5,
+      duration: 0.25,
+      scale: 1,
     });
+  tl.fromTo(this.$popup.querySelector('form'),
+    { webkitClipPath: 'circle(0% at 100% 0)' },
+    // eslint-disable-next-line no-undef
+    { webkitClipPath: 'circle(150% at 100% 0)', ease: Power4.easeOut, duration: 1 }, '<');
+  // tl.fromTo(this.$popup.querySelectorAll('form>*'),
+  //   { autoAlpha: 0, y: -30 },
+  //   { autoAlpha: 1, y: 0 },
+  //   '<+0.2');
 
   return tl;
 }
@@ -128,6 +181,10 @@ function animationPopapOut(settings) {
   // gsap.set([], {autoAlpha:0});
   const obj = { ...settings, paused: true };
   const tl = gsap.timeline(obj);
+  tl.fromTo(this.$popup.querySelector('form'),
+    { webkitClipPath: 'circle(150% at 100% 0)' },
+    // eslint-disable-next-line no-undef
+    { webkitClipPath: 'circle(0% at 100% 0)', ease: Power4.easeOut, duration: 1.25 });
   tl.fromTo(
     this.$popup,
     0.25,
@@ -137,7 +194,7 @@ function animationPopapOut(settings) {
       clearProps: 'all',
       immediateRender: false,
       duration: 0.1,
-    },
+    }, '<+0.2',
   );
   /*  */
 

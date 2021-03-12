@@ -1,6 +1,33 @@
 .call-popup(data-call-popup-block block-popup)
-  button(type="button" data-parrent-node-popup) close
-  h2 звонок
+  .call-popup__transparent-close(data-parrent-node-popup)
+  form(data-popup-form autocomplete="off").home-contact--width
+    legend.uppercased Замовити дзвінок
+    button(type="button" data-parrent-node-popup).call-popup__close 
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17 17L1 1M1 17L17 1L1 17Z" stroke="#EA4041" stroke-width="2"/>
+        </svg>
+    .form-field-message Введіть ваше ім’я 
+    .form-field.form-field-input(data-field-input data-field-name data-status="field--inactive")
+      input(type='text' name="name" placeholder="Ім’я:").form-field__input
+      .input-message(data-input-message)
+      .requaired-block-ico.requaired-block-ico--position
+        +svg('requaired')
+    
+    .form-field-message Введіть ваш телефон
+    .form-field.disabled.form-field-input(data-field-input data-field-phone data-status="field--inactive")
+      input(type='text' name="phone" placeholder="Телефон:").form-field__input
+      .input-message(data-input-message)
+      .requaired-block-ico.requaired-block-ico--position
+        +svg('requaired')
+      .mask-absolute.js-mask-absolute
+    .form-btn-wrap.df.jcsb.aic
+      .requaired-block.df
+        .requaired-block__ico
+          +svg('requaired')
+        .requaired-block__text обов’язкові поля для
+          br
+          | заповнення
+      +btn('Надіслати')(type="submit" data-btn-submit).home-contact-btn--size
 .menu-popup(data-menu-popup-block block-popup)
   //- button(type="button" data-parrent-node-menu) close
   //- h2 menu

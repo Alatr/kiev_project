@@ -40,7 +40,7 @@ const swiper = new Swiper('.swiper-container', {
   on: {
     init(some) {
       const config = some;
-      config.transitionDuration = 2;
+      config.transitionDuration = 1.2;
     },
   },
 });
