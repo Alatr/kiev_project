@@ -60,6 +60,11 @@
     background-color: var(--color-art);
     color: #fff;
   }
+  @include from(1680px){
+    max-width: 1360px;
+    margin-left: auto;
+    margin-right: auto;
+  }
   @include to(1024px){
     &__frame-wrap {
       padding: 30px;

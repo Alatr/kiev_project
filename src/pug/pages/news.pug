@@ -99,25 +99,25 @@ block content
     h1.page-title #{title_page}
     each val,index in articles
       if index%2===0
-        .news-link.reverse
+        a(href="single-news.html").news-link.reverse
           .news-link__title 
             +iconTitleDecor(val[4],val[0])(class="icon-title-decor--no-decor")
           .news-link__decor(data-block-decor)
           .news-link__preview #{val[1]}
           .news-link__link
-            +a(val[2],'single-news.html')
+            +btn(val[2],'single-news.html')
             span.news-link__date #{val[3]}
           .news-link__image
             .news-link__fixed-proportions
               img(src="./assets/images/news/test-iamge.jpg" data-block-img)
       else
-        .news-link
+        a(href="single-news.html").news-link
           .news-link__title 
             +iconTitleDecor(val[4],val[0])(class="icon-title-decor--no-decor")
           .news-link__decor(data-block-decor)
           .news-link__preview #{val[1]}
           .news-link__link
-            +a(val[2],'single-news.html')
+            +btn(val[2],'single-news.html')
             span.news-link__date #{val[3]}
           .news-link__image
             .news-link__fixed-proportions

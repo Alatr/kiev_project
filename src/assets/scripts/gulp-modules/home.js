@@ -107,11 +107,11 @@ paralaxSections.forEach((section) => {
 
 const accordeons = document.querySelectorAll('[data-accordeon]');
 accordeons.forEach((accordeon) => {
-  const openButton = accordeon.querySelector('svg');
+  // const openButton = accordeon.querySelector('svg');
   const innerContent = accordeon.querySelector('[class*="inner"]');
   const hiddenWhileOpened = accordeon.querySelector('[data-hidden-while-opened]');
   gsap.set(hiddenWhileOpened, { transformOrigin: 'center' });
-  openButton.addEventListener('click', () => {
+  accordeon.addEventListener('click', () => {
     accordeon.classList.toggle('opened');
     if (accordeon.classList.contains('opened')) {
       gsap.to(hiddenWhileOpened, { scaleY: 0 });
@@ -210,9 +210,9 @@ function homePageValuesSlider() {
       (document.documentElement.clientWidth > 768)
         ? animateSlideTransfer(slide)
         : animateSlideTransferHeight(slide);
-
       clearInterval(slider.slideAutoPlay);
     });
+    slider.addEventListener('click', () => { clearInterval(slider.slideAutoPlay); });
   }
 
   slider.querySelectorAll('.slide').forEach(configSlideBehavior);

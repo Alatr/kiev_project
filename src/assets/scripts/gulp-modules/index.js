@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 
 /*
  *  start in
@@ -104,3 +105,30 @@ class showModal {
     this.listeners();
   }
 }
+
+const header = document.querySelector('header');
+function handleVisibilityOnScroll(elems = [], direction = 'up') {
+  elems.forEach((elem) => {
+    direction === 'down'
+      ? elem[0].classList.add(elem[1])
+      : elem[0].classList.remove(elem[1]);
+  });
+}
+// eslint-disable-next-line no-undef
+locoScroll.on('scroll', (position) => {
+  // eslint-disable-next-line no-undef
+  ScrollTrigger.update;
+  if (position.scroll.y > document.documentElement.clientWidth) {
+    if (window.canvasEffectInterval) clearInterval(window.canvasEffectInterval);
+    if (window.removeFirstPageEffect) window.removeFirstPageEffect();
+  }
+  if (position.scroll.y > 150) {
+    handleVisibilityOnScroll([
+      [header, 'not-on-top'],
+    ], 'down');
+  } else {
+    handleVisibilityOnScroll([
+      [header, 'not-on-top'],
+    ]);
+  }
+});

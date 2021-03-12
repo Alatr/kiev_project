@@ -46,11 +46,11 @@ symbol.active path {
     transform: translateX(10px);
   } 
   &__canvas-wrap {
-    margin-top: calc(var(--header-h) * -1 - 60px);
+    margin-top: calc(var(--header-h) * -1 - 70px);
     margin-right: calc(var(--page-side-fields) * -1);
     width: calc(65% + var(--page-side-fields));
     /* 60 px - высота хлебных кроше*/
-    max-height: calc(100vh - var(--header-h));
+    // max-height: calc(100vh - var(--header-h));
     canvas {
       pointer-events: none;
     }

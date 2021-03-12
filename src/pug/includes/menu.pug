@@ -102,22 +102,26 @@
       ul
         each val in menu1
           li
-            a.menu__link(href=val[1]) #{val[0]}
+            a.menu__link.link--leda.link(href=val[1] data-text=val[0]) 
+              span #{val[0]}
     .menu__links-group
       .subtitle.menu__links-group-title Будівництво
       ul
         each val in menu3
           li
-            a.menu__link(href=val[1]) #{val[0]}
+            a.menu__link.link--leda.link(href=val[1] data-text=val[0]) 
+              span #{val[0]}
     .menu__links-group
       .subtitle.menu__links-group-title Квартири
       ul
         each val in menu2
           li
-            a.menu__link(href=val[1]) #{val[0]}
+            a.menu__link.link--leda.link(href=val[1] data-text=val[0]) 
+              span #{val[0]}
     .menu__links-group
       .subtitle.menu__links-group-title Контакти
       ul
         each val in menu4
           li
-            a.menu__link(href=val[1]) #{val[0]}
+            a.menu__link.link--leda.link(href=val[1] data-text=val[0]) 
+              span #{val[0]}

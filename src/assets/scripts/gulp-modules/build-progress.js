@@ -94,6 +94,7 @@ function initPopupSlider(param) {
   POPUP_CONFIG.swiper = new Swiper(POPUP_CONFIG.navImages, {
     slidesPerView: 1,
     // freeMode: true,
+    // loop: true,
     spaceBetween: 30,
     centeredSlides: true,
     slideToClickedSlide: true,

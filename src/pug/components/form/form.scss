@@ -221,7 +221,7 @@ form {
     background: #FFFFFF;
     font-size: max(vh(16), 16px);
     line-height: 100%;
-    color: #CCCFD5;
+    // color: #CCCFD5;
     border: none;
     @media (-webkit-min-device-pixel-ratio: 2) and (min-width:1440px){
       font-size: vw(16);
@@ -234,7 +234,6 @@ form {
     @include to(576px){
       font-size: 14px;
       margin: 10px 0 27px 0;
-
     }
   }
 }

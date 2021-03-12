@@ -113,6 +113,7 @@ body {
     li:empty {
         display: none;
     }
+    
     @include to(575px) {
         li {
           margin-bottom: 10px;
@@ -132,6 +133,7 @@ body {
     font-size: 10px;
     line-height: 1em;
     display: flex;
+    font-weight: 400;
     color: var(--color-design);
     a {
         text-decoration: none;
@@ -296,6 +298,10 @@ body {
 .circle-ico {
   width: 30px;
   height: 30px;
+  @include from(1680px){
+        width: 36px;
+    height: 36px;
+  }
 }
 
 .main-button.transparent {

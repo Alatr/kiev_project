@@ -249,7 +249,7 @@ hoverImages.forEach(listItem => {
 });
 
 let indexForAutoplayInterval = 1;
-const autoPlayInterval = 5000;
+const autoPlayInterval = 3500;
 const autoPlay = setInterval(() => {
   const hoverImage = hoverImages[indexForAutoplayInterval];
   const src = hoverImage.querySelector('use').getAttribute('xlink:href');

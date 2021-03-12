@@ -115,6 +115,11 @@
   .main-button {
     margin-top: 20px;
   }
+  @include from(1680px){
+    .list-std {
+      font-size: 14px;
+    }
+  }
   @include to(575px){
     display: flex;
     flex-direction: column;

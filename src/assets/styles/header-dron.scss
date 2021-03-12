@@ -5,6 +5,11 @@
   padding-right: var(--page-side-fields);
   background-color: rgba(255,255,255,0.95);
   z-index: 50;
+  transition: .5s ease-in-out;
+  &:not(.not-on-top){
+    --header-h: 120px;
+    // background: none;
+  }
   .header__call-svg{
     background-color: #fff;
     border-radius: 50%;
@@ -37,7 +42,38 @@
   .header__call-form-mobile {
     display: none;
   }
-  
+}
+@include from(1680px){
+  .header__call, .header__lang, .header__call-form {
+    margin: 0 20px;
+  }
+  .main-button__text {
+    margin-left: 20px;
+    font-size: 14px;
+  }
+  .call-link__text {
+    margin-left: 20px;
+    margin-right: 0;
+  }
+  .lang__item a, .social__item a {
+    margin: 0 10px;
+    font-size: 14px;
+    color: var(--color-technology);
+    &:before {
+      
+      background-color: var(--color-technology);
+    }
+  }
+  .header .header__call-svg svg {
+    width: 16px;
+    height: 16px;
+  }
+  .header-menu__text {
+    font-size: 14px;
+  }
+  .header__social li {
+      margin: 0 20px;
+  }
 }
 @include to(950px){
   .header__lang {

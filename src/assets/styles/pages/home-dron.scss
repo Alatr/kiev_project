@@ -1,5 +1,10 @@
 body[id*="index"] {
   background: #fff;
+  .footer {
+    @include from(1680px){
+      padding-right: 15.625vw;
+    }
+  }
 }
 .ms {
   display: flex;
@@ -250,6 +255,33 @@ body[id*="index"] {
   @include from(1680px){
     min-height: 150vh;
     min-height: 170vh;
+    min-height: 190vh;
+    .info-list-item {
+      width: calc(50% - 90px);
+      max-width: none;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .title {
+      margin-bottom: 90px;
+    }
+    .home-section-live-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      position: relative;
+      max-width: 1000px;
+      &:after {
+          content: '';
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          height: 100%;
+          width: 1px;
+          background-color: rgba(255, 255, 255, 0.1);
+          transform: translate(-50%,-50%);
+        }
+    }
   }
   @include to(950px){
     padding-left: var(--page-side-fields);
@@ -356,6 +388,7 @@ body[id*="index"] {
     }
   }
   @include from(1680px){
+    background-size: auto 150vh;
     .home-section-work-list,
     .title-wrap {
       margin-right: auto;
@@ -434,6 +467,23 @@ body[id*="index"] {
         width: 65%;
     }
   }
+  @include from(1680px){
+    margin-top: 160px;
+    padding-top: 0;
+    .title {
+      margin-bottom: 25px;
+    }
+    .home-section-rest {
+    }
+    .home-section-rest__r {
+      min-height: 100vh;
+      // margin-top: -160px;
+    }
+    .home-section-rest__l {
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+  }
   @include to(950px){
     margin-bottom: 0;
     .title {
@@ -490,6 +540,9 @@ body[id*="index"] {
   .home-section-custom-1-list>* {
     text-align: center;
   }
+  .home-section-custom-1-list li a {
+    transition: .3s ease-in-out;
+  }
   .home-section-custom-1-list li:nth-child(n+2){
     margin-top: 50px;
   }
@@ -514,6 +567,23 @@ body[id*="index"] {
     &_bigger {
       font-size: 48px;
       line-height: 1.25em;
+    }
+  }
+  @include from(769px){
+    .home-section-custom-1-list li:hover:nth-child(1) a {
+      color: var(--color-architecture);
+    }
+    .home-section-custom-1-list li:hover:nth-child(2) a {
+      color: var(--color-design);
+    }
+    .home-section-custom-1-list li:hover:nth-child(3) a {
+      color: var(--color-art);
+    }
+    .home-section-custom-1-list li:hover:nth-child(4) a {
+      color: var(--color-living);
+    }
+    .home-section-custom-1-list li:hover:nth-child(5) a {
+      color: var(--color-architecture);
     }
   }
   @include from(1440px){
@@ -599,6 +669,9 @@ body[id*="index"] {
     text-align: center;
     /* TECHNOLOGY */
     color: #000000;
+    display: flex;
+    flex-direction: column;
+
     &:before,
     &:after {
       content: '';
@@ -608,7 +681,19 @@ body[id*="index"] {
       padding-right: 32.5%;
       width: 100%;
       background: rgba(0, 0, 0, 0.1);
+      width: 75%;
+      margin-left: auto;
+      margin-right: auto;
     }
+    &:before {
+      margin-bottom: 15px;
+    }
+    &:after {
+      margin-top: 15px;
+    }
+  }
+  .main-button {
+    margin-top: 30px;
   }
   .title {
     margin-bottom: 30px;
@@ -845,6 +930,7 @@ body[id*="index"] {
     height: 0;
     overflow: hidden;
     visibility: hidden;
+    font-weight: 300;
     li{
       margin-bottom: 20px;
     }
@@ -867,6 +953,12 @@ body[id*="index"] {
   .opened &__inner {
     height: auto;
     visibility: visible;
+  }
+  @include from(769px){
+    &:hover {
+      cursor: pointer;
+      background-color: var(--color-design);
+    }
   }
   @include to(575px){
     --decor-size: 18px;
@@ -910,6 +1002,12 @@ body[id*="index"] {
     }
     &>* {
       width: 50%;
+    }
+  }
+  @include from(1680px){
+    .logo-perfect--size {
+        width: 350px;
+        height: 150px;
     }
   }
   @include to(768px){
@@ -992,8 +1090,8 @@ body[id*="index"] {
       font-size: 16px;
     }
     .logo-saga--size {
-        width: 160px;
-        height: 160px;
+        width: 200px;
+        height: 200px;
     }
     .home-section-developers .logo-perfect--size {
         width: 300px;

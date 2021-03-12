@@ -2,6 +2,10 @@
   padding: 25px var(--page-side-fields);
   align-items: flex-start;
   border:none;
+  background: #fff;
+  @include from(1680px){
+    padding: 50px var(--page-side-fields);
+  }
   @include to(575px){
     .footer-dev {
       flex-direction: column;

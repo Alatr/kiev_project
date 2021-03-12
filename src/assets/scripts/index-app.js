@@ -222,6 +222,8 @@ const callPopap = new ShowModal({
   $closeBtn: popupBlockBtnClose,
   animationIn: animationPopapIn,
   animationOut: animationPopapOut,
+  onOpenCompleteCallback: () => { document.querySelector('header').style.backgroundColor = 'white'; },
+  onCloseCompleteCallback: () => { document.querySelector('header').style.backgroundColor = ''; },
   attrParrentNode: '[data-parrent-node-popup]',
 });
 /*  */

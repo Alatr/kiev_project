@@ -17,6 +17,12 @@ body[id*='developer']{
   .icon-title-decor {
     margin-bottom: 0;
   }
+  .page__content {
+    .link:before{
+      display: none;
+    }
+
+  }
 }
 
 
@@ -100,7 +106,32 @@ body[id*='developer']{
     padding-right: var(--inner-right-padding);
     display: flex;
     align-items: center;
-  } 
+  }
+  @include from(576px){
+    .title{
+      border-bottom:none;
+      border-left: none;
+    }
+    .text {
+      border-left: none;
+    }
+    .link {
+      border-top: none;
+      border-right: none;
+      border-left: none;
+    }
+    .slider {
+      border-top: none;
+    }
+    .text {
+      border-right: none;
+
+    }
+  }
+  @include from(1680px){
+      max-width: 1360px;
+      grid-template-rows: 0.75fr 2fr 2fr;
+  }
   @include to(950px){
     border-bottom: 1px solid #DBDBDB ;
   }
@@ -158,6 +189,7 @@ body[id*='developer']{
 .plain-arrow {
   width: 45px;
   height: 15px;
+  margin-left: 8px;
   cursor: pointer;
   &.prev {
     transform: rotate(180deg);
